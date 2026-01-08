@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 8 Designing Dashboards People Actually Use | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="A dashboard is not an art project. It is a decision-support tool. In Monitoring and Evaluation and Public Health, dashboards exist to answer questions, guide action, and surface risk. A visually...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 8 Designing Dashboards People Actually Use | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="A dashboard is not an art project. It is a decision-support tool. In Monitoring and Evaluation and Public Health, dashboards exist to answer questions, guide action, and surface risk. A visually...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 8 Designing Dashboards People Actually Use | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="A dashboard is not an art project. It is a decision-support tool. In Monitoring and Evaluation and Public Health, dashboards exist to answer questions, guide action, and surface risk. A visually...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="active" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="designing-dashboards-people-actually-use" class="section level1" number="8">
+<h1>
+<span class="header-section-number">Chapter: 8</span> Designing Dashboards People Actually Use<a class="anchor" aria-label="anchor" href="#designing-dashboards-people-actually-use"><i class="fas fa-link"></i></a>
+</h1>
+<p>A dashboard is not an art project. It is a <strong>decision-support tool</strong>.</p>
+<p>In Monitoring and Evaluation and Public Health, dashboards exist to answer questions, guide action, and surface risk. A visually impressive dashboard that does not support decisions has failed its purpose.</p>
+<p>This chapter focuses on <strong>choosing the right visual for the question being asked</strong>, because the wrong visual can mislead even when the data and DAX are correct.</p>
+<hr>
+<div id="the-5-second-rule" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> The 5-Second Rule<a class="anchor" aria-label="anchor" href="#the-5-second-rule"><i class="fas fa-link"></i></a>
+</h2>
+<p>When a stakeholder opens a dashboard, they subconsciously ask one question:</p>
+<blockquote>
+<p><strong>“Are we on track?”</strong></p>
+</blockquote>
+<p>If they cannot begin to answer that question within <strong>five seconds</strong>, the dashboard is too complex.</p>
+<p>This does not mean removing detail. It means <strong>prioritizing signal over noise</strong>. The first screen should communicate status. Exploration can come later.</p>
+<p><strong>Start With the Question, Not the Visual</strong></p>
+<p>Before selecting any visual from the visualization pane, pause and ask:</p>
+<ul>
+<li>What decision is this meant to support?</li>
+<li>What comparison matters most?</li>
+<li>What change should the user notice?</li>
+</ul>
+<p>Different questions require different visual structures. There is no “best” visual in isolation.</p>
+</div>
+<div id="layout-strategy-the-z-pattern" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> Layout Strategy: The Z-Pattern<a class="anchor" aria-label="anchor" href="#layout-strategy-the-z-pattern"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most people scan screens in a loose “Z” pattern, starting at the top-left and moving across and downward. A practical dashboard layout follows this pattern deliberately.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Top Left: Status Indicators (KPIs)</strong>
+<ul>
+<li>Use <strong>Card Visuals</strong> or <strong>Multi-Row Cards</strong>.</li>
+<li>High-level numbers that summarize performance (e.g., <em>Total Tested</em>, <em>Treatment Rate</em>).</li>
+<li>These answer “Are we on track?” immediately.</li>
+</ul>
+</li>
+<li>
+<strong>Top Right: Global Filters</strong>
+<ul>
+<li>Use <strong>Slicers</strong> for Time Period, Geography, Partner, or Donor.</li>
+<li>Placing them here allows users to frame the question before interpreting the numbers.</li>
+</ul>
+</li>
+<li>
+<strong>Middle Section: Trends and Comparisons</strong>
+<ul>
+<li>This is where the explanation happens.</li>
+<li>Trends over time (Line Charts) and comparisons across groups (Bar Charts) belong here.</li>
+</ul>
+</li>
+<li>
+<strong>Bottom Section: Detail and Evidence</strong>
+<ul>
+<li>Use <strong>Matrix</strong> or <strong>Table</strong> visuals.</li>
+<li>This is for users who want to inspect underlying data or export figures for their own reports.</li>
+</ul>
+</li>
+</ol>
+<p>A good layout reduces cognitive effort. Users should not have to “hunt” for meaning.</p>
+<div class="float">
+<img src="assets/images/screenshots/z-pattern.png" style="width:100.0%" alt="Dashboard Layout Strategy: The Z-Pattern"><div class="figcaption">Dashboard Layout Strategy: The Z-Pattern</div>
+</div>
+</div>
+<div id="choosing-the-right-visual-the-most-important-skill" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Choosing the Right Visual (The Most Important Skill)<a class="anchor" aria-label="anchor" href="#choosing-the-right-visual-the-most-important-skill"><i class="fas fa-link"></i></a>
+</h2>
+<p>Choosing the wrong visual does more harm than having no dashboard at all. Below are <strong>decision-driven guidelines</strong>, not aesthetic preferences.</p>
+<div id="visuals-for-time-based-questions" class="section level3" number="8.3.1">
+<h3>
+<span class="header-section-number">8.3.1</span> Visuals for Time-Based Questions<a class="anchor" aria-label="anchor" href="#visuals-for-time-based-questions"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Use when the question is:</strong> “How is performance changing over time?”</p>
+<p><strong>Best choice: Line Chart</strong></p>
+<ul>
+<li>
+<strong>Why:</strong> Time is continuous. Direction matters. Trends (up/down) are easier to detect with a line than with bars.</li>
+<li>
+<strong>Good examples:</strong> Monthly service uptake, Quarterly target achievement, Year-over-year comparison.</li>
+<li>
+<strong>Avoid:</strong> Column charts for long time series (it looks like a barcode); Tables for trend interpretation.</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> If the X-axis is time, your first instinct should always be a Line Chart.</p>
+</blockquote>
+</div>
+<div id="visuals-for-categorical-comparison" class="section level3" number="8.3.2">
+<h3>
+<span class="header-section-number">8.3.2</span> Visuals for Categorical Comparison<a class="anchor" aria-label="anchor" href="#visuals-for-categorical-comparison"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Use when the question is:</strong> “Which category is higher or lower?”</p>
+<p><strong>Best choice: Bar Chart (Horizontal preferred)</strong></p>
+<ul>
+<li>
+<strong>Why:</strong> Length is easier for the human eye to compare than area (pie charts) or angles. Labels are easier to read horizontally, especially long names like Districts or Facilities.</li>
+<li>
+<strong>Good examples:</strong> Performance by District, Coverage by Facility, Uptake by Age Group.</li>
+<li>
+<strong>Avoid:</strong> Pie charts (hard to compare slices); Stacked bars (if totals differ significantly).</li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> Always sort your bar charts. An unsorted chart is just a random list. A sorted chart is a leaderboard.</p>
+</blockquote>
+</div>
+<div id="visuals-for-ranking-and-priority-setting" class="section level3" number="8.3.3">
+<h3>
+<span class="header-section-number">8.3.3</span> Visuals for Ranking and Priority Setting<a class="anchor" aria-label="anchor" href="#visuals-for-ranking-and-priority-setting"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Use when the question is:</strong> “Who is performing best or worst?”</p>
+<p><strong>Best choice: Sorted Bar Chart</strong></p>
+<ul>
+<li>
+<strong>Enhancements:</strong> Sort Descending (Highest to Lowest) to show top performers, or Ascending to identify facilities needing support.</li>
+<li>
+<strong>This supports:</strong> Resource allocation, targeted follow-up, and accountability discussions.</li>
+</ul>
+</div>
+<div id="visuals-for-composition-parts-of-a-whole" class="section level3" number="8.3.4">
+<h3>
+<span class="header-section-number">8.3.4</span> Visuals for Composition (Parts of a Whole)<a class="anchor" aria-label="anchor" href="#visuals-for-composition-parts-of-a-whole"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Use when the question is:</strong> “What makes up this total?”</p>
+<p><strong>Best choices: Stacked Bar Chart or 100% Stacked Bar</strong></p>
+<ul>
+<li>
+<strong>Use Pie Charts ONLY when:</strong> There are 2 or 3 categories (e.g., Male/Female) and differences are obvious.</li>
+<li>
+<strong>Avoid Pie Charts when:</strong> There are many categories (e.g., 10 Districts) or values are close (49% vs 51%).</li>
+</ul>
+<blockquote>
+<p><strong>Rule of Thumb:</strong> If users have to argue about which slice is bigger, the visual is wrong.</p>
+</blockquote>
+</div>
+<div id="visuals-for-geographic-patterns" class="section level3" number="8.3.5">
+<h3>
+<span class="header-section-number">8.3.5</span> Visuals for Geographic Patterns<a class="anchor" aria-label="anchor" href="#visuals-for-geographic-patterns"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Use when the question is:</strong> “Where is performance high or low?”</p>
+<p><strong>Best choice: Map (Used carefully)</strong></p>
+<p>Maps are powerful but dangerous.</p>
+<ul>
+<li>
+<strong>Use when:</strong> Geography <em>itself</em> is the message (e.g., identifying a cluster of outbreaks).</li>
+<li>
+<strong>Avoid when:</strong> Exact comparison is required. It is hard to compare the size of a bubble in the North vs a bubble in the South.</li>
+<li>
+<strong>Always pair maps with:</strong> A bar chart or a table for precise comparison.</li>
+</ul>
+<hr>
+</div>
+</div>
+<div id="why-tables-still-matter" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Why Tables Still Matter<a class="anchor" aria-label="anchor" href="#why-tables-still-matter"><i class="fas fa-link"></i></a>
+</h2>
+<p>Tables are not a failure of design. They are essential when:</p>
+<ul>
+<li>Exact numbers matter (e.g., financial reporting or drug stock levels).</li>
+<li>Data needs to be exported.</li>
+<li>Users want to verify calculations.</li>
+</ul>
+<p><strong>Power BI Tip:</strong> Use the <strong>Matrix</strong> visual instead of the standard Table visual. The Matrix acts like an Excel Pivot Table, allowing users to drill down rows (e.g., click “Region” to expand “Districts”) and aggregate columns.</p>
+<div class="inline-figure">
+<img src="assets/images/screenshots/chart-guide.png" alt="Chart Selection Guide"> {width=50%}</div>
+<hr>
+</div>
+<div id="avoiding-common-visualization-mistakes" class="section level2" number="8.5">
+<h2>
+<span class="header-section-number">8.5</span> Avoiding Common Visualization Mistakes<a class="anchor" aria-label="anchor" href="#avoiding-common-visualization-mistakes"><i class="fas fa-link"></i></a>
+</h2>
+<p>Watch for these warning signs:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Too many visuals:</strong> If it doesn’t fit on one screen, it belongs on a new page.</li>
+<li>
+<strong>Traffic Light Abuse:</strong> Don’t color everything Red/Green. It is overwhelming. Use color only to highlight exceptions (e.g., red for “Below 50% Target”).</li>
+<li>
+<strong>Pie Charts for Comparison:</strong> Never use a pie chart to compare 15 districts.</li>
+<li>
+<strong>KPIs without Context:</strong> A number saying “5,000 Tested” means nothing. Is that good? Bad? Better than last month? Always provide context (e.g., “% of Target” or “vs Last Month”).</li>
+</ol>
+<hr>
+</div>
+<div id="interaction-should-support-thinking" class="section level2" number="8.6">
+<h2>
+<span class="header-section-number">8.6</span> Interaction Should Support Thinking<a class="anchor" aria-label="anchor" href="#interaction-should-support-thinking"><i class="fas fa-link"></i></a>
+</h2>
+<p>Interactivity is Power BI’s superpower, but only when intentional.</p>
+<ul>
+<li>
+<strong>Cross-Highlighting:</strong> Clicking a “Male” bar should filter the rest of the page to show Male data.</li>
+<li>
+<strong>Drill-Down:</strong> Allow users to move from Summary to Detail (e.g., Year &gt; Quarter &gt; Month).</li>
+<li>
+<strong>Tooltips:</strong> Use hover-over tooltips to provide extra detail without cluttering the screen.</li>
+</ul>
+<blockquote>
+<p><strong>Technical Tip:</strong> If clicking one chart makes another chart look confusing, use the <strong>“Edit Interactions”</strong> button in the Format ribbon to turn off the interaction between those specific visuals.</p>
+</blockquote>
+<hr>
+</div>
+<div id="a-simple-visual-selection-checklist" class="section level2" number="8.7">
+<h2>
+<span class="header-section-number">8.7</span> A Simple Visual Selection Checklist<a class="anchor" aria-label="anchor" href="#a-simple-visual-selection-checklist"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before finalizing any visual, ask:</p>
+<ol style="list-style-type: decimal">
+<li>What question does this visual answer?</li>
+<li>Is this the simplest visual that answers it?</li>
+<li>Can the message be understood in a few seconds?</li>
+<li>Would a table or bar chart be clearer?</li>
+</ol>
+<p>If unsure, choose clarity over creativity.</p>
+<p>Let’s digress for a moment…</p>
+</div>
+<div id="creating-a-dedicated-measures-table-strongly-recommended" class="section level2" number="8.8">
+<h2>
+<span class="header-section-number">8.8</span> Creating a Dedicated Measures Table (Strongly Recommended)<a class="anchor" aria-label="anchor" href="#creating-a-dedicated-measures-table-strongly-recommended"><i class="fas fa-link"></i></a>
+</h2>
+<p>As dashboards grow, measures multiply quickly. Professional Power BI models store all calculations in a <strong>single Measures table</strong>.</p>
+<p>This table:</p>
+<ul>
+<li>Contains no data rows<br>
+</li>
+<li>Has no relationships<br>
+</li>
+<li>Exists only to organize logic</li>
+</ul>
+<p>This pattern improves clarity, maintainability, and trust in your model.</p>
+<hr>
+<div id="practical-creating-the-measures-table" class="section level3" number="8.8.1">
+<h3>
+<span class="header-section-number">8.8.1</span> Practical: Creating the Measures Table<a class="anchor" aria-label="anchor" href="#practical-creating-the-measures-table"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Go to the <strong>Modeling</strong> tab in Power BI Desktop<br>
+</li>
+<li>Click <strong>New Table</strong><br>
+</li>
+<li>Enter the following DAX expression:</li>
+</ol>
+<pre class="dax"><code>Measure =
+DATATABLE (
+    "Placeholder", STRING,
+    { { "Do not delete" } }
+)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Press <strong>Enter</strong>
+</li>
+<li>Rename the table to <strong>“Indicators”</strong>
+</li>
+<li>Create your first measure in this table:</li>
+</ol>
+<pre class="dax"><code>Total Tested = SUM ( fact_patient_visits[Number_Tested] )</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Repeat for all subsequent measures, ensuring they are created in the <strong>Indicators</strong> table.</li>
+<li>Hide the “Placeholder” column from report view to avoid accidental use by right-clicking on the placeholder column and select <strong>Hide in report view</strong>.</li>
+</ol>
+<p>Your model now has a dedicated space for all calculations, making it easier to find and manage them as your dashboard evolves.And your indicator table should look like the image below:</p>
+<div class="float">
+<img src="assets/images/screenshots/measures-table.png" style="width:60.0%" alt="Indicators Table"><div class="figcaption">Indicators Table</div>
+</div>
+</div>
+</div>
+<div id="bonus-measures-used-in-this-chapter" class="section level2" number="8.9">
+<h2>
+<span class="header-section-number">8.9</span> Bonus: Measures Used in This Chapter<a class="anchor" aria-label="anchor" href="#bonus-measures-used-in-this-chapter"><i class="fas fa-link"></i></a>
+</h2>
+<p>To complete the hands-on exercises in this chapter, create the following measures in the Measures table.</p>
+<p>Total Patient Visits</p>
+<pre class="dax"><code>Total Patient Visits :=
+COUNTROWS ( fact_patient_visits )</code></pre>
+<p>Total ART Clients</p>
+<pre class="dax"><code>Total ART Clients :=
+CALCULATE (
+    COUNTROWS ( fact_patient_visits ),
+    fact_patient_visits[service_type] = "ART"
+)</code></pre>
+<p>Malaria Tests Conducted</p>
+<pre class="dax"><code>Malaria Tests Conducted :=
+CALCULATE (
+    COUNTROWS ( fact_patient_visits ),
+    fact_patient_visits[service_type] = "Malaria Test"
+)</code></pre>
+<p>TB Tests Conducted</p>
+<pre class="dax"><code>TB Tests Conducted :=
+CALCULATE (
+    COUNTROWS ( fact_patient_visits ),
+    fact_patient_visits[service_type] = "TB Test"
+)</code></pre>
+<p>These measures are intentionally simple. Their purpose is to support visual reasoning, not advanced DAX patterns.</p>
+</div>
+<div id="hands-on-practice-choosing-visuals-deliberately" class="section level2" number="8.10">
+<h2>
+<span class="header-section-number">8.10</span> Hands-On Practice: Choosing Visuals Deliberately<a class="anchor" aria-label="anchor" href="#hands-on-practice-choosing-visuals-deliberately"><i class="fas fa-link"></i></a>
+</h2>
+<p>Use the measures above to complete the following exercises.</p>
+<div id="exercise-1-the-5-second-view" class="section level3" number="8.10.1">
+<h3>
+<span class="header-section-number">8.10.1</span> Exercise 1: The 5-Second View<a class="anchor" aria-label="anchor" href="#exercise-1-the-5-second-view"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create KPI Card visuals for:</p>
+<ul>
+<li>Total Patient Visits</li>
+<li>Total ART Clients</li>
+<li>Malaria Tests Conducted</li>
+<li>TB Tests Conducted</li>
+</ul>
+<p>Place them in the top-left of the page.</p>
+<p>Reflection: Can someone understand performance instantly?</p>
+</div>
+<div id="exercise-2-showing-direction-over-time" class="section level3" number="8.10.2">
+<h3>
+<span class="header-section-number">8.10.2</span> Exercise 2: Showing Direction Over Time<a class="anchor" aria-label="anchor" href="#exercise-2-showing-direction-over-time"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a Line Chart:</p>
+<ul>
+<li>X-axis: Month or Quarter</li>
+<li>Y-axis: Total Patient Visits</li>
+</ul>
+<p>Observe how quickly trends become visible.</p>
+</div>
+<div id="exercise-3-comparing-facilities" class="section level3" number="8.10.3">
+<h3>
+<span class="header-section-number">8.10.3</span> Exercise 3: Comparing Facilities<a class="anchor" aria-label="anchor" href="#exercise-3-comparing-facilities"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a Horizontal Bar Chart:</p>
+<ul>
+<li>Category: Facility</li>
+<li>Value: Total Patient Visits</li>
+<li>Sort descending</li>
+</ul>
+<p>Now switch the visual to a <strong>Pie Chart</strong> and compare clarity.</p>
+</div>
+<div id="exercise-4-ranking-for-action" class="section level3" number="8.10.4">
+<h3>
+<span class="header-section-number">8.10.4</span> Exercise 4: Ranking for Action<a class="anchor" aria-label="anchor" href="#exercise-4-ranking-for-action"><i class="fas fa-link"></i></a>
+</h3>
+<p>Duplicate the bar chart and sort ascending to identify facilities needing support.</p>
+</div>
+<div id="exercise-5-using-maps-responsibly" class="section level3" number="8.10.5">
+<h3>
+<span class="header-section-number">8.10.5</span> Exercise 5: Using Maps Responsibly<a class="anchor" aria-label="anchor" href="#exercise-5-using-maps-responsibly"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a Map by district using Total Patient Visits.</p>
+<p>Place it next to a <strong>Bar Chart</strong> showing the same measure.</p>
+<p>Compare pattern recognition versus precision.</p>
+</div>
+<div id="exercise-6-supporting-trust-with-tables" class="section level3" number="8.10.6">
+<h3>
+<span class="header-section-number">8.10.6</span> Exercise 6: Supporting Trust With Tables<a class="anchor" aria-label="anchor" href="#exercise-6-supporting-trust-with-tables"><i class="fas fa-link"></i></a>
+</h3>
+<p>Create a Matrix visual with:</p>
+<ul>
+<li><p>Rows: Region → District → Facility</p></li>
+<li>
+<p>Values:</p>
+<p>–Total Patient Visits</p>
+<p>– Total ART Clients</p>
+</li>
+</ul>
+<p>Enable drill-down.</p>
+<hr>
+</div>
+</div>
+<div id="avoiding-common-visualization-mistakes-1" class="section level2" number="8.11">
+<h2>
+<span class="header-section-number">8.11</span> Avoiding Common Visualization Mistakes<a class="anchor" aria-label="anchor" href="#avoiding-common-visualization-mistakes-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Be alert to these warning signs:</p>
+<ul>
+<li><p>Too many visuals on one page</p></li>
+<li><p>Excessive red and green coloring</p></li>
+<li><p>Pie charts used for comparison</p></li>
+<li><p>KPIs without context</p></li>
+</ul>
+<p>If a visual needs explanation, it is not doing its job.</p>
+<div id="interaction-should-support-thinking-1" class="section level3" number="8.11.1">
+<h3>
+<span class="header-section-number">8.11.1</span> Interaction Should Support Thinking<a class="anchor" aria-label="anchor" href="#interaction-should-support-thinking-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Use interactivity intentionally:</p></li>
+<li><p>Cross-highlighting to explore relationships</p></li>
+<li><p>Drill-down to move from summary to detail</p></li>
+<li><p>Tooltips to add depth without clutter</p></li>
+</ul>
+<p>Disable confusing interactions using Edit Interactions when necessary.</p>
+</div>
+<div id="a-simple-visual-selection-checklist-1" class="section level3" number="8.11.2">
+<h3>
+<span class="header-section-number">8.11.2</span> A Simple Visual Selection Checklist<a class="anchor" aria-label="anchor" href="#a-simple-visual-selection-checklist-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Before finalizing any visual, ask:</p>
+<ul>
+<li>What question does this answer?</li>
+<li>Is this the simplest way to answer it?</li>
+<li>Can it be understood in seconds?</li>
+<li>Would a bar or table be clearer?</li>
+</ul>
+<p>When in doubt, choose clarity over creativity.</p>
+</div>
+</div>
+<div id="what-to-carry-forward-1" class="section level2" number="8.12">
+<h2>
+<span class="header-section-number">8.12</span> What to Carry Forward<a class="anchor" aria-label="anchor" href="#what-to-carry-forward-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Good dashboards are quiet. They do not shout. They do not impress with decoration. They communicate clearly and invite action.</p>
+<p>When indicators are well defined and visuals are chosen deliberately, dashboards become trusted tools rather than presentation artifacts.</p>
+<p><em>The next chapter focuses on <strong>publishing and sharing dashboards responsibly</strong>, ensuring that the right people see the right information at the right level of detail.</em></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></div>
+<div class="next"><a href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#designing-dashboards-people-actually-use"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="nav-link" href="#the-5-second-rule"><span class="header-section-number">8.1</span> The 5-Second Rule</a></li>
+<li><a class="nav-link" href="#layout-strategy-the-z-pattern"><span class="header-section-number">8.2</span> Layout Strategy: The Z-Pattern</a></li>
+<li>
+<a class="nav-link" href="#choosing-the-right-visual-the-most-important-skill"><span class="header-section-number">8.3</span> Choosing the Right Visual (The Most Important Skill)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#visuals-for-time-based-questions"><span class="header-section-number">8.3.1</span> Visuals for Time-Based Questions</a></li>
+<li><a class="nav-link" href="#visuals-for-categorical-comparison"><span class="header-section-number">8.3.2</span> Visuals for Categorical Comparison</a></li>
+<li><a class="nav-link" href="#visuals-for-ranking-and-priority-setting"><span class="header-section-number">8.3.3</span> Visuals for Ranking and Priority Setting</a></li>
+<li><a class="nav-link" href="#visuals-for-composition-parts-of-a-whole"><span class="header-section-number">8.3.4</span> Visuals for Composition (Parts of a Whole)</a></li>
+<li><a class="nav-link" href="#visuals-for-geographic-patterns"><span class="header-section-number">8.3.5</span> Visuals for Geographic Patterns</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#why-tables-still-matter"><span class="header-section-number">8.4</span> Why Tables Still Matter</a></li>
+<li><a class="nav-link" href="#avoiding-common-visualization-mistakes"><span class="header-section-number">8.5</span> Avoiding Common Visualization Mistakes</a></li>
+<li><a class="nav-link" href="#interaction-should-support-thinking"><span class="header-section-number">8.6</span> Interaction Should Support Thinking</a></li>
+<li><a class="nav-link" href="#a-simple-visual-selection-checklist"><span class="header-section-number">8.7</span> A Simple Visual Selection Checklist</a></li>
+<li>
+<a class="nav-link" href="#creating-a-dedicated-measures-table-strongly-recommended"><span class="header-section-number">8.8</span> Creating a Dedicated Measures Table (Strongly Recommended)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#practical-creating-the-measures-table"><span class="header-section-number">8.8.1</span> Practical: Creating the Measures Table</a></li></ul>
+</li>
+<li><a class="nav-link" href="#bonus-measures-used-in-this-chapter"><span class="header-section-number">8.9</span> Bonus: Measures Used in This Chapter</a></li>
+<li>
+<a class="nav-link" href="#hands-on-practice-choosing-visuals-deliberately"><span class="header-section-number">8.10</span> Hands-On Practice: Choosing Visuals Deliberately</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1-the-5-second-view"><span class="header-section-number">8.10.1</span> Exercise 1: The 5-Second View</a></li>
+<li><a class="nav-link" href="#exercise-2-showing-direction-over-time"><span class="header-section-number">8.10.2</span> Exercise 2: Showing Direction Over Time</a></li>
+<li><a class="nav-link" href="#exercise-3-comparing-facilities"><span class="header-section-number">8.10.3</span> Exercise 3: Comparing Facilities</a></li>
+<li><a class="nav-link" href="#exercise-4-ranking-for-action"><span class="header-section-number">8.10.4</span> Exercise 4: Ranking for Action</a></li>
+<li><a class="nav-link" href="#exercise-5-using-maps-responsibly"><span class="header-section-number">8.10.5</span> Exercise 5: Using Maps Responsibly</a></li>
+<li><a class="nav-link" href="#exercise-6-supporting-trust-with-tables"><span class="header-section-number">8.10.6</span> Exercise 6: Supporting Trust With Tables</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#avoiding-common-visualization-mistakes-1"><span class="header-section-number">8.11</span> Avoiding Common Visualization Mistakes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#interaction-should-support-thinking-1"><span class="header-section-number">8.11.1</span> Interaction Should Support Thinking</a></li>
+<li><a class="nav-link" href="#a-simple-visual-selection-checklist-1"><span class="header-section-number">8.11.2</span> A Simple Visual Selection Checklist</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#what-to-carry-forward-1"><span class="header-section-number">8.12</span> What to Carry Forward</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/09-visual-design.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/09-visual-design.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

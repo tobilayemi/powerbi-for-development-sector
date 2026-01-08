@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 1 Why Power BI Matters for Data Use | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="In the development and public health sector, data is abundant but rarely usable in the moment decisions need to be made. Financial data may live in one system, facility targets in Excel files,...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 1 Why Power BI Matters for Data Use | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="In the development and public health sector, data is abundant but rarely usable in the moment decisions need to be made. Financial data may live in one system, facility targets in Excel files,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 1 Why Power BI Matters for Data Use | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="In the development and public health sector, data is abundant but rarely usable in the moment decisions need to be made. Financial data may live in one system, facility targets in Excel files,...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="active" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="why-power-bi-matters-for-data-use" class="section level1" number="1">
+<h1>
+<span class="header-section-number">Chapter: 1</span> Why Power BI Matters for Data Use<a class="anchor" aria-label="anchor" href="#why-power-bi-matters-for-data-use"><i class="fas fa-link"></i></a>
+</h1>
+<p>In the development and public health sector, data is abundant but rarely usable in the moment decisions need to be made. Financial data may live in one system, facility targets in Excel files, survey results in KoboToolbox or ODK, and service delivery data in platforms such as DHIS2 or electronic medical records.</p>
+<p>Each system works in isolation. The result is not a data shortage, but a <strong>data use problem</strong>.</p>
+<p>Teams spend more time preparing data than actually analysing it. By the time reports are produced, the opportunity to act may already have passed.</p>
+<p>Power BI matters because it directly addresses this gap between <strong>data availability</strong> and <strong>data use</strong>.</p>
+<hr>
+<div id="data-use-is-not-the-same-as-reporting" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Data Use Is Not the Same as Reporting<a class="anchor" aria-label="anchor" href="#data-use-is-not-the-same-as-reporting"><i class="fas fa-link"></i></a>
+</h2>
+<p>In many organisations, reporting and data use are treated as the same thing. They are not.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr class="header">
+<th align="left"><strong>Reporting Focuses On…</strong></th>
+<th align="left"><strong>Data Use Focuses On…</strong></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Submitting figures on time</td>
+<td align="left">Understanding trends and patterns</td>
+</tr>
+<tr class="even">
+<td align="left">Meeting donor or regulatory requirements</td>
+<td align="left">Identifying gaps early</td>
+</tr>
+<tr class="odd">
+<td align="left">Producing static tables and charts</td>
+<td align="left">Supporting operational and strategic decisions</td>
+</tr>
+<tr class="even">
+<td align="left">
+<strong>Retrospective</strong> (What happened?)</td>
+<td align="left">
+<strong>Continuous</strong> (What is happening now?)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Most traditional reporting workflows are retrospective. They tell you what happened last month or last quarter. Effective data use, however, supports <strong>continuous monitoring</strong>, allowing teams to identify issues while there is still time to respond.</p>
+<p>Power BI is designed for this second purpose.</p>
+<hr>
+</div>
+<div id="the-problem-with-the-excel-cycle" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> The Problem with the Excel Cycle<a class="anchor" aria-label="anchor" href="#the-problem-with-the-excel-cycle"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most Monitoring and Evaluation teams operate in a familiar manual loop.</p>
+<ol style="list-style-type: decimal">
+<li>Export data from the server on the 5th of the month.</li>
+<li>Spend several days cleaning it in Excel by fixing dates, removing extra headers, and correcting formats.</li>
+<li>Copy and paste the cleaned data into a “master dashboard” file.</li>
+<li>Email the file to multiple stakeholders.</li>
+<li><strong>Repeat the same process the following month.</strong></li>
+</ol>
+<p>This cycle feels productive because it produces outputs. In reality, it introduces several hidden risks:</p>
+<ul>
+<li>
+<strong>Human error</strong> increases with every manual step.</li>
+<li>
+<strong>Inconsistencies</strong> arise when different people clean data differently.</li>
+<li>
+<strong>Delays</strong> mean decisions are based on outdated information.</li>
+<li>
+<strong>Fatigue</strong> sets in as teams repeat the same work every reporting period.</li>
+</ul>
+<p>Excel is a powerful tool, but it was never designed to serve as a scalable monitoring system.</p>
+<blockquote>
+<p><strong>Note:</strong>
+Manual Excel workflows also make audit trails weak, since transformation logic often exists only in someone’s memory or personal file.</p>
+</blockquote>
+<hr>
+</div>
+<div id="what-power-bi-changes-fundamentally" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> What Power BI Changes Fundamentally<a class="anchor" aria-label="anchor" href="#what-power-bi-changes-fundamentally"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power BI does not simply create better charts. It changes how data workflows are designed and maintained.</p>
+<div id="from-manual-to-automated-workflows" class="section level3" number="1.3.1">
+<h3>
+<span class="header-section-number">1.3.1</span> 1. From Manual to Automated Workflows<a class="anchor" aria-label="anchor" href="#from-manual-to-automated-workflows"><i class="fas fa-link"></i></a>
+</h3>
+<p>In Power BI, data preparation steps are defined once using <strong>Power Query</strong>. These steps are saved, documented, and reused. Instead of rebuilding dashboards every month, teams refresh data using the same logic. This shift alone can save days of effort per reporting cycle.</p>
+</div>
+<div id="from-static-files-to-live-models" class="section level3" number="1.3.2">
+<h3>
+<span class="header-section-number">1.3.2</span> 2. From Static Files to Live Models<a class="anchor" aria-label="anchor" href="#from-static-files-to-live-models"><i class="fas fa-link"></i></a>
+</h3>
+<p>Excel dashboards are usually copies of data frozen in time. Power BI works with a <strong>data model</strong> that can be refreshed regularly. This enables:
+* More frequent updates.
+* Consistent indicator definitions.
+* Reuse of the same model across multiple reports.</p>
+<p>When the model is correct, dashboards become lightweight views rather than separate files to manage.</p>
+</div>
+<div id="from-individual-files-to-shared-truth" class="section level3" number="1.3.3">
+<h3>
+<span class="header-section-number">1.3.3</span> 3. From Individual Files to Shared Truth<a class="anchor" aria-label="anchor" href="#from-individual-files-to-shared-truth"><i class="fas fa-link"></i></a>
+</h3>
+<p>In Excel-based reporting, it is common for different stakeholders to have slightly different versions of the same report. Power BI introduces a <strong>Single Source of Truth</strong>:
+* One dataset.
+* One set of indicator definitions.
+* Multiple audiences accessing the same numbers.</p>
+<p>This improves trust in the data and reduces time spent reconciling discrepancies.</p>
+<hr>
+</div>
+</div>
+<div id="scale-matters-in-public-health-and-me" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Scale Matters in Public Health and M&amp;E<a class="anchor" aria-label="anchor" href="#scale-matters-in-public-health-and-me"><i class="fas fa-link"></i></a>
+</h2>
+<p>Health and development data grows quickly. Line lists, facility-level reporting, and longitudinal patient records can easily exceed what Excel can reliably handle. As datasets grow, performance issues and file instability become common.</p>
+<p>Power BI is built to:
+* Compress large datasets efficiently.
+* Handle millions of rows.
+* Support complex relationships between tables.</p>
+<p>This makes it suitable for national programs, multi-partner projects, and long-term monitoring systems.</p>
+<hr>
+</div>
+<div id="security-and-responsible-data-access" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Security and Responsible Data Access<a class="anchor" aria-label="anchor" href="#security-and-responsible-data-access"><i class="fas fa-link"></i></a>
+</h2>
+<p>Public health and M&amp;E data often contains sensitive information. Emailing Excel files creates unnecessary risk. Files can be forwarded, copied, or stored without proper controls.</p>
+<p>Power BI supports:
+* <strong>Secure access</strong> through user accounts.
+* <strong>Role-based permissions</strong>.
+* <strong>Row-Level Security (RLS)</strong> to restrict what each user can see.</p>
+<p>For example, a state or district officer can be limited to viewing data <em>only</em> for their assigned location, while national teams retain full visibility. This enables wider data access without compromising confidentiality.</p>
+<hr>
+</div>
+<div id="power-bi-as-a-data-use-enabler" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Power BI as a Data Use Enabler<a class="anchor" aria-label="anchor" href="#power-bi-as-a-data-use-enabler"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power BI does not replace sound data management practices. Poor data quality will still produce poor results.</p>
+<p>What Power BI does is make good practices easier to maintain:
+* Cleaning steps are explicit and repeatable.
+* Models enforce structure.
+* Calculations are centralized.
+* Visuals are connected to real questions.</p>
+<p>When implemented correctly, Power BI shifts teams from spending time on <strong>data preparation</strong> to spending time on <strong>analysis and action</strong>.</p>
+<p>That shift is what makes Power BI matter for real-world data use.</p>
+<hr>
+</div>
+<div id="what-this-means-for-the-rest-of-this-guide" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> What This Means for the Rest of This Guide<a class="anchor" aria-label="anchor" href="#what-this-means-for-the-rest-of-this-guide"><i class="fas fa-link"></i></a>
+</h2>
+<p>This book is not about turning M&amp;E professionals into software developers. It is about helping you:</p>
+<ul>
+<li>Build repeatable data workflows.</li>
+<li>Reduce manual reporting burden.</li>
+<li>Improve consistency and trust in indicators.</li>
+<li>Design dashboards that support decisions, not just reporting.</li>
+</ul>
+<p><em>The next chapter introduces the Power BI ecosystem and explains how its components work together in practice.</em></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="prerequisites.html">Prerequisites</a></div>
+<div class="next"><a href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#why-power-bi-matters-for-data-use"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="nav-link" href="#data-use-is-not-the-same-as-reporting"><span class="header-section-number">1.1</span> Data Use Is Not the Same as Reporting</a></li>
+<li><a class="nav-link" href="#the-problem-with-the-excel-cycle"><span class="header-section-number">1.2</span> The Problem with the Excel Cycle</a></li>
+<li>
+<a class="nav-link" href="#what-power-bi-changes-fundamentally"><span class="header-section-number">1.3</span> What Power BI Changes Fundamentally</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#from-manual-to-automated-workflows"><span class="header-section-number">1.3.1</span> 1. From Manual to Automated Workflows</a></li>
+<li><a class="nav-link" href="#from-static-files-to-live-models"><span class="header-section-number">1.3.2</span> 2. From Static Files to Live Models</a></li>
+<li><a class="nav-link" href="#from-individual-files-to-shared-truth"><span class="header-section-number">1.3.3</span> 3. From Individual Files to Shared Truth</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#scale-matters-in-public-health-and-me"><span class="header-section-number">1.4</span> Scale Matters in Public Health and M&amp;E</a></li>
+<li><a class="nav-link" href="#security-and-responsible-data-access"><span class="header-section-number">1.5</span> Security and Responsible Data Access</a></li>
+<li><a class="nav-link" href="#power-bi-as-a-data-use-enabler"><span class="header-section-number">1.6</span> Power BI as a Data Use Enabler</a></li>
+<li><a class="nav-link" href="#what-this-means-for-the-rest-of-this-guide"><span class="header-section-number">1.7</span> What This Means for the Rest of This Guide</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/02-why-powerbi.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/02-why-powerbi.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

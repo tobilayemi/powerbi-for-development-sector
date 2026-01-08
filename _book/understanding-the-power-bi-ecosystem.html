@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 3 Understanding the Power BI Ecosystem | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="Power BI isn’t just a single program. It is a collection of tools, each designed for a specific role in the data life cycle. Honestly, most frustrations with Power BI come from not understanding...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 3 Understanding the Power BI Ecosystem | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Power BI isn’t just a single program. It is a collection of tools, each designed for a specific role in the data life cycle. Honestly, most frustrations with Power BI come from not understanding...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 3 Understanding the Power BI Ecosystem | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="Power BI isn’t just a single program. It is a collection of tools, each designed for a specific role in the data life cycle. Honestly, most frustrations with Power BI come from not understanding...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="active" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="understanding-the-power-bi-ecosystem" class="section level1" number="3">
+<h1>
+<span class="header-section-number">Chapter: 3</span> Understanding the Power BI Ecosystem<a class="anchor" aria-label="anchor" href="#understanding-the-power-bi-ecosystem"><i class="fas fa-link"></i></a>
+</h1>
+<p>Power BI isn’t just a single program. It is a <strong>collection of tools</strong>,
+each designed for a specific role in the data life cycle.</p>
+<p>Honestly, most frustrations with Power BI come from not understanding
+this separation. You often see analysts trying to share files directly
+from Desktop, stakeholders expecting to edit reports in the Service, or
+teams completely underestimating the importance of the Gateway.</p>
+<p>This chapter gives you a clear mental model of how the ecosystem works
+and how the components fit together in real-world M&amp;E and public health
+workflows.</p>
+<p>At a high level, the ecosystem separates:</p>
+<ul>
+<li><strong>Development</strong></li>
+<li><strong>Distribution</strong></li>
+<li><strong>Consumption</strong></li>
+</ul>
+<hr>
+<div id="power-bi-desktop-the-kitchen" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Power BI Desktop (The Kitchen)<a class="anchor" aria-label="anchor" href="#power-bi-desktop-the-kitchen"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power BI Desktop is a <strong>free Windows application</strong> where the technical
+work happens.</p>
+<ul>
+<li>
+<strong>Primary role:</strong> Authoring and development</li>
+<li>
+<strong>Who uses it:</strong> Data analysts, M&amp;E officers, data managers</li>
+<li>
+<strong>Typical tasks:</strong>
+<ul>
+<li>Connecting to data sources</li>
+<li>Cleaning and transforming data with Power Query</li>
+<li>Building data models and relationships</li>
+<li>Writing DAX calculations</li>
+<li>Designing report pages</li>
+</ul>
+</li>
+</ul>
+<p>Think of Power BI Desktop as the <strong>Kitchen</strong>.</p>
+<p>This is where ingredients are prepared and recipes are tested. It is
+<strong>not</strong> designed for end users. When too many people work directly in
+the Desktop file, version control breaks down and consistency is lost.</p>
+<p>When you first open Power BI Desktop, you are presented with the main
+report canvas and common data connection options.</p>
+<div class="float">
+<img src="assets/images/screenshots/powerbi-desktop-start-screen.png" style="width:100.0%" alt="Power BI Desktop start screen showing data connection options"><div class="figcaption">Power BI Desktop start screen showing data connection options</div>
+</div>
+<blockquote>
+<p><strong>Note:</strong> Treat Power BI Desktop as a controlled environment. Fewer
+authors and stronger standards lead to more reliable dashboards.</p>
+</blockquote>
+<hr>
+</div>
+<div id="power-bi-service-the-restaurant" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Power BI Service (The Restaurant)<a class="anchor" aria-label="anchor" href="#power-bi-service-the-restaurant"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Power BI Service is the <strong>cloud-based platform</strong> accessed through a
+web browser.</p>
+<ul>
+<li>
+<strong>Primary role:</strong> Distribution and collaboration</li>
+<li>
+<strong>Who uses it:</strong> Program managers, technical leads, leadership,
+partners</li>
+<li>
+<strong>Typical tasks:</strong>
+<ul>
+<li>Publishing reports from Desktop</li>
+<li>Scheduling data refreshes</li>
+<li>Managing users and permissions</li>
+<li>Creating dashboards from reports</li>
+<li>Sharing content securely</li>
+</ul>
+</li>
+</ul>
+<p>The Service is the <strong>Restaurant</strong>.</p>
+<p>Stakeholders come here to consume data. They can filter, drill down, and
+interact with visuals, but they cannot change the underlying
+calculations or data structures. This separation protects data integrity
+while still encouraging exploration.</p>
+<div class="float">
+<img src="assets/images/screenshots/Power-Bi-Service.png" style="width:100.0%" alt="Power BI Service"><div class="figcaption">Power BI Service</div>
+</div>
+<hr>
+</div>
+<div id="power-bi-mobile-the-takeout" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Power BI Mobile (The Takeout)<a class="anchor" aria-label="anchor" href="#power-bi-mobile-the-takeout"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power BI Mobile consists of native applications for <strong>Android and iOS</strong>
+devices.</p>
+<ul>
+<li>
+<strong>Primary role:</strong> Quick access and field-level consumption</li>
+<li>
+<strong>Who uses it:</strong> Field officers, supervisors, roving program staff</li>
+<li>
+<strong>Typical tasks:</strong>
+<ul>
+<li>Viewing dashboards optimized for small screens</li>
+<li>Checking trends before meetings or site visits</li>
+</ul>
+</li>
+</ul>
+<p>This is the <strong>Takeout</strong> experience.</p>
+<p>In decentralised programs, mobile access allows teams to engage with
+data closer to the point of service delivery rather than waiting to get
+back to the office.</p>
+<div class="float">
+<img src="assets/images/screenshots/PowerBi-Mobile.png" style="width:100.0%" alt="Power BIMobile"><div class="figcaption">Power BIMobile</div>
+</div>
+<hr>
+</div>
+<div id="the-power-bi-gateway-the-bridge" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> The Power BI Gateway (The Bridge)<a class="anchor" aria-label="anchor" href="#the-power-bi-gateway-the-bridge"><i class="fas fa-link"></i></a>
+</h2>
+<p>Many development and public health organisations rely on <strong>on-premise
+systems</strong>, including:</p>
+<ul>
+<li>Local SQL databases</li>
+<li>DHIS2 instances hosted within private government networks</li>
+<li>EMRs deployed at the facility or state level</li>
+</ul>
+<p>The Power BI Gateway acts as a secure bridge between these systems and
+the Power BI Service.</p>
+<ul>
+<li>It enables automated refresh from internal data sources.</li>
+<li>It runs inside the organisation’s network.</li>
+<li>It prevents direct exposure of databases to the internet.</li>
+</ul>
+<div class="float">
+<img src="assets/images/screenshots/Power-Bi-Gateway.png" style="width:100.0%" alt="Power BI Gateway"><div class="figcaption">Power BI Gateway</div>
+</div>
+<blockquote>
+<p><strong>Note:</strong> Gateway misconfiguration is one of the most common reasons
+dashboards fail after deployment. Plan for this early.</p>
+</blockquote>
+<hr>
+</div>
+<div id="how-the-ecosystem-works-in-practice" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> How the Ecosystem Works in Practice<a class="anchor" aria-label="anchor" href="#how-the-ecosystem-works-in-practice"><i class="fas fa-link"></i></a>
+</h2>
+<p>A typical workflow looks like this:</p>
+<ol style="list-style-type: decimal">
+<li>Data is connected, cleaned, and modeled in <strong>Power BI Desktop</strong>.</li>
+<li>The report is published to the <strong>Power BI Service</strong>.</li>
+<li>A <strong>Gateway</strong> refreshes data on a schedule (if the data is
+on-premise).</li>
+<li>Stakeholders access dashboards via the <strong>Service or Mobile app</strong>.</li>
+</ol>
+<div class="float">
+<img src="assets/images/screenshots/PowerBi-Ecosystem-Workflow.png" style="width:100.0%" alt="Power BI Ecosystem workflow"><div class="figcaption"><em>Power BI Ecosystem workflow</em></div>
+</div>
+<blockquote>
+<p><strong>Note</strong> Each component has a defined responsibility. Respecting these
+boundaries keeps systems stable and scalable.</p>
+</blockquote>
+<hr>
+</div>
+<div id="common-misunderstandings-to-avoid" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Common Misunderstandings to Avoid<a class="anchor" aria-label="anchor" href="#common-misunderstandings-to-avoid"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Treating Power BI Desktop as a sharing tool (don’t email .pbix
+files).</li>
+<li>Allowing many people to independently rebuild the same report.</li>
+<li>Ignoring gateway planning until deployment.</li>
+<li>Expecting mobile apps to replace full dashboards.</li>
+</ul>
+<p>Understanding these limits early prevents frustration later.</p>
+<hr>
+</div>
+<div id="what-to-remember-from-this-chapter" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> What to Remember from This Chapter<a class="anchor" aria-label="anchor" href="#what-to-remember-from-this-chapter"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Power BI Desktop is for <strong>building and modeling</strong>.</li>
+<li>Power BI Service is for <strong>sharing and collaboration</strong>.</li>
+<li>Power BI Mobile supports <strong>field-level access</strong>.</li>
+<li>The Gateway enables <strong>secure, automated refresh</strong>.</li>
+</ul>
+<p>Once this ecosystem is clear, Power BI becomes much easier to learn and
+use effectively.</p>
+<p>The next chapter focuses on connecting Power BI to common data sources
+used in M&amp;E and public health programs.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></div>
+<div class="next"><a href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#understanding-the-power-bi-ecosystem"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="nav-link" href="#power-bi-desktop-the-kitchen"><span class="header-section-number">3.1</span> Power BI Desktop (The Kitchen)</a></li>
+<li><a class="nav-link" href="#power-bi-service-the-restaurant"><span class="header-section-number">3.2</span> Power BI Service (The Restaurant)</a></li>
+<li><a class="nav-link" href="#power-bi-mobile-the-takeout"><span class="header-section-number">3.3</span> Power BI Mobile (The Takeout)</a></li>
+<li><a class="nav-link" href="#the-power-bi-gateway-the-bridge"><span class="header-section-number">3.4</span> The Power BI Gateway (The Bridge)</a></li>
+<li><a class="nav-link" href="#how-the-ecosystem-works-in-practice"><span class="header-section-number">3.5</span> How the Ecosystem Works in Practice</a></li>
+<li><a class="nav-link" href="#common-misunderstandings-to-avoid"><span class="header-section-number">3.6</span> Common Misunderstandings to Avoid</a></li>
+<li><a class="nav-link" href="#what-to-remember-from-this-chapter"><span class="header-section-number">3.7</span> What to Remember from This Chapter</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/04-powerbi-ecosystem.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/04-powerbi-ecosystem.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

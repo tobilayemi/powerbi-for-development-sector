@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 9 Publishing and Sharing Your Report | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="You have cleaned your data, built a robust star schema, defined clear indicators with DAX, and designed a user-friendly dashboard. But right now, that value is trapped on your laptop. A dashboard...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 9 Publishing and Sharing Your Report | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="You have cleaned your data, built a robust star schema, defined clear indicators with DAX, and designed a user-friendly dashboard. But right now, that value is trapped on your laptop. A dashboard...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 9 Publishing and Sharing Your Report | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="You have cleaned your data, built a robust star schema, defined clear indicators with DAX, and designed a user-friendly dashboard. But right now, that value is trapped on your laptop. A dashboard...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="active" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="publishing-and-sharing-your-report" class="section level1" number="9">
+<h1>
+<span class="header-section-number">Chapter: 9</span> Publishing and Sharing Your Report<a class="anchor" aria-label="anchor" href="#publishing-and-sharing-your-report"><i class="fas fa-link"></i></a>
+</h1>
+<p>You have cleaned your data, built a robust star schema, defined clear indicators with DAX, and designed a user-friendly dashboard.</p>
+<p>But right now, that value is trapped on your laptop.</p>
+<p>A dashboard only becomes a <strong>monitoring system</strong> when it reaches the people who need to make decisions. This chapter covers the final mile: moving from <strong>Power BI Desktop</strong> (the kitchen) to the <strong>Power BI Service</strong> (the restaurant).</p>
+<hr>
+<div id="the-difference-between-desktop-and-service" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> The Difference Between Desktop and Service<a class="anchor" aria-label="anchor" href="#the-difference-between-desktop-and-service"><i class="fas fa-link"></i></a>
+</h2>
+<p>It is vital to understand the two environments:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Power BI Desktop (The Authoring Tool):</strong>
+<ul>
+<li>Where you connect to data, write DAX, and design visuals.</li>
+<li>
+<em>Analogy:</em> This is the kitchen. Only the chefs (Data Analysts) should be here.</li>
+</ul>
+</li>
+<li>
+<strong>Power BI Service (The Consumption Portal):</strong>
+<ul>
+<li>The website (<code>https://app.powerbi.com</code>) where users view and interact with reports.</li>
+<li>
+<em>Analogy:</em> This is the dining room. This is where the District Health Officers and Program Managers sit.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>Rule of Thumb:</strong> Never email a <code>.pbix</code> file to a stakeholder. Always publish it to the Service.</p>
+</blockquote>
+<hr>
+</div>
+<div id="before-you-publish-the-reality-of-licensing-and-access" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Before You Publish: The Reality of Licensing and Access<a class="anchor" aria-label="anchor" href="#before-you-publish-the-reality-of-licensing-and-access"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before you click “Publish,” you need to know three administrative realities. Power BI Service is not open access like a Google Doc.</p>
+<div id="you-need-a-work-or-school-account" class="section level3" number="9.2.1">
+<h3>
+<span class="header-section-number">9.2.1</span> 1. You Need a Work or School Account<a class="anchor" aria-label="anchor" href="#you-need-a-work-or-school-account"><i class="fas fa-link"></i></a>
+</h3>
+<p>You generally <strong>cannot</strong> sign up for Power BI Service with a generic email provider like <code>@gmail.com</code>, <code>@yahoo.com</code>, or <code>@outlook.com</code>.</p>
+<ul>
+<li><p><strong>Requirement:</strong> You need an organizational domain (e.g., <code>name@ministryofhealth.gov</code> or <code>name@ngopartner.org</code>).</p></li>
+<li><p><strong>Workaround:</strong> If you are learning on your own and do not have a work email, you can sign up for the <strong>Microsoft 365 Developer Program</strong>, which provides a free, renewable sandbox domain.</p></li>
+</ul>
+</div>
+<div id="free-vs.-pro" class="section level3" number="9.2.2">
+<h3>
+<span class="header-section-number">9.2.2</span> 2. “Free” vs. “Pro”<a class="anchor" aria-label="anchor" href="#free-vs.-pro"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p><strong>Power BI Free:</strong> You can publish to your own private workspace (“My Workspace”). You can view your own reports on the web. However, <strong>you cannot share</strong> reports with others.</p></li>
+<li><p><strong>Power BI Pro:</strong> Required to share reports and view reports shared by others. This creates a licensing cost for the organization (roughly $10/user/month).</p></li>
+</ul>
+</div>
+<div id="the-60-day-trial" class="section level3" number="9.2.3">
+<h3>
+<span class="header-section-number">9.2.3</span> 3. The 60-Day Trial<a class="anchor" aria-label="anchor" href="#the-60-day-trial"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you want to test the sharing features in this chapter but do not have a license, Microsoft offers a <strong>60-day free trial</strong> of Power BI Pro (or Fabric). You can activate this inside the Power BI Service by trying to access a paid feature (like creating a shared workspace).</p>
+<hr>
+</div>
+</div>
+<div id="workspaces-where-reports-live" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Workspaces: Where Reports Live<a class="anchor" aria-label="anchor" href="#workspaces-where-reports-live"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the Power BI Service, reports are organized into <strong>Workspaces</strong>.</p>
+<div id="my-workspace" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> 1. My Workspace<a class="anchor" aria-label="anchor" href="#my-workspace"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>This is your private sandbox.</li>
+<li><strong>Do not use this for official program data.</strong></li>
+<li>
+<em>Risk:</em> If you leave the organization, the dashboard disappears or becomes inaccessible to the team.</li>
+</ul>
+</div>
+<div id="shared-workspaces-recommended" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> 2. Shared Workspaces (Recommended)<a class="anchor" aria-label="anchor" href="#shared-workspaces-recommended"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Collaborative spaces named after teams or projects (e.g., <em>“National Malaria Program”</em>, <em>“Donor Reporting Team”</em>).</li>
+<li>Multiple people can manage these reports.</li>
+<li>If you leave, the workspace remains.</li>
+<li>
+<strong>Requirement:</strong> Creating or joining a shared workspace requires a <strong>Pro License</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>Best Practice:</strong> Always create a Shared Workspace for official Monitoring and Evaluation dashboards.</p>
+</blockquote>
+<div class="float">
+<img src="assets/images/screenshots/my-workspace.png" style="width:100.0%" alt="Power BI Service showing “My Workspace”"><div class="figcaption">Power BI Service showing “My Workspace”</div>
+</div>
+<hr>
+</div>
+</div>
+<div id="step-1-publishing-your-report" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Step 1: Publishing Your Report<a class="anchor" aria-label="anchor" href="#step-1-publishing-your-report"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Save your <code>.pbix</code> file in Power BI Desktop.</li>
+<li>On the <strong>Home</strong> ribbon, click the <strong>Publish</strong> button.</li>
+<li>Sign in with your organizational account if prompted.</li>
+<li>Select the destination Workspace (e.g., “My Workspace” if you are on the free version).</li>
+<li>Wait for the “Success!” message.</li>
+</ol>
+<p>Once published, open your web browser and navigate to <code>https://app.powerbi.com</code> to see your report live on the web.</p>
+<hr>
+</div>
+<div id="step-2-sharing-mechanisms-do-not-just-share" class="section level2" number="9.5">
+<h2>
+<span class="header-section-number">9.5</span> Step 2: Sharing Mechanisms (Do Not Just “Share”)<a class="anchor" aria-label="anchor" href="#step-2-sharing-mechanisms-do-not-just-share"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are three ways to give people access. Choosing the wrong one is a common mistake.</p>
+<p><em>Note: All methods below require a <strong>Pro License</strong> for both you (the sharer) and the recipient, unless your organization has “Premium Capacity” (a bulk enterprise plan).</em></p>
+<div id="method-a-the-share-button-good-for-ad-hoc" class="section level3" number="9.5.1">
+<h3>
+<span class="header-section-number">9.5.1</span> Method A: The “Share” Button (Good for Ad-Hoc)<a class="anchor" aria-label="anchor" href="#method-a-the-share-button-good-for-ad-hoc"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>You click “Share” and type an email address.</li>
+<li>
+<strong>Pros:</strong> Fast.</li>
+<li>
+<strong>Cons:</strong> Hard to manage for large groups. If you have 50 District Officers, sharing one by one is a nightmare.</li>
+</ul>
+</div>
+<div id="method-b-workspace-access-good-for-colleagues" class="section level3" number="9.5.2">
+<h3>
+<span class="header-section-number">9.5.2</span> Method B: Workspace Access (Good for Colleagues)<a class="anchor" aria-label="anchor" href="#method-b-workspace-access-good-for-colleagues"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>You add your M&amp;E team members as “Contributors” or “Members” of the workspace.</li>
+<li>
+<strong>Use for:</strong> People who need to <em>edit</em> or <em>manage</em> the report.</li>
+</ul>
+</div>
+<div id="method-c-the-app-the-professional-standard" class="section level3" number="9.5.3">
+<h3>
+<span class="header-section-number">9.5.3</span> Method C: The App (The Professional Standard)<a class="anchor" aria-label="anchor" href="#method-c-the-app-the-professional-standard"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>An <strong>App</strong> is a packaged version of your workspace.</li>
+<li>It looks like a clean website with a navigation menu.</li>
+<li>Stakeholders cannot break anything.</li>
+<li>
+<strong>Use for:</strong> Decision makers, donors, and external partners.</li>
+</ul>
+<blockquote>
+<p><strong>Professional Tip:</strong> In a mature M&amp;E system, the Analysts work in the <strong>Workspace</strong>, but the Program Managers view the <strong>App</strong>.</p>
+</blockquote>
+<hr>
+</div>
+</div>
+<div id="step-3-keeping-data-fresh-scheduled-refresh" class="section level2" number="9.6">
+<h2>
+<span class="header-section-number">9.6</span> Step 3: Keeping Data Fresh (Scheduled Refresh)<a class="anchor" aria-label="anchor" href="#step-3-keeping-data-fresh-scheduled-refresh"><i class="fas fa-link"></i></a>
+</h2>
+<p>A dashboard showing last month’s data is an archive, not a monitoring tool.</p>
+<p>You do not need to click “Refresh” in Desktop and re-publish every day. The Power BI Service can handle this automatically.</p>
+<ol style="list-style-type: decimal">
+<li>Go to your Workspace in the browser.</li>
+<li>Find your <strong>Dataset</strong> (orange icon).</li>
+<li>Click the <strong>Settings</strong> (three dots …).</li>
+<li>Go to <strong>Scheduled Refresh</strong>.</li>
+<li>Set it to update daily (e.g., at 6:00 AM, before the team arrives).</li>
+</ol>
+<p><em>Note: If your data comes from a local Excel file on your laptop, you will need a piece of software called a “Gateway.” If your data is in the cloud (SharePoint, DHIS2, SQL Server), refresh usually works directly.</em></p>
+<hr>
+</div>
+<div id="a-note-on-security-row-level-security-rls" class="section level2" number="9.7">
+<h2>
+<span class="header-section-number">9.7</span> A Note on Security: Row Level Security (RLS)<a class="anchor" aria-label="anchor" href="#a-note-on-security-row-level-security-rls"><i class="fas fa-link"></i></a>
+</h2>
+<p>In Public Health, data privacy is paramount. Sometimes, you want one dashboard to serve the whole country, but:</p>
+<ul>
+<li>
+<strong>District A</strong> should only see District A’s data.</li>
+<li>
+<strong>District B</strong> should only see District B’s data.</li>
+<li>The <strong>National Director</strong> should see everything.</li>
+</ul>
+<p>You do <strong>not</strong> need to build 20 separate reports.</p>
+<p>You can use <strong>Row Level Security (RLS)</strong>. This allows you to define rules (e.g., <code>[District] = "User's District"</code>) so that Power BI filters the data based on who logged in.</p>
+<p><em>While setting up RLS is an advanced topic, knowing it exists is essential for designing secure national systems.</em></p>
+<hr>
+</div>
+<div id="mobile-access" class="section level2" number="9.8">
+<h2>
+<span class="header-section-number">9.8</span> Mobile Access<a class="anchor" aria-label="anchor" href="#mobile-access"><i class="fas fa-link"></i></a>
+</h2>
+<p>One of the biggest advantages of publishing is the <strong>Power BI Mobile App</strong>.</p>
+<p>Field officers often do not have laptops, but they have smartphones. Once published, your report is accessible on iOS and Android.</p>
+<p><strong>Design Tip:</strong> In Power BI Desktop, you can use the <strong>Mobile Layout View</strong> to create a phone-optimized version of your dashboard that stacks visuals vertically for easy scrolling.</p>
+<hr>
+</div>
+<div id="final-hands-on-publishing-your-work" class="section level2" number="9.9">
+<h2>
+<span class="header-section-number">9.9</span> Final Hands-On: Publishing Your Work<a class="anchor" aria-label="anchor" href="#final-hands-on-publishing-your-work"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s finish the course by putting your work online.</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Publish:</strong> Click <strong>Publish</strong> in Power BI Desktop.</li>
+<li>
+<strong>Select:</strong> Choose <strong>My Workspace</strong>.</li>
+<li>
+<strong>View:</strong> Click the link “Open ‘Malaria Dashboard.pbix’ in Power BI”.</li>
+<li>
+<strong>Interact:</strong> In the browser, try clicking the slicers. Notice how it works exactly like the Desktop version.</li>
+<li>
+<strong>Comment:</strong> On the top menu, look for the <strong>Comment</strong> button. This allows you to tag a colleague to discuss a specific data spike (e.g., <em>“<span class="citation">@Dr.Smith</span>, why is malaria up in Coastal District?”</em>).</li>
+</ol>
+<hr>
+</div>
+<div id="conclusion-you-are-now-a-data-steward" class="section level2" number="9.10">
+<h2>
+<span class="header-section-number">9.10</span> Conclusion: You Are Now a Data Steward<a class="anchor" aria-label="anchor" href="#conclusion-you-are-now-a-data-steward"><i class="fas fa-link"></i></a>
+</h2>
+<p>We started this book with a folder of messy CSV files.
+You have learned to:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Clean</strong> messy data using Power Query.</li>
+<li>
+<strong>Connect</strong> tables using the Star Schema.</li>
+<li>
+<strong>Calculate</strong> indicators using DAX.</li>
+<li>
+<strong>Visualize</strong> insights using Decision-Driven Design.</li>
+<li>
+<strong>Share</strong> results using the Power BI Service.</li>
+</ol>
+<p>You are no longer just an “Excel user.” You are building systems that help save lives, improve efficiency, and direct resources where they are needed most.</p>
+<p>The tools will change—Power BI updates every month—but the principles of <strong>Structure</strong>, <strong>Clarity</strong>, and <strong>Responsibility</strong> will always remain.</p>
+<p><strong>Go build something that matters.</strong></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></div>
+<div class="next"><a href="acknowledgements.html">Acknowledgements</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#publishing-and-sharing-your-report"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="nav-link" href="#the-difference-between-desktop-and-service"><span class="header-section-number">9.1</span> The Difference Between Desktop and Service</a></li>
+<li>
+<a class="nav-link" href="#before-you-publish-the-reality-of-licensing-and-access"><span class="header-section-number">9.2</span> Before You Publish: The Reality of Licensing and Access</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#you-need-a-work-or-school-account"><span class="header-section-number">9.2.1</span> 1. You Need a Work or School Account</a></li>
+<li><a class="nav-link" href="#free-vs.-pro"><span class="header-section-number">9.2.2</span> 2. “Free” vs. “Pro”</a></li>
+<li><a class="nav-link" href="#the-60-day-trial"><span class="header-section-number">9.2.3</span> 3. The 60-Day Trial</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#workspaces-where-reports-live"><span class="header-section-number">9.3</span> Workspaces: Where Reports Live</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#my-workspace"><span class="header-section-number">9.3.1</span> 1. My Workspace</a></li>
+<li><a class="nav-link" href="#shared-workspaces-recommended"><span class="header-section-number">9.3.2</span> 2. Shared Workspaces (Recommended)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#step-1-publishing-your-report"><span class="header-section-number">9.4</span> Step 1: Publishing Your Report</a></li>
+<li>
+<a class="nav-link" href="#step-2-sharing-mechanisms-do-not-just-share"><span class="header-section-number">9.5</span> Step 2: Sharing Mechanisms (Do Not Just “Share”)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#method-a-the-share-button-good-for-ad-hoc"><span class="header-section-number">9.5.1</span> Method A: The “Share” Button (Good for Ad-Hoc)</a></li>
+<li><a class="nav-link" href="#method-b-workspace-access-good-for-colleagues"><span class="header-section-number">9.5.2</span> Method B: Workspace Access (Good for Colleagues)</a></li>
+<li><a class="nav-link" href="#method-c-the-app-the-professional-standard"><span class="header-section-number">9.5.3</span> Method C: The App (The Professional Standard)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#step-3-keeping-data-fresh-scheduled-refresh"><span class="header-section-number">9.6</span> Step 3: Keeping Data Fresh (Scheduled Refresh)</a></li>
+<li><a class="nav-link" href="#a-note-on-security-row-level-security-rls"><span class="header-section-number">9.7</span> A Note on Security: Row Level Security (RLS)</a></li>
+<li><a class="nav-link" href="#mobile-access"><span class="header-section-number">9.8</span> Mobile Access</a></li>
+<li><a class="nav-link" href="#final-hands-on-publishing-your-work"><span class="header-section-number">9.9</span> Final Hands-On: Publishing Your Work</a></li>
+<li><a class="nav-link" href="#conclusion-you-are-now-a-data-steward"><span class="header-section-number">9.10</span> Conclusion: You Are Now a Data Steward</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/10-publishing-sharing.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/10-publishing-sharing.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

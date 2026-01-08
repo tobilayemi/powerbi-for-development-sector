@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 2 From Question to Dashboard (Mindset) | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="A common mistake beginners make is opening Power BI and immediately trying to draw charts. The tool makes it easy to drag fields onto visuals, it feels intuitive, fast, and rewarding....">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 2 From Question to Dashboard (Mindset) | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="A common mistake beginners make is opening Power BI and immediately trying to draw charts. The tool makes it easy to drag fields onto visuals, it feels intuitive, fast, and rewarding....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 2 From Question to Dashboard (Mindset) | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="A common mistake beginners make is opening Power BI and immediately trying to draw charts. The tool makes it easy to drag fields onto visuals, it feels intuitive, fast, and rewarding....">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="active" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="from-question-to-dashboard-mindset" class="section level1" number="2">
+<h1>
+<span class="header-section-number">Chapter: 2</span> From Question to Dashboard (Mindset)<a class="anchor" aria-label="anchor" href="#from-question-to-dashboard-mindset"><i class="fas fa-link"></i></a>
+</h1>
+<p>A common mistake beginners make is opening Power BI and immediately trying to draw charts. The tool makes it easy to drag fields onto visuals, it feels intuitive, fast, and rewarding.</p>
+<p>Unfortunately, this instinct is the primary reason public health dashboards fail.</p>
+<p>Dashboards built “visuals-first” may look impressive during a demo, but they are often fragile. They fail to answer meaningful questions, they break when next month’s data arrives, and they require complete rebuilding when a stakeholder asks for a simple
+change.</p>
+<p>Effective data use requires a fundamental shift in mindset. Power BI rewards <strong>structure before style</strong>.</p>
+<hr>
+<div id="data-use-starts-with-questions-not-charts" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Data Use Starts with Questions, Not Charts<a class="anchor" aria-label="anchor" href="#data-use-starts-with-questions-not-charts"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power BI is not a charting tool. It is a decision-support tool.</p>
+<p>In the rush to visualize, analysts often skip the most important step: <strong><em>defining the purpose</em></strong>. Before you connect to a single data source, you must pause to ask:</p>
+<ul>
+<li>
+<strong>What decision needs to be made?</strong> (e.g., allocating mobile clinics, ordering ARV stock, hiring staff)</li>
+<li>
+<strong>Who needs to make that decision?</strong> (e.g., District Health Officer, M&amp;E Manager, Donor)</li>
+<li><strong>What information would change their action?</strong></li>
+</ul>
+<p>In Monitoring and Evaluation (M&amp;E) and Public Health, these questions are rarely abstract. They are practical, high-stakes, and time-bound:</p>
+<ul>
+<li><em>“Are we on track to meet the UNAIDS 95-95-95 targets in the Northern Region?”</em></li>
+<li><em>“Which facilities have a Lost-to-Follow-Up rate higher than 5% this quarter?”</em></li>
+<li><em>“Is the drop in ANC visits seasonal, or is it a service delivery failure?”</em></li>
+</ul>
+<p>Dashboards exist to answer these questions. If a visual does not support a decision, it is noise.</p>
+<hr>
+</div>
+<div id="indicators-come-before-dashboards" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Indicators Come Before Dashboards<a class="anchor" aria-label="anchor" href="#indicators-come-before-dashboards"><i class="fas fa-link"></i></a>
+</h2>
+<p>In development programs, <strong>indicators</strong> are the bridge between raw data and decisions.</p>
+<p>In Excel, you might be used to creating a pivot table and calculating a percentage right there in the cell. If you need to change the definition, you edit the cell formula.</p>
+<p>In Power BI, this approach is dangerous.</p>
+<p>A useful workflow looks like this:</p>
+<ol style="list-style-type: decimal">
+<li>Define the <strong>Question</strong>
+</li>
+<li>Define the <strong>Indicator</strong> (The Logic)</li>
+<li>Define the <strong>Data Required</strong> (The Ingredients)</li>
+<li>Build the <strong>Dashboard</strong> (The Surface)</li>
+</ol>
+<p>Skipping directly to dashboards reverses this logic. It forces you to build logic <em>inside</em> the visual, which creates “Implicit Logic.”</p>
+<div id="the-danger-of-implicit-logic" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> The Danger of “Implicit Logic”<a class="anchor" aria-label="anchor" href="#the-danger-of-implicit-logic"><i class="fas fa-link"></i></a>
+</h3>
+<p>Implicit logic happens when you define an indicator using filters on a specific chart rather than a global formula.</p>
+<blockquote>
+<p><strong>Case Study: The “Retention Rate” Trap</strong></p>
+<p>Imagine you want to show the <strong>Retention Rate</strong> for HIV patients.</p>
+<ul>
+<li>
+<strong>The Visuals-First Approach:</strong> You drag a count of patients to a bar chart. You drag a filter to the side and uncheck “Transferred Out” and “Dead.” You rename the chart title to “Retention.”
+<ul>
+<li>
+<em>The Risk:</em> Next week, a colleague copies that chart but forgets to copy the filters. Or, they add a filter for “Age &lt; 15.” Suddenly, the two charts show different numbers for the same metric. There is no single “truth”(only different views).</li>
+</ul>
+</li>
+<li>
+<strong>The Indicators-First Approach:</strong> You write a <strong>DAX Measure</strong>. You explicitly define the math: <code>Retention Rate = DIVIDE( [Active Patients], [Total Enrolled] - [Transferred Out] )</code>
+<ul>
+<li>
+<em>The Reward:</em> This definition is now hard-coded into the model. Whether you put it on a map, a card, or a table, it always calculates correctly. You have created a <strong>Single Source of Truth</strong>.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>For the M&amp;E professional, “Viral Load Suppression” is not a chart. It is a strict definition. Once that definition is clear, Power BI can calculate it consistently across time, geography, and disaggregation.</p>
+<p>This is why <strong>modeling and calculations matter more than visuals</strong>.</p>
+<hr>
+</div>
+</div>
+<div id="the-concept-to-canvas-workflow" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> The Concept-to-Canvas Workflow<a class="anchor" aria-label="anchor" href="#the-concept-to-canvas-workflow"><i class="fas fa-link"></i></a>
+</h2>
+<div class="float">
+<img src="assets/images/screenshots/Power-Bi-Concept-to-Canvas%20Workflow.png" alt="To implement this mindset, follow this 4-step workflow for every report you build."><div class="figcaption">To implement this mindset, follow this 4-step workflow for every report you build.</div>
+</div>
+<p><strong><em>1. Define the Question (The Strategic Layer)</em></strong> Don’t ask “What data do we have?” Ask “What do we need to know?” * <em>Bad Start:</em> “I have a CSV of malaria cases.” * <em>Good Start:</em> “We need to identify districts where malaria incidence is rising despite
+bed net distribution.”</p>
+<p><strong><em>2. Define the Indicator (The Logic Layer)</em></strong></p>
+<p>Treat this like a laboratory protocol. It must be reproducible. In M&amp;E, this usually involves defining a <strong>Numerator</strong> and a <strong>Denominator</strong>.</p>
+<ul>
+<li>
+<strong>Indicator:</strong> Viral Load Suppression Rate.</li>
+<li>
+<strong>Numerator:</strong> Number of patients with VL &lt; 1000 copies/ml.</li>
+<li>
+<strong>Denominator:</strong> Total number of patients with a documented VL result.</li>
+<li>
+<strong>Nuance:</strong> Does “documented result” mean within the last 12 months? Does it include children? These rules must be written down <em>before</em> you build.</li>
+</ul>
+<p><strong><em>3. Define the Data Required (The Data Layer)</em></strong></p>
+<p>Now that you know the formula, identify the ingredients.</p>
+<ul>
+<li>Do you need the <code>lab_results</code> table from the LIMS?</li>
+<li>Do you need the <code>patient_demographics</code> table from the EMR?</li>
+<li>Do you need to join them on <code>PatientID</code>?</li>
+<li>Do these tables speak the same language? (e.g., does one use “M/F” and the other “Male/Female”?)</li>
+</ul>
+<p><strong><em>4. Build the Dashboard (The Visual Layer)</em></strong> Only now, after steps 1–3, do you open the Power BI canvas. Because you have defined the indicator, you know exactly what measures to write. The visuals become simple containers for your logic.</p>
+<hr>
+</div>
+<div id="the-5-step-technical-workflow" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> The 5-Step Technical Workflow<a class="anchor" aria-label="anchor" href="#the-5-step-technical-workflow"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once you have your plan, Power BI follows a technical workflow that mirrors good analytical practice.</p>
+<div id="get-data-connect" class="section level3" number="2.4.1">
+<h3>
+<span class="header-section-number">2.4.1</span> 1. Get Data (Connect)<a class="anchor" aria-label="anchor" href="#get-data-connect"><i class="fas fa-link"></i></a>
+</h3>
+<p>This step answers one question: <em>Where does the data live?</em> Data may come from Excel, DHIS2, SQL Server, ODK/KoboToolbox, or APIs. At this stage, the goal is <strong>access</strong>, not perfection. In public health, data is often fragmented across multiple systems;
+your first task is simply to bring it into the Power BI kitchen.</p>
+</div>
+<div id="transform-shape" class="section level3" number="2.4.2">
+<h3>
+<span class="header-section-number">2.4.2</span> 2. Transform (Shape)<a class="anchor" aria-label="anchor" href="#transform-shape"><i class="fas fa-link"></i></a>
+</h3>
+<p>Raw data reflects how systems <em>collect</em> information, not how analysts <em>use</em> it. Common public health data issues include:</p>
+<ul>
+<li>
+<strong>“Wide” Data:</strong> Months spread across columns (Jan, Feb, Mar) instead of rows.</li>
+<li>
+<strong>Dirty Data:</strong> “District A” and “Dist. A” treated as different places.</li>
+<li>
+<strong>Missing Headers:</strong> Cryptic codes like <code>var_001</code> instead of <code>Diagnosis</code>.</li>
+</ul>
+<p>In Excel, you might fix these manually every month. In Power BI, you use <strong>Power Query</strong> to record these steps. This ensures that next month, when the new data arrives, the cleaning happens automatically.</p>
+</div>
+<div id="model-the-brain-of-the-report" class="section level3" number="2.4.3">
+<h3>
+<span class="header-section-number">2.4.3</span> 3. Model (The Brain of the Report)<a class="anchor" aria-label="anchor" href="#model-the-brain-of-the-report"><i class="fas fa-link"></i></a>
+</h3>
+<p>The data model is where the magic happens. It determines what questions your dashboard can answer. You define relationships between tables:</p>
+<ul>
+<li><p>Patients belong to Facilities.</p></li>
+<li><p>Facilities belong to Districts.</p></li>
+<li><p>Results belong to Time Periods.</p></li>
+</ul>
+<p>A strong model allows you to slice a single indicator (like <em>“Positivity Rate”</em>) by any dimension (<em>Age</em>, <em>Sex</em>, <em>Location</em>, <em>Time</em>) without writing new formulas. This is the superpower of Power BI compared to Excel.</p>
+</div>
+<div id="visualize-with-purpose" class="section level3" number="2.4.4">
+<h3>
+<span class="header-section-number">2.4.4</span> 4. Visualize (With Purpose)<a class="anchor" aria-label="anchor" href="#visualize-with-purpose"><i class="fas fa-link"></i></a>
+</h3>
+<p>Visualization is the tip of the iceberg. It is the only part the user sees, but it relies entirely on the model beneath it.</p>
+<p>Good visuals in Public Health are functional, not decorative. They should:</p>
+<ul>
+<li>
+<strong>Answer the question:</strong> What is the HIV prevalence in a specified populations?</li>
+<li>
+<strong>Highlight outliers:</strong> Which facility is failing?</li>
+<li>
+<strong>Show trends:</strong> Is the epidemic curve flattening?</li>
+<li>
+<strong>Enable drill-down:</strong> Click on a province to see its districts.</li>
+</ul>
+</div>
+<div id="publish-enable-use" class="section level3" number="2.4.5">
+<h3>
+<span class="header-section-number">2.4.5</span> 5. Publish (Enable Use)<a class="anchor" aria-label="anchor" href="#publish-enable-use"><i class="fas fa-link"></i></a>
+</h3>
+<p>A dashboard that lives on your desktop is useless. Publishing involves sharing the report to the Power BI Service, setting up automated data refreshes (so you don’t have to email files), and managing security (so the right people see the right data).</p>
+<div class="float">
+<img src="assets/images/screenshots/Power-Bi-5-Workflow.png" alt="Power BI Publish"><div class="figcaption">Power BI Publish</div>
+</div>
+<hr>
+</div>
+</div>
+<div id="the-me-mindset-shift" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> The M&amp;E Mindset Shift<a class="anchor" aria-label="anchor" href="#the-me-mindset-shift"><i class="fas fa-link"></i></a>
+</h2>
+<p>This workflow requires a deliberate shift in thinking. The table below outlines how your approach must change when moving from Excel to Power BI.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="12%">
+<col width="36%">
+<col width="51%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Feature</th>
+<th align="left">Old Mindset (Excel)</th>
+<th align="left">New Mindset (Power BI)</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Goal</strong></td>
+<td align="left">“I need to make a chart for the donor.”</td>
+<td align="left">“I need to build a model that answers donor questions.”</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Formulas</strong></td>
+<td align="left">Logic is hidden in cell formulas (e.g., <code>=C2/D2</code>).</td>
+<td align="left">Logic is explicit in named Measures (e.g., <code>[New Positives] / [Tests]</code>).</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Data Updates</strong></td>
+<td align="left">New data requires manual copy-pasting and checking.</td>
+<td align="left">New data flows through an automated pipeline.</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Filtering</strong></td>
+<td align="left">Filters are applied to specific charts or rows.</td>
+<td align="left">Filters propagate through relationships in the data model.</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Outcome</strong></td>
+<td align="left"><strong>Fragile &amp; One-off</strong></td>
+<td align="left"><strong>Robust &amp; Scalable</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+</div>
+<div id="a-simple-mental-checklist" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> A Simple Mental Checklist<a class="anchor" aria-label="anchor" href="#a-simple-mental-checklist"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before building any dashboard, ask yourself:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Question:</strong> Do I know what decision this supports?</li>
+<li>
+<strong>Definition:</strong> Can I write the formula for the indicator on a whiteboard?</li>
+<li>
+<strong>Data:</strong> Is the raw data accessible and consistent?</li>
+<li>
+<strong>Model:</strong> Will this model survive if the user asks for a new disaggregation?</li>
+</ol>
+<p>If the answer to any of these is no, the solution is not another chart. It is to step back and plan.</p>
+<p><strong>What to Carry Forward</strong></p>
+<p>This book follows this exact workflow:</p>
+<ul>
+<li><p><strong>Questions before dashboards.</strong></p></li>
+<li><p><strong>Structure before style.</strong></p></li>
+<li><p><strong>Reuse before reinvention.</strong></p></li>
+</ul>
+<p>The next chapter moves into the first technical step: connecting Power BI to common data sources used in M&amp;E and public health programs.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></div>
+<div class="next"><a href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#from-question-to-dashboard-mindset"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="nav-link" href="#data-use-starts-with-questions-not-charts"><span class="header-section-number">2.1</span> Data Use Starts with Questions, Not Charts</a></li>
+<li>
+<a class="nav-link" href="#indicators-come-before-dashboards"><span class="header-section-number">2.2</span> Indicators Come Before Dashboards</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-danger-of-implicit-logic"><span class="header-section-number">2.2.1</span> The Danger of “Implicit Logic”</a></li></ul>
+</li>
+<li><a class="nav-link" href="#the-concept-to-canvas-workflow"><span class="header-section-number">2.3</span> The Concept-to-Canvas Workflow</a></li>
+<li>
+<a class="nav-link" href="#the-5-step-technical-workflow"><span class="header-section-number">2.4</span> The 5-Step Technical Workflow</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#get-data-connect"><span class="header-section-number">2.4.1</span> 1. Get Data (Connect)</a></li>
+<li><a class="nav-link" href="#transform-shape"><span class="header-section-number">2.4.2</span> 2. Transform (Shape)</a></li>
+<li><a class="nav-link" href="#model-the-brain-of-the-report"><span class="header-section-number">2.4.3</span> 3. Model (The Brain of the Report)</a></li>
+<li><a class="nav-link" href="#visualize-with-purpose"><span class="header-section-number">2.4.4</span> 4. Visualize (With Purpose)</a></li>
+<li><a class="nav-link" href="#publish-enable-use"><span class="header-section-number">2.4.5</span> 5. Publish (Enable Use)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#the-me-mindset-shift"><span class="header-section-number">2.5</span> The M&amp;E Mindset Shift</a></li>
+<li><a class="nav-link" href="#a-simple-mental-checklist"><span class="header-section-number">2.6</span> A Simple Mental Checklist</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/03-data-use-mindset.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/03-data-use-mindset.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

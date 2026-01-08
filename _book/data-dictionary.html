@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>A Data Dictionary and Access | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="In any Monitoring and Evaluation project, a Data Dictionary is essential. It defines exactly what each column means, ensuring that everyone calculates indicators using the same logic.  A.1...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="A Data Dictionary and Access | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="In any Monitoring and Evaluation project, a Data Dictionary is essential. It defines exactly what each column means, ensuring that everyone calculates indicators using the same logic.  A.1...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A Data Dictionary and Access | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="In any Monitoring and Evaluation project, a Data Dictionary is essential. It defines exactly what each column means, ensuring that everyone calculates indicators using the same logic.  A.1...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="active" href="data-dictionary.html"><span class="header-section-number">A</span> Data Dictionary and Access</a></li>
+<li><a class="" href="r-script.html"><span class="header-section-number">B</span> Generating the Data (R Script)</a></li>
+<li><a class="" href="references-and-key-frameworks.html">References and Key Frameworks</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-dictionary" class="section level1" number="10">
+<h1>
+<span class="header-section-number">A</span> Data Dictionary and Access<a class="anchor" aria-label="anchor" href="#data-dictionary"><i class="fas fa-link"></i></a>
+</h1>
+<p>In any Monitoring and Evaluation project, a <strong>Data Dictionary</strong> is
+essential. It defines exactly what each column means, ensuring that
+everyone calculates indicators using the same logic.</p>
+<div id="accessing-the-data" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">A.1</span> Accessing the Data<a class="anchor" aria-label="anchor" href="#accessing-the-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>All datasets used in this book can be downloaded from the link below.</p>
+<p><a href="https://drive.google.com/drive/folders/1hitXL7MFdsz03OVi_ihTtrh1g29kk9xc?usp=sharing"><strong>Download the Project Data (Google
+Drive)</strong></a></p>
+<p>The folder contains:</p>
+<ol style="list-style-type: decimal">
+<li><code>fact_patient_visits.csv</code></li>
+<li><code>dim_facility.csv</code></li>
+<li><code>dim_date.csv</code></li>
+<li><code>dim_patient.csv</code></li>
+</ol>
+<hr>
+</div>
+<div id="dictionary-fact-table" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">A.2</span> Dictionary: Fact Table<a class="anchor" aria-label="anchor" href="#dictionary-fact-table"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>File:</strong> <code>fact_patient_visits.csv</code>
+<strong>Description:</strong> This table records every individual patient visit to a
+health facility. It is the <strong>transactional line list</strong>.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Column Name</th>
+<th align="left">Data Type</th>
+<th align="left">Description</th>
+<th align="left">Values / Notes</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>VisitID</strong></td>
+<td align="left">Text</td>
+<td align="left">Unique identifier for the visit</td>
+<td align="left">e.g., <code>VIS1001</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>FacilityID</strong></td>
+<td align="left">Text</td>
+<td align="left">Foreign Key linking to <code>dim_facility</code>
+</td>
+<td align="left">e.g., <code>FAC001</code>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Date</strong></td>
+<td align="left">Date</td>
+<td align="left">The date the patient presented at the facility</td>
+<td align="left">Format: <code>YYYY-MM-DD</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Age</strong></td>
+<td align="left">Whole Number</td>
+<td align="left">Age of the patient in years</td>
+<td align="left">0 - 99</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sex</strong></td>
+<td align="left">Text</td>
+<td align="left">Biological sex of the patient</td>
+<td align="left">
+<code>Male</code>, <code>Female</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Test_Type</strong></td>
+<td align="left">Text</td>
+<td align="left">The type of Malaria test conducted</td>
+<td align="left">
+<code>RDT</code> (Rapid Diagnostic Test), <code>Microscopy</code>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Test_Result</strong></td>
+<td align="left">Text</td>
+<td align="left">The result of the malaria test</td>
+<td align="left">
+<code>Positive</code>, <code>Negative</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Treatment_Given</strong></td>
+<td align="left">Text</td>
+<td align="left">The medication dispensed to the patient</td>
+<td align="left">
+<code>Artemether</code>, <code>Quinine</code>, <code>None</code>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Service_Type</strong></td>
+<td align="left">Text</td>
+<td align="left">The program area for the visit</td>
+<td align="left">
+<code>Malaria</code>, <code>ANC</code>, <code>TB</code>, <code>OPD</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="dictionary-dimension-tables" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">A.3</span> Dictionary: Dimension Tables<a class="anchor" aria-label="anchor" href="#dictionary-dimension-tables"><i class="fas fa-link"></i></a>
+</h2>
+<div id="facilities" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">A.3.1</span> Facilities<a class="anchor" aria-label="anchor" href="#facilities"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>File:</strong> <code>dim_facility.csv</code>
+<strong>Description:</strong> Metadata for all health facilities, allowing analysis
+by geography and ownership.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Column Name</th>
+<th align="left">Data Type</th>
+<th align="left">Description</th>
+<th align="left">Values / Notes</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>FacilityID</strong></td>
+<td align="left">Text</td>
+<td align="left">Unique Key. Links to Fact Table.</td>
+<td align="left">e.g., <code>FAC001</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>FacilityName</strong></td>
+<td align="left">Text</td>
+<td align="left">The common name of the facility</td>
+<td align="left">e.g., <code>Central Hospital</code>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>District</strong></td>
+<td align="left">Text</td>
+<td align="left">The administrative district</td>
+<td align="left">
+<code>Highland</code>, <code>Coastal</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Province</strong></td>
+<td align="left">Text</td>
+<td align="left">The larger administrative region</td>
+<td align="left">
+<code>North</code>, <code>South</code>
+</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Ownership</strong></td>
+<td align="left">Text</td>
+<td align="left">Who manages the facility</td>
+<td align="left">
+<code>Government</code>, <code>Private</code>, <code>NGO</code>, <code>Faith-Based</code>
+</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Type</strong></td>
+<td align="left">Text</td>
+<td align="left">Level of care provided</td>
+<td align="left">
+<code>Hospital</code>, <code>Health Center</code>, <code>Dispensary</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="date-table" class="section level3" number="10.3.2">
+<h3>
+<span class="header-section-number">A.3.2</span> Date Table<a class="anchor" aria-label="anchor" href="#date-table"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>File:</strong> <code>dim_date.csv</code>
+<strong>Description:</strong> A standard calendar table used for time intelligence
+calculations.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="20%">
+<col width="20%">
+<col width="58%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Column Name</th>
+<th align="left">Data Type</th>
+<th align="left">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Date</strong></td>
+<td align="left">Date</td>
+<td align="left">Continuous dates from Jan 1, 2023 to Dec 31, 2024</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Year</strong></td>
+<td align="left">Whole Number</td>
+<td align="left">The calendar year (e.g., 2024)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Quarter</strong></td>
+<td align="left">Text</td>
+<td align="left">Q1, Q2, Q3, Q4</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Month</strong></td>
+<td align="left">Text</td>
+<td align="left">January, February, etc.</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></div>
+<div class="next"><a href="r-script.html"><span class="header-section-number">B</span> Generating the Data (R Script)</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-dictionary"><span class="header-section-number">A</span> Data Dictionary and Access</a></li>
+<li><a class="nav-link" href="#accessing-the-data"><span class="header-section-number">A.1</span> Accessing the Data</a></li>
+<li><a class="nav-link" href="#dictionary-fact-table"><span class="header-section-number">A.2</span> Dictionary: Fact Table</a></li>
+<li>
+<a class="nav-link" href="#dictionary-dimension-tables"><span class="header-section-number">A.3</span> Dictionary: Dimension Tables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#facilities"><span class="header-section-number">A.3.1</span> Facilities</a></li>
+<li><a class="nav-link" href="#date-table"><span class="header-section-number">A.3.2</span> Date Table</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 6 The Star Schema: The Backbone of Analytical Models | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="Reliable analytics do not start with visuals or calculations. They start with structure. In Power BI and in all analytical systems, the structure that enables clarity, consistency, and trust is...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 6 The Star Schema: The Backbone of Analytical Models | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Reliable analytics do not start with visuals or calculations. They start with structure. In Power BI and in all analytical systems, the structure that enables clarity, consistency, and trust is...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 6 The Star Schema: The Backbone of Analytical Models | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="Reliable analytics do not start with visuals or calculations. They start with structure. In Power BI and in all analytical systems, the structure that enables clarity, consistency, and trust is...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="active" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-star-schema-the-backbone-of-analytical-models" class="section level1" number="6">
+<h1>
+<span class="header-section-number">Chapter: 6</span> The Star Schema: The Backbone of Analytical Models<a class="anchor" aria-label="anchor" href="#the-star-schema-the-backbone-of-analytical-models"><i class="fas fa-link"></i></a>
+</h1>
+<p>Reliable analytics do not start with visuals or calculations. They start
+with <strong>structure</strong>.</p>
+<p>In Power BI and in all analytical systems, the structure that enables
+clarity, consistency, and trust is the <strong>star schema</strong>.</p>
+<p>The star schema is not a Power BI feature.It is a <strong>data modeling
+pattern</strong> that predates modern BI tools and remains the foundation of
+professional analytics.</p>
+<p>Once you understand it, most modeling decisions become obvious.</p>
+<hr>
+<div id="what-is-a-star-schema" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> What is a Star Schema ?<a class="anchor" aria-label="anchor" href="#what-is-a-star-schema"><i class="fas fa-link"></i></a>
+</h2>
+<p>A <strong>star schema</strong> organizes data around a single central table of
+events, surrounded by descriptive tables.</p>
+<ul>
+<li><p>The <strong>fact table</strong> sits at the center</p></li>
+<li><p><strong>Dimension tables</strong> radiate outward</p></li>
+<li><p>Relationships form a star-like shape</p></li>
+</ul>
+<p>Each table has a single responsibility.</p>
+<p>The star schema is:</p>
+<ul>
+<li><p>A way of <strong>thinking</strong></p></li>
+<li><p>A way of <strong>separating meaning</strong></p></li>
+<li><p>A way of <strong>protecting definitions</strong></p></li>
+</ul>
+<p>It is <strong>not</strong>:</p>
+<ul>
+<li><p>A Power BI layout trick</p></li>
+<li><p>A performance hack</p></li>
+<li><p>A cosmetic design choice</p></li>
+</ul>
+<hr>
+</div>
+<div id="the-central-idea-events-surrounded-by-context" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> The Central Idea: Events Surrounded by Context<a class="anchor" aria-label="anchor" href="#the-central-idea-events-surrounded-by-context"><i class="fas fa-link"></i></a>
+</h2>
+<p>At the core of the star schema is a simple question:</p>
+<blockquote>
+<p><em>What actually happened?</em></p>
+</blockquote>
+<p>The answer lives in the <strong>fact table</strong>.</p>
+<p>Everything else exists to describe that answer.</p>
+<hr>
+</div>
+<div id="fact-tables-recording-reality" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Fact Tables: Recording Reality<a class="anchor" aria-label="anchor" href="#fact-tables-recording-reality"><i class="fas fa-link"></i></a>
+</h2>
+<p>A <strong>fact table</strong> records events as they occurred.</p>
+<blockquote>
+<p>Each row answers the question:</p>
+</blockquote>
+<blockquote>
+<p>“Something happened. What was it?”</p>
+</blockquote>
+<p>Fact tables typically contain:</p>
+<ul>
+<li><p>Identifiers (who, where, when)</p></li>
+<li><p>Measurements (counts, flags, results)</p></li>
+</ul>
+<p>They do <strong>not</strong> explain context in detail.</p>
+<div id="example-health-service-delivery" class="section level3" number="6.3.1">
+<h3>
+<span class="header-section-number">6.3.1</span> Example: Health Service Delivery<a class="anchor" aria-label="anchor" href="#example-health-service-delivery"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this book:</p>
+<ul>
+<li><p><code>fact_patient_visits</code> records service delivery events</p></li>
+<li><p>One row equals one interaction between a patient and the health
+system</p></li>
+</ul>
+<p>This table grows continuously over time and represents <strong>measurable
+reality</strong>.</p>
+<hr>
+</div>
+</div>
+<div id="dimension-tables-stable-descriptions" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Dimension Tables: Stable Descriptions<a class="anchor" aria-label="anchor" href="#dimension-tables-stable-descriptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>A <strong>dimension table</strong> provides descriptive context for events.</p>
+<blockquote>
+<p>Each row answers the question:</p>
+</blockquote>
+<blockquote>
+<p>“What do we know about this entity?”</p>
+</blockquote>
+<p>Dimension tables:</p>
+<ul>
+<li><p>Change slowly</p></li>
+<li><p>Contain descriptive attributes</p></li>
+<li><p>Are reused across multiple analyses</p></li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><p>One row per patient</p></li>
+<li><p>One row per facility</p></li>
+<li><p>One row per calendar date</p></li>
+</ul>
+<p>Dimensions do not record activity. They provide <strong>meaning</strong>.</p>
+<hr>
+</div>
+<div id="why-facts-should-not-contain-descriptions" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Why Facts Should Not Contain Descriptions<a class="anchor" aria-label="anchor" href="#why-facts-should-not-contain-descriptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>A common beginner instinct is to “simplify” analysis by copying
+descriptive fields into the fact table.</p>
+<p>For example:</p>
+<ul>
+<li><p>Facility name stored on every visit row</p></li>
+<li><p>District repeated thousands of times</p></li>
+<li><p>Patient age recalculated inconsistently</p></li>
+<li><p>Month and year embedded as text</p></li>
+</ul>
+<p>This creates three problems:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Redundancy</strong> : The same information appears repeatedly.</p></li>
+<li><p><strong>Inconsistency</strong> : Descriptions drift over time.</p></li>
+<li><p><strong>Fragility</strong> : Small changes require rebuilding reports.</p></li>
+</ol>
+<p>In a star schema:</p>
+<ul>
+<li><p>Fact tables contain <strong>keys and measurements</strong></p></li>
+<li><p>Dimension tables contain <strong>descriptions</strong></p></li>
+</ul>
+<p>This separation protects historical meaning.</p>
+<hr>
+</div>
+<div id="the-role-of-keys-connecting-meaning-without-carrying-it" class="section level2" number="6.6">
+<h2>
+<span class="header-section-number">6.6</span> The Role of Keys: Connecting Meaning Without Carrying It<a class="anchor" aria-label="anchor" href="#the-role-of-keys-connecting-meaning-without-carrying-it"><i class="fas fa-link"></i></a>
+</h2>
+<p>Relationships exist because tables share <strong>keys</strong>.</p>
+<p>A key:</p>
+<ul>
+<li><p>Uniquely identifies a record</p></li>
+<li><p>Is stable over time</p></li>
+<li><p>Has no analytical meaning itself</p></li>
+</ul>
+<p>Good keys:</p>
+<ul>
+<li><p>Patient IDs</p></li>
+<li><p>Facility IDs</p></li>
+<li><p>Date IDs</p></li>
+</ul>
+<p>Bad keys:</p>
+<ul>
+<li><p>Names</p></li>
+<li><p>Labels</p></li>
+<li><p>Descriptions</p></li>
+</ul>
+<p>Keys exist to <strong>connect meaning</strong>, not to store it.</p>
+<hr>
+</div>
+<div id="relationships-how-meaning-flows" class="section level2" number="6.7">
+<h2>
+<span class="header-section-number">6.7</span> Relationships: How Meaning Flows<a class="anchor" aria-label="anchor" href="#relationships-how-meaning-flows"><i class="fas fa-link"></i></a>
+</h2>
+<p>Relationships tell Power BI:</p>
+<ul>
+<li><p>Which tables are connected</p></li>
+<li><p>How filters propagate</p></li>
+<li><p>Which tables control context</p></li>
+</ul>
+<p>Without relationships, tables are isolated files. With correct
+relationships, the model behaves predictably.</p>
+<p><em>One-to-Many: The Default Relationship</em></p>
+<p>In a star schema, relationships are almost always <strong>one-to-many</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li><p>One patient → many visits</p></li>
+<li><p>One facility → many visits</p></li>
+<li><p>One date → many visits</p></li>
+</ul>
+<p>In Power BI terms:</p>
+<ul>
+<li><p>Dimension table = <strong>one</strong></p></li>
+<li><p>Fact table = <strong>many</strong></p></li>
+</ul>
+<p>This pattern mirrors reality and supports reliable aggregation.</p>
+<img src="assets/images/screenshots/power-bi-relationships.png" alt="Understanding Power BI Relationships" width="100%"><hr>
+</div>
+<div id="filter-direction-why-it-must-be-one-way" class="section level2" number="6.8">
+<h2>
+<span class="header-section-number">6.8</span> Filter Direction: Why It Must Be One-Way<a class="anchor" aria-label="anchor" href="#filter-direction-why-it-must-be-one-way"><i class="fas fa-link"></i></a>
+</h2>
+<p>Relationships are directional.</p>
+<p>In a well-designed star schema:</p>
+<ul>
+<li><p>Filters flow from <strong>dimension → fact</strong></p></li>
+<li><p>Not from fact → dimension</p></li>
+</ul>
+<p>This reflects real-world logic:</p>
+<ul>
+<li><p>Selecting a district limits visits</p></li>
+<li><p>Selecting a patient limits events</p></li>
+<li><p>Selecting a date limits outcomes</p></li>
+</ul>
+<blockquote>
+<p>Note: Allowing filters to flow both ways introduces ambiguity and
+should be avoided unless there is a very specific, justified reason.</p>
+</blockquote>
+<hr>
+</div>
+<div id="why-dimensions-should-not-connect-to-each-other" class="section level2" number="6.9">
+<h2>
+<span class="header-section-number">6.9</span> Why Dimensions Should Not Connect to Each Other<a class="anchor" aria-label="anchor" href="#why-dimensions-should-not-connect-to-each-other"><i class="fas fa-link"></i></a>
+</h2>
+<p>Another common mistake is linking dimension tables directly.</p>
+<p>For example:</p>
+<ul>
+<li><p><code>dim_patient</code> linked to <code>dim_facility</code></p></li>
+<li><p><code>dim_facility</code> linked to <code>dim_date</code></p></li>
+</ul>
+<p>This creates:</p>
+<ul>
+<li><p>Multiple filter paths</p></li>
+<li><p>Ambiguous context</p></li>
+<li><p>Unpredictable results</p></li>
+</ul>
+<p>In a star schema:</p>
+<ul>
+<li><p>Dimensions connect <strong>only to the fact table</strong></p></li>
+<li><p>The fact table is the bridge between all context</p></li>
+</ul>
+<p>If two dimensions need to interact, they do so <strong>through events</strong>.</p>
+<hr>
+</div>
+<div id="time-as-a-first-class-dimension" class="section level2" number="6.10">
+<h2>
+<span class="header-section-number">6.10</span> Time as a First-Class Dimension<a class="anchor" aria-label="anchor" href="#time-as-a-first-class-dimension"><i class="fas fa-link"></i></a>
+</h2>
+<p>Time is not just a filter.</p>
+<p>A date has structure:</p>
+<ul>
+<li><p>Day</p></li>
+<li><p>Month</p></li>
+<li><p>Quarter</p></li>
+<li><p>Year</p></li>
+<li><p>Reporting period</p></li>
+<li><p>Fiscal calendar</p></li>
+</ul>
+<p>Embedding raw dates in fact tables limits analysis.</p>
+<p>A dedicated date dimension enables:</p>
+<ul>
+<li><p>Consistent aggregation</p></li>
+<li><p>Year-over-year comparison</p></li>
+<li><p>Alignment with reporting calendars</p></li>
+</ul>
+<p>This is why professional models never rely on raw date fields alone.</p>
+<hr>
+</div>
+<div id="visualizing-the-star-mental-model" class="section level2" number="6.11">
+<h2>
+<span class="header-section-number">6.11</span> Visualizing the Star (Mental Model)<a class="anchor" aria-label="anchor" href="#visualizing-the-star-mental-model"><i class="fas fa-link"></i></a>
+</h2>
+<p>Think of the model this way:</p>
+<ul>
+<li>The fact table is the <strong>question</strong>
+</li>
+<li>Dimensions are the <strong>ways to slice the answer</strong>
+</li>
+</ul>
+<p>If you remove the fact table, nothing is left to analyze.</p>
+<p>If you remove a dimension, analysis still works but just with less
+context.</p>
+<p>This is how you know the structure is correct.</p>
+<div id="star-schema-diagram-conceptual" class="section level3" number="6.11.1">
+<h3>
+<span class="header-section-number">6.11.1</span> Star Schema Diagram (Conceptual)<a class="anchor" aria-label="anchor" href="#star-schema-diagram-conceptual"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-figure"><img src="assets/images/screenshots/final-star-schema.png" alt="Conceptual Star Schema" style="width:100%;"></div>
+<hr>
+</div>
+</div>
+<div id="hands-on-building-the-star-schema-in-power-bi" class="section level2" number="6.12">
+<h2>
+<span class="header-section-number">6.12</span> Hands-On: Building the Star Schema in Power BI<a class="anchor" aria-label="anchor" href="#hands-on-building-the-star-schema-in-power-bi"><i class="fas fa-link"></i></a>
+</h2>
+<p>This section translates the concepts you have learned into practical
+modeling steps. Do not rush. Every action here reinforces the mental model you have just
+developed.</p>
+<p><strong>Step 1: Switch to Model View</strong></p>
+<p>After completing data cleaning in Power Query:</p>
+<ol style="list-style-type: decimal">
+<li><p>Close the Power Query Editor</p></li>
+<li><p>In Power BI Desktop, select the <strong>Model View</strong> icon from the left
+sidebar</p></li>
+</ol>
+<p>You should see all imported tables displayed separately.</p>
+<p>At this stage, Power BI may show suggested relationships. Do <strong>not</strong>
+accept or rely on them yet.</p>
+<div class="inline-figure"><img src="assets/images/screenshots/power-bi-star-schema-in-model-view.png" alt="Star schema in Power BI Model View" style="width:100%;"></div>
+<hr>
+<p><strong>Step 2: Classify Tables Before Creating Relationships</strong></p>
+<p>Before dragging any fields, pause and classify each table using the
+concepts from this chapter.</p>
+<p>Using the datasets in this book:</p>
+<ul>
+<li>
+<strong>Fact table</strong>
+<ul>
+<li><code>fact_patient_visits</code></li>
+</ul>
+</li>
+<li>
+<strong>Dimension tables</strong>
+<ul>
+<li><code>dim_patient</code></li>
+<li><code>dim_facility</code></li>
+<li><code>dim_date</code></li>
+</ul>
+</li>
+</ul>
+<p>Ask yourself:</p>
+<ul>
+<li><p>Which table records events?</p></li>
+<li><p>Which tables describe context?</p></li>
+</ul>
+<p>If this is unclear, return to the earlier sections before proceeding.</p>
+<hr>
+<p><strong>Step 3: Identify Relationship Keys</strong></p>
+<p>Each relationship requires a key that uniquely identifies a record in a
+dimension table.</p>
+<p>Confirm the following keys exist:</p>
+<ul>
+<li><code>dim_patient[patient_id]</code></li>
+<li><code>dim_facility[facility_id]</code></li>
+<li><code>dim_date[date_id]</code></li>
+</ul>
+<p>In the fact table, these same fields appear repeatedly as references.</p>
+<blockquote>
+<p>Reminder:<br>
+Keys connect meaning. They do not describe it.</p>
+</blockquote>
+<hr>
+<p><strong>Step 4: Create Dimension-to-Fact Relationships</strong></p>
+<p>Create relationships manually to ensure correctness.</p>
+<p><strong><em>Example: Patient to Visits</em></strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Drag <code>patient_id</code> from <code>dim_patient</code></p></li>
+<li><p>Drop it onto <code>patient_id</code> in <code>fact_patient_visits</code></p></li>
+</ol>
+<p>In the relationship dialog, confirm (<em>see image below</em>):</p>
+<p>- Cardinality: <strong>One-to-many</strong></p>
+<p>- Cross-filter direction: <strong>Single</strong></p>
+<p>- Active relationship: <strong>Yes</strong></p>
+<p>Repeat the same process for:</p>
+<ul>
+<li>
+<code>facility_id</code> → <code>dim_facility</code>
+</li>
+</ul>
+<p>-<code>date_id</code> → <code>dim_date</code></p>
+<hr>
+<p><strong>Step 5: Enforce the Star Shape Visually</strong></p>
+<p>Arrange tables in the Model View so that:</p>
+<ul>
+<li><p><code>fact_patient_visits</code> sits at the center</p></li>
+<li><p>Dimension tables surround it</p></li>
+<li><p>No dimension table connects directly to another dimension</p></li>
+</ul>
+<p>This visual layout is not cosmetic.<br>
+It reinforces correct analytical thinking and simplifies
+troubleshooting.</p>
+<hr>
+<p><strong>Step 6: Validate Filter Flow</strong></p>
+<p>Before building visuals or calculations, test whether the model behaves
+as expected.</p>
+<ol style="list-style-type: decimal">
+<li><p>Switch to <strong>Report View</strong></p></li>
+<li><p>Add a simple table visual</p></li>
+<li>
+<p>Add:</p>
+<ul>
+<li>Facility Name (from <code>dim_facility</code>)</li>
+<li>Count of rows from <code>fact_patient_visits</code>
+</li>
+</ul>
+</li>
+</ol>
+<p>Now apply filters:</p>
+<ul>
+<li><p>Select a district</p></li>
+<li><p>Select a reporting period</p></li>
+</ul>
+<p>If counts respond logically, filter flow is working correctly.</p>
+<p>If not, return to Model View and review relationships.</p>
+<hr>
+<p><strong>Step 7: Hide Technical Fields (Optional but Recommended)</strong></p>
+<p>Keys are essential for modeling but confusing for report users.</p>
+<p>To hide them:</p>
+<ol style="list-style-type: decimal">
+<li><p>Switch to <strong>Data View</strong></p></li>
+<li><p>Right-click technical fields</p></li>
+</ol>
+<p>such as:</p>
+<ul>
+<li><code>patient_id</code></li>
+<li><code>facility_id</code></li>
+<li><code>date_id</code></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Select <strong>Hide in report view</strong>
+</li>
+</ol>
+<p>This prevents accidental misuse during visualization.</p>
+<hr>
+</div>
+<div id="common-modeling-errors-to-watch-for" class="section level2" number="6.13">
+<h2>
+<span class="header-section-number">6.13</span> Common Modeling Errors to Watch For<a class="anchor" aria-label="anchor" href="#common-modeling-errors-to-watch-for"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most Power BI models do not fail loudly. They fail quietly. Numbers still appear, Charts still render, Filters still move but the logic underneath becomes unstable.</p>
+<p>The following mistakes are responsible for the majority of “almost correct” dashboards in public health and M&amp;E.</p>
+<p><strong>1. Many-to-Many Relationships Created Unintentionally</strong></p>
+<p>This is one of the most dangerous modeling errors because Power BI often allows it without warning.</p>
+<p><strong><em>Why it happens</em></strong></p>
+<p>Many-to-many relationships usually appear when:</p>
+<ul>
+<li>A dimension table contains duplicate keys</li>
+<li>A fact table is linked to another fact table</li>
+<li>Text fields are used as join keys</li>
+<li>Aggregated data is mixed with transaction-level data</li>
+</ul>
+<p>In health data, this commonly happens when:</p>
+<ul>
+<li>Facility names are duplicated across systems</li>
+<li>Patient identifiers are inconsistent</li>
+<li>Monthly summaries are joined directly to line lists</li>
+</ul>
+<p><strong>Why it is dangerous</strong></p>
+<p>Many-to-many relationships:</p>
+<ul>
+<li>Inflate counts</li>
+<li>Distort totals</li>
+<li>Produce inconsistent results depending on filters</li>
+<li>Make DAX calculations unpredictable</li>
+</ul>
+<p>The same indicator may return different values depending on where it is used.</p>
+<p><strong>How to think your way out</strong></p>
+<p>If a relationship is many-to-many, pause and ask:</p>
+<ul>
+<li>“What is the event?”</li>
+<li>“What is the description?”</li>
+<li>“Should these tables even be directly connected?”</li>
+</ul>
+<p>In most cases, the solution is:</p>
+<ul>
+<li>Introduce or fix a dimension table</li>
+<li>Clean keys</li>
+<li>Revisit granularity</li>
+</ul>
+<hr>
+<p><strong>2. Bi-Directional Filters Applied Without Justification</strong></p>
+<p>Bi-directional filtering allows context to flow in both directions between tables.</p>
+<p>It feels powerful.<br>
+It is rarely necessary.</p>
+<p><strong><em>Why it happens</em></strong></p>
+<p>Users often enable bi-directional filters because:</p>
+<ul>
+<li>A visual “doesn’t work”</li>
+<li>A slicer does not behave as expected</li>
+<li>Power BI suggests it automatically</li>
+</ul>
+<p>Instead of fixing structure, filters are allowed to flow both ways.</p>
+<p><strong><em>Why it is dangerous</em></strong></p>
+<p>Bi-directional filters:</p>
+<ul>
+<li>Create hidden filter paths</li>
+<li>Introduce ambiguity</li>
+<li>Make results dependent on visual layout</li>
+<li>Break assumptions in DAX measures</li>
+</ul>
+<p>The model becomes difficult to reason about.</p>
+<p><strong><em>How to think your way out</em></strong></p>
+<p>In a star schema:</p>
+<ul>
+<li>Dimensions define context</li>
+<li>Facts respond to context</li>
+</ul>
+<p>If you feel the need for bi-directional filters, it often means:
+- The model is not truly star-shaped
+- Tables are playing multiple roles
+- A bridge table is missing</p>
+<p>Fix structure before changing filter direction.</p>
+<hr>
+<p><strong>3. Descriptive Fields Used as Relationship Keys</strong></p>
+<p>Using names, labels, or descriptions as join fields is a common beginner shortcut.</p>
+<p>It almost always leads to long-term problems.</p>
+<p><strong><em>Why it happens</em></strong></p>
+<p>Descriptive fields are:</p>
+<ul>
+<li>Human-readable</li>
+<li>Easy to recognize</li>
+<li>Available in every dataset</li>
+</ul>
+<p>So they feel convenient.</p>
+<p><strong><em>Why it is dangerous</em></strong></p>
+<p>Descriptions:</p>
+<ul>
+<li>Change over time</li>
+<li>Are not guaranteed to be unique</li>
+<li>May be spelled inconsistently</li>
+<li>May include formatting differences</li>
+</ul>
+<p>When a description changes, historical analysis breaks.</p>
+<p><strong><em>How to think your way out</em></strong></p>
+<p>Relationships should be built on:</p>
+<ul>
+<li>Stable identifiers</li>
+<li>Surrogate keys</li>
+<li>Fields with no business meaning</li>
+</ul>
+<p>Descriptions belong in dimension tables.<br>
+Keys exist only to connect.</p>
+<hr>
+<p><strong>4. Dimension Tables Linked Directly to Each Other</strong></p>
+<p>Linking dimension tables may feel logical, but it breaks analytical clarity.</p>
+<p><strong><em>Why it happens</em></strong></p>
+<p>This usually occurs when:</p>
+<ul>
+<li>Users try to “help” Power BI navigate context</li>
+<li>Dimensions share a common attribute</li>
+<li>The fact table feels unnecessary</li>
+</ul>
+<p><strong><em>Why it is dangerous</em></strong></p>
+<p>When dimensions link directly:</p>
+<ul>
+<li>Filter paths multiply</li>
+<li>Context becomes ambiguous</li>
+<li>Results depend on evaluation order</li>
+<li>Measures become fragile</li>
+</ul>
+<p>Power BI can no longer determine a single, authoritative path.</p>
+<p><strong><em>How to think your way out</em></strong></p>
+<p>In a star schema:</p>
+<ul>
+<li>Dimensions never describe each other</li>
+<li>They describe events</li>
+</ul>
+<p>If two dimensions need to interact, ask:</p>
+<ul>
+<li>“Where did this interaction occur?”</li>
+<li>“What event connects them?”</li>
+</ul>
+<p>The answer almost always points back to the fact table.</p>
+<hr>
+</div>
+<div id="a-simple-rule-to-remember" class="section level2" number="6.14">
+<h2>
+<span class="header-section-number">6.14</span> A Simple Rule to Remember<a class="anchor" aria-label="anchor" href="#a-simple-rule-to-remember"><i class="fas fa-link"></i></a>
+</h2>
+<p>If your model:</p>
+<ul>
+<li>Is hard to explain</li>
+<li>Requires frequent filter overrides</li>
+<li>Produces inconsistent totals</li>
+<li>Breaks when visuals change</li>
+</ul>
+<p>The problem is rarely DAX. It is almost always the model. Strong models make analytics boring. Weak models make analytics confusing.</p>
+<p>This chapter exists to help you build the former.</p>
+</div>
+<div id="reflection-why-this-step-matters" class="section level2" number="6.15">
+<h2>
+<span class="header-section-number">6.15</span> Reflection: Why This Step Matters<a class="anchor" aria-label="anchor" href="#reflection-why-this-step-matters"><i class="fas fa-link"></i></a>
+</h2>
+<p>At this point, you have not created a single indicator or chart.</p>
+<p>Yet you have already:</p>
+<ul>
+<li>Defined how data flows</li>
+<li>Controlled how context is applied</li>
+<li>Protected future calculations from ambiguity</li>
+</ul>
+<p>This is the difference between <strong>building dashboards</strong> and <strong>building analytical systems</strong>.</p>
+<hr>
+</div>
+<div id="stop-point-do-not-move-forward-yet" class="section level2" number="6.16">
+<h2>
+<span class="header-section-number">6.16</span> Stop Point: Do Not Move Forward Yet<a class="anchor" aria-label="anchor" href="#stop-point-do-not-move-forward-yet"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before proceeding to calculations, confirm:</p>
+<ul>
+<li>There is exactly one central fact table</li>
+<li>All dimensions connect only to the fact table</li>
+<li>All relationships are one-to-many</li>
+<li>Filter direction flows from dimension to fact</li>
+</ul>
+<p>If any of these conditions are not met, fix them now.</p>
+<hr>
+</div>
+<div id="what-comes-next" class="section level2" number="6.17">
+<h2>
+<span class="header-section-number">6.17</span> What Comes Next<a class="anchor" aria-label="anchor" href="#what-comes-next"><i class="fas fa-link"></i></a>
+</h2>
+<p>With a proper star schema in place, Power BI can now:</p>
+<ul>
+<li>Understand context</li>
+<li>Apply filters consistently</li>
+<li>Support reusable indicator definitions</li>
+</ul>
+<p>The next chapter introduces <strong>DAX measures</strong>, where numerators and denominators are defined once and trusted everywhere.</p>
+<p><em>A strong model makes DAX simpler. A weak model makes DAX fragile.</em></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></div>
+<div class="next"><a href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-star-schema-the-backbone-of-analytical-models"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="nav-link" href="#what-is-a-star-schema"><span class="header-section-number">6.1</span> What is a Star Schema ?</a></li>
+<li><a class="nav-link" href="#the-central-idea-events-surrounded-by-context"><span class="header-section-number">6.2</span> The Central Idea: Events Surrounded by Context</a></li>
+<li>
+<a class="nav-link" href="#fact-tables-recording-reality"><span class="header-section-number">6.3</span> Fact Tables: Recording Reality</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#example-health-service-delivery"><span class="header-section-number">6.3.1</span> Example: Health Service Delivery</a></li></ul>
+</li>
+<li><a class="nav-link" href="#dimension-tables-stable-descriptions"><span class="header-section-number">6.4</span> Dimension Tables: Stable Descriptions</a></li>
+<li><a class="nav-link" href="#why-facts-should-not-contain-descriptions"><span class="header-section-number">6.5</span> Why Facts Should Not Contain Descriptions</a></li>
+<li><a class="nav-link" href="#the-role-of-keys-connecting-meaning-without-carrying-it"><span class="header-section-number">6.6</span> The Role of Keys: Connecting Meaning Without Carrying It</a></li>
+<li><a class="nav-link" href="#relationships-how-meaning-flows"><span class="header-section-number">6.7</span> Relationships: How Meaning Flows</a></li>
+<li><a class="nav-link" href="#filter-direction-why-it-must-be-one-way"><span class="header-section-number">6.8</span> Filter Direction: Why It Must Be One-Way</a></li>
+<li><a class="nav-link" href="#why-dimensions-should-not-connect-to-each-other"><span class="header-section-number">6.9</span> Why Dimensions Should Not Connect to Each Other</a></li>
+<li><a class="nav-link" href="#time-as-a-first-class-dimension"><span class="header-section-number">6.10</span> Time as a First-Class Dimension</a></li>
+<li>
+<a class="nav-link" href="#visualizing-the-star-mental-model"><span class="header-section-number">6.11</span> Visualizing the Star (Mental Model)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#star-schema-diagram-conceptual"><span class="header-section-number">6.11.1</span> Star Schema Diagram (Conceptual)</a></li></ul>
+</li>
+<li><a class="nav-link" href="#hands-on-building-the-star-schema-in-power-bi"><span class="header-section-number">6.12</span> Hands-On: Building the Star Schema in Power BI</a></li>
+<li><a class="nav-link" href="#common-modeling-errors-to-watch-for"><span class="header-section-number">6.13</span> Common Modeling Errors to Watch For</a></li>
+<li><a class="nav-link" href="#a-simple-rule-to-remember"><span class="header-section-number">6.14</span> A Simple Rule to Remember</a></li>
+<li><a class="nav-link" href="#reflection-why-this-step-matters"><span class="header-section-number">6.15</span> Reflection: Why This Step Matters</a></li>
+<li><a class="nav-link" href="#stop-point-do-not-move-forward-yet"><span class="header-section-number">6.16</span> Stop Point: Do Not Move Forward Yet</a></li>
+<li><a class="nav-link" href="#what-comes-next"><span class="header-section-number">6.17</span> What Comes Next</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/07-data-modeling.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/07-data-modeling.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

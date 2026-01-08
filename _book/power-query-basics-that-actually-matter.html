@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 5 Power Query Basics That Actually Matter | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="If Power BI is a house, Power Query is the foundation. If the foundation is weak, everything built on top of it will eventually fail. In public health and development programs, most reporting...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 5 Power Query Basics That Actually Matter | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="If Power BI is a house, Power Query is the foundation. If the foundation is weak, everything built on top of it will eventually fail. In public health and development programs, most reporting...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 5 Power Query Basics That Actually Matter | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="If Power BI is a house, Power Query is the foundation. If the foundation is weak, everything built on top of it will eventually fail. In public health and development programs, most reporting...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="active" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="power-query-basics-that-actually-matter" class="section level1" number="5">
+<h1>
+<span class="header-section-number">Chapter: 5</span> Power Query Basics That Actually Matter<a class="anchor" aria-label="anchor" href="#power-query-basics-that-actually-matter"><i class="fas fa-link"></i></a>
+</h1>
+<p>If Power BI is a house, Power Query is the foundation. If the foundation is weak, everything built on top of it will eventually fail.</p>
+<p>In public health and development programs, most reporting problems are not caused by poor visuals. They are caused by inconsistent, fragile, or undocumented data preparation. Power Query exists to make data cleaning <strong>explicit, repeatable, and defensible</strong>.</p>
+<p>This chapter focuses on the parts of Power Query that actually matter for reliable data use.</p>
+<div id="why-power-query-matters-in-public-health-data" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Why Power Query Matters in Public Health Data<a class="anchor" aria-label="anchor" href="#why-power-query-matters-in-public-health-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>Health data is complex by nature. It comes from multiple systems, is collected by different actors, and often changes definitions over time. Missing values, placeholder codes, and inconsistent formats are common.</p>
+<p>When these issues are handled manually in Excel, the logic is hidden. Hidden logic cannot be reviewed, reproduced, or trusted.</p>
+<p>Power Query forces transparency.</p>
+<p>Every transformation is recorded, ordered, and replayed exactly the same way every time data is refreshed. This is not convenience. It is <strong>governance</strong>.</p>
+</div>
+<div id="what-power-query-is-and-is-not" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> What Power Query Is (and Is Not)<a class="anchor" aria-label="anchor" href="#what-power-query-is-and-is-not"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power Query is a <strong>data transformation engine</strong>.</p>
+<p>When you click <strong>Transform Data</strong> in Power BI Desktop, you open the <strong>Power Query Editor</strong>, a dedicated environment for preparing data before analysis.</p>
+<p>Power Query is:<br>
+- Deterministic<br>
+- Repeatable<br>
+- Explicit</p>
+<p>Power Query is <strong>not</strong>:<br>
+- A visualization tool<br>
+- A place to calculate indicators<br>
+- A replacement for data modeling</p>
+<p>Its purpose is singular:<br><strong>turn raw, messy data into structured analytical inputs</strong>.</p>
+</div>
+<div id="understanding-the-power-query-interface" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Understanding the Power Query Interface<a class="anchor" aria-label="anchor" href="#understanding-the-power-query-interface"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Power Query Editor has three areas that matter conceptually.</p>
+<div id="the-ribbon" class="section level3" number="5.3.1">
+<h3>
+<span class="header-section-number">5.3.1</span> The Ribbon<a class="anchor" aria-label="anchor" href="#the-ribbon"><i class="fas fa-link"></i></a>
+</h3>
+<p>The ribbon contains buttons for common transformations such as:<br>
+- Split Column<br>
+- Group By<br>
+- Replace Values<br>
+- Change Data Type</p>
+<p>These buttons do not directly clean data. They generate <strong>steps</strong>. The step matters more than the button.</p>
+<img src="assets/images/screenshots/Ribbon.png" alt="Getting CSV file using the Get Data button in Power BI Desktop" width="100%">
+</div>
+<div id="the-queries-pane" class="section level3" number="5.3.2">
+<h3>
+<span class="header-section-number">5.3.2</span> The Queries Pane<a class="anchor" aria-label="anchor" href="#the-queries-pane"><i class="fas fa-link"></i></a>
+</h3>
+<p>Each item in the Queries pane represents a dataset, referred to as a query.</p>
+<p>In this book, these include:<br>
+- <code>fact_patient_visits</code><br>
+- <code>dim_patient</code><br>
+- <code>dim_facility</code><br>
+- <code>dim_date</code></p>
+<p>At this stage:<br>
+- Do not join queries<br>
+- Do not calculate indicators<br>
+- Do not optimize visuals</p>
+<p>Think of each query as an ingredient being prepared independently.</p>
+<img src="assets/images/screenshots/query-pane.png" alt="Getting CSV file using the Get Data button in Power BI Desktop" width="50%">
+</div>
+<div id="the-applied-steps-pane" class="section level3" number="5.3.3">
+<h3>
+<span class="header-section-number">5.3.3</span> The Applied Steps Pane<a class="anchor" aria-label="anchor" href="#the-applied-steps-pane"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is the most important part of Power Query.</p>
+<p>Every transformation is recorded as a step:<br>
+- Source<br>
+- Navigation<br>
+- Changed Type<br>
+- Removed Columns<br>
+- Replaced Values</p>
+<img src="assets/images/screenshots/applied_step_pane.png" alt="Getting CSV file using the Get Data button in Power BI Desktop" width="50%"><blockquote>
+<p>Note: Together, these steps form a <strong>data preparation contract</strong>: This is exactly how raw data becomes analysis-ready.</p>
+</blockquote>
+<blockquote>
+<p>Deleting or reordering steps changes that contract.</p>
+</blockquote>
+</div>
+</div>
+<div id="why-power-query-feels-like-magic" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Why Power Query Feels Like “Magic”<a class="anchor" aria-label="anchor" href="#why-power-query-feels-like-magic"><i class="fas fa-link"></i></a>
+</h2>
+<p>In Excel, data cleaning is manual and repetitive. If you clean this month’s file, you must repeat the same work next month.</p>
+<p>In Power Query, you are not cleaning data once. You are <strong>recording logic</strong>.</p>
+<p>When new data arrives and you click <strong>Refresh</strong>, Power Query replays every applied step automatically. The same rules. The same order. The same results.</p>
+<p>This is the difference between one-off reporting and sustainable monitoring.</p>
+</div>
+<div id="power-query-thinking-vs-excel-thinking" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Power Query Thinking vs Excel Thinking<a class="anchor" aria-label="anchor" href="#power-query-thinking-vs-excel-thinking"><i class="fas fa-link"></i></a>
+</h2>
+<p>Excel encourages <strong>manual correction</strong>.</p>
+<p>Power Query requires <strong>logical definition</strong>.</p>
+<p><strong>In Excel:</strong></p>
+<p>- You fix a cell</p>
+<p>- The logic lives in your head</p>
+<p><strong>In Power Query:</strong></p>
+<p>- You define a rule</p>
+<p>- The logic lives in the steps</p>
+<p>If a fix cannot be described as a rule, it does not belong in Power Query.</p>
+</div>
+<div id="the-principle-of-repeatable-cleaning" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> The Principle of Repeatable Cleaning<a class="anchor" aria-label="anchor" href="#the-principle-of-repeatable-cleaning"><i class="fas fa-link"></i></a>
+</h2>
+<p>In Monitoring and Evaluation work, numbers must be defensible.</p>
+<p>If someone asks, <em>“How did you arrive at this figure?”</em>, the answer should be a documented sequence of steps, not personal judgment.</p>
+<p>Before applying any transformation, <strong>ask</strong>:<br>
+- Will this still work if new rows are added?<br>
+- Will this break if values change?<br>
+- Can another analyst understand this step?</p>
+<p>If the answer is no, rethink the approach.</p>
+</div>
+<div id="query-level-vs-column-level-cleaning" class="section level2" number="5.7">
+<h2>
+<span class="header-section-number">5.7</span> Query-Level vs Column-Level Cleaning<a class="anchor" aria-label="anchor" href="#query-level-vs-column-level-cleaning"><i class="fas fa-link"></i></a>
+</h2>
+<p>Not all cleaning decisions are equal.</p>
+<p>Some issues affect the <strong>entire dataset</strong>, while others affect <strong>specific columns</strong>.</p>
+<ul>
+<li>
+<strong>Query-level cleaning</strong> applies to the structure of the dataset<br>
+Examples include:
+<ul>
+<li>Removing empty rows</li>
+<li>Filtering invalid records</li>
+<li>Renaming queries</li>
+</ul>
+</li>
+<li>
+<strong>Column-level cleaning</strong> applies to individual fields<br>
+Examples include:
+<ul>
+<li>Standardizing Yes/No values</li>
+<li>Converting data types</li>
+<li>Replacing sentinel values</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>A good rule of thumb:<br>
+- Structural problems belong at the query level while Meaning problems belong at the column level.</p>
+</blockquote>
+</div>
+<div id="working-with-the-sample-dataset" class="section level2" number="5.8">
+<h2>
+<span class="header-section-number">5.8</span> Working With the Sample Dataset<a class="anchor" aria-label="anchor" href="#working-with-the-sample-dataset"><i class="fas fa-link"></i></a>
+</h2>
+<p>This chapter focuses primarily on the <code>fact_patient_visits</code> table.</p>
+<p>This dataset intentionally includes:<br>
+- Inconsistent Yes/No values<br>
+- Dates stored as text<br>
+- Sentinel values such as <code>999</code><br>
+- Missing ART start dates and regimens</p>
+<p>These are not errors. They reflect real system behaviour and are included to support learning.</p>
+</div>
+<div id="understanding-the-role-of-each-table-in-cleaning" class="section level2" number="5.9">
+<h2>
+<span class="header-section-number">5.9</span> Understanding the Role of Each Table in Cleaning<a class="anchor" aria-label="anchor" href="#understanding-the-role-of-each-table-in-cleaning"><i class="fas fa-link"></i></a>
+</h2>
+<p>Not all tables require the same level of cleaning, and not all issues should be handled in the same place.</p>
+<p>In this project, the tables serve different purposes:</p>
+<ul>
+<li><p><strong><code>fact_patient_visits</code></strong><br>
+Contains transactional records and is the primary source of complexity. Most cleaning effort happens here.</p></li>
+<li><p><strong><code>dim_patient</code></strong><br>
+Contains relatively stable demographic attributes. Cleaning focuses on consistency and validity.</p></li>
+<li><p><strong><code>dim_facility</code></strong><br>
+Mostly descriptive. Cleaning focuses on standardization rather than logic.</p></li>
+<li><p><strong><code>dim_date</code></strong><br>
+Should be clean by design. Any issues here usually indicate upstream problems.</p></li>
+</ul>
+<p>Understanding the role of each table helps you decide <strong>what to clean, where to clean it, and what to defer</strong>.</p>
+</div>
+<div id="core-data-cleaning-patterns-for-messy-health-data" class="section level2" number="5.10">
+<h2>
+<span class="header-section-number">5.10</span> Core Data Cleaning Patterns for Messy Health Data<a class="anchor" aria-label="anchor" href="#core-data-cleaning-patterns-for-messy-health-data"><i class="fas fa-link"></i></a>
+</h2>
+<div id="setting-correct-data-types" class="section level3" number="5.10.1">
+<h3>
+<span class="header-section-number">5.10.1</span> Setting Correct Data Types<a class="anchor" aria-label="anchor" href="#setting-correct-data-types"><i class="fas fa-link"></i></a>
+</h3>
+<p>This is the most common source of silent errors.</p>
+<p>Data types determine what can be calculated, aggregated, and filtered correctly.</p>
+<p><strong>Common issues include:</strong> - Dates stored as text - Numeric values mixed with symbols - Boolean values recorded inconsistently</p>
+<p>Always review the automatically generated <strong>Changed Type</strong> step. Do not assume Power BI guessed correctly.</p>
+</div>
+<div id="exercise-5.1-data-type-audit" class="section level3" number="5.10.2">
+<h3>
+<span class="header-section-number">5.10.2</span> Exercise 5.1: Data Type Audit<a class="anchor" aria-label="anchor" href="#exercise-5.1-data-type-audit"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Identify and correct incorrect data types.</p>
+<p><strong>Steps:</strong> 1. Open the Power Query Editor 2. Select the <code>fact_patient_visits</code> query 3. Review the data type icon beside each column 4. Identify at least three columns with incorrect data types 5. Explicitly set the correct data type</p>
+<p><strong>Reflection:</strong> - Which values became null after correction? - What does this reveal about source data quality?</p>
+</div>
+<div id="standardizing-categorical-values" class="section level3" number="5.10.3">
+<h3>
+<span class="header-section-number">5.10.3</span> Standardizing Categorical Values<a class="anchor" aria-label="anchor" href="#standardizing-categorical-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Health datasets often encode the same concept in multiple ways: - Yes, YES, Y, 1 - No, NO, N, 0</p>
+<p>These differences matter in filters and calculations.</p>
+<p>The goal is <strong>one representation per concept</strong>.</p>
+</div>
+<div id="exercise-5.2-standardizing-yes-and-no-fields" class="section level3" number="5.10.4">
+<h3>
+<span class="header-section-number">5.10.4</span> Exercise 5.2: Standardizing Yes and No Fields<a class="anchor" aria-label="anchor" href="#exercise-5.2-standardizing-yes-and-no-fields"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Normalize categorical values.</p>
+<p><strong>Steps:</strong></p>
+<p>1. Choose a Yes/No column (for example, <code>hiv_tested</code>)</p>
+<p>2. List all distinct values</p>
+<p>3. Use <strong>Replace Values</strong> to standardize to <code>Yes</code> and <code>No</code></p>
+<p><strong>Reflection:</strong></p>
+<p>- How many representations existed?</p>
+<p>- What errors would occur if these were left uncleaned?</p>
+</div>
+<div id="handling-missing-and-sentinel-values" class="section level3" number="5.10.5">
+<h3>
+<span class="header-section-number">5.10.5</span> Handling Missing and Sentinel Values<a class="anchor" aria-label="anchor" href="#handling-missing-and-sentinel-values"><i class="fas fa-link"></i></a>
+</h3>
+<p>Missing data is not the same as zero.</p>
+<p>Common placeholders include: - 999 - -1 - Unknown - Not Recorded</p>
+<p>Leaving these values untreated will distort averages and rates.</p>
+<p>Convert placeholders to <code>null</code>. Power BI ignores nulls in calculations.</p>
+</div>
+<div id="exercise-5.3-replacing-sentinel-values" class="section level3" number="5.10.6">
+<h3>
+<span class="header-section-number">5.10.6</span> Exercise 5.3: Replacing Sentinel Values<a class="anchor" aria-label="anchor" href="#exercise-5.3-replacing-sentinel-values"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Prevent placeholder values from distorting analysis.</p>
+<p><strong>Steps:</strong></p>
+<p>1. Identify numeric columns with sentinel values</p>
+<p>2. Replace sentinel values with <code>null</code></p>
+<p>3. Confirm the column data type remains numeric</p>
+<p><strong>Reflection:</strong></p>
+<p>- Why is null safer than a numeric placeholder?</p>
+<p>- How would this affect indicator calculations?</p>
+</div>
+<div id="cleaning-art-related-fields" class="section level3" number="5.10.7">
+<h3>
+<span class="header-section-number">5.10.7</span> Cleaning ART-Related Fields<a class="anchor" aria-label="anchor" href="#cleaning-art-related-fields"><i class="fas fa-link"></i></a>
+</h3>
+<p>Treatment data often contains logical inconsistencies.</p>
+<p>Examples include:</p>
+<p>- ART regimens without start dates</p>
+<p>- Start dates present when ART is marked as No</p>
+<p>These issues must be handled consistently.</p>
+</div>
+<div id="exercise-5.4-art-logic-consistency" class="section level3" number="5.10.8">
+<h3>
+<span class="header-section-number">5.10.8</span> Exercise 5.4: ART Logic Consistency<a class="anchor" aria-label="anchor" href="#exercise-5.4-art-logic-consistency"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Apply logical rules to treatment data.</p>
+<p><strong>Steps:</strong></p>
+<p>1. Identify records where <code>art_started = Yes</code> but <code>art_start_date</code> is missing</p>
+<p>2. Identify records where <code>art_started = No</code> but <code>art_regimen</code> is populated</p>
+<p>3. Define a consistent rule</p>
+<p>4. Apply the rule using Power Query logic</p>
+<p><strong>Reflection:</strong></p>
+<p>- What assumptions are safe at the cleaning stage?</p>
+<p>- What should be deferred to analysis?</p>
+</div>
+<div id="unpivoting-for-time-and-indicator-analysis" class="section level3" number="5.10.9">
+<h3>
+<span class="header-section-number">5.10.9</span> Unpivoting for Time and Indicator Analysis<a class="anchor" aria-label="anchor" href="#unpivoting-for-time-and-indicator-analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>Wide tables are human-readable. Tall tables are machine-readable.</p>
+<p>Power BI works best with tall tables where:</p>
+<p>- Time is a variable</p>
+<p>- Indicators are values, not column names</p>
+</div>
+<div id="exercise-5.5-unpivoting-data" class="section level3" number="5.10.10">
+<h3>
+<span class="header-section-number">5.10.10</span> Exercise 5.5: Unpivoting Data<a class="anchor" aria-label="anchor" href="#exercise-5.5-unpivoting-data"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Convert wide data into analysis-ready format.</p>
+<p><strong>Steps:</strong></p>
+<p>1. Identify identifier columns</p>
+<p>2. Select those columns</p>
+<p>3. Right-click and choose <strong>Unpivot Other Columns</strong></p>
+<p>4. Rename resulting columns appropriately</p>
+<p><strong>Reflection:</strong></p>
+<p>- Why does this structure support trend analysis?</p>
+<p>- How does it simplify dashboard design?</p>
+</div>
+</div>
+<div id="reading-power-query-steps-as-logic" class="section level2" number="5.11">
+<h2>
+<span class="header-section-number">5.11</span> Reading Power Query Steps as Logic<a class="anchor" aria-label="anchor" href="#reading-power-query-steps-as-logic"><i class="fas fa-link"></i></a>
+</h2>
+<p>Every Power Query step is written in M language.</p>
+<p>You do not need to master M at this stage, but you should:</p>
+<p><strong>- Read step names carefully</strong></p>
+<p><strong>- Rename steps to reflect intent</strong></p>
+<p><strong>- Avoid leaving steps as generic defaults</strong></p>
+<blockquote>
+<p><strong>Note:</strong></p>
+<p>Clear steps build trust.</p>
+</blockquote>
+</div>
+<div id="why-the-order-of-steps-matters" class="section level2" number="5.12">
+<h2>
+<span class="header-section-number">5.12</span> Why the Order of Steps Matters<a class="anchor" aria-label="anchor" href="#why-the-order-of-steps-matters"><i class="fas fa-link"></i></a>
+</h2>
+<p>Power Query steps are executed <strong>from top to bottom</strong>.</p>
+<p>This means:</p>
+<ul>
+<li><p>Changing data types before replacing values may introduce errors</p></li>
+<li><p>Removing columns too early may break later steps</p></li>
+<li><p>Reordering steps can silently change results</p></li>
+</ul>
+<p>For example:</p>
+<ul>
+<li><p>Replacing <code>999</code> with <code>null</code> should happen <strong>before</strong> setting numeric data types</p></li>
+<li><p>Splitting columns should happen <strong>before</strong> renaming them</p></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong></p>
+<p>When debugging Power Query issues, always review step order first.</p>
+</blockquote>
+<div id="exercise-5.6-renaming-applied-steps" class="section level3" number="5.12.1">
+<h3>
+<span class="header-section-number">5.12.1</span> Exercise 5.6: Renaming Applied Steps<a class="anchor" aria-label="anchor" href="#exercise-5.6-renaming-applied-steps"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Improve transparency and maintainability.</p>
+<p><strong>Steps:</strong></p>
+<p>1. Review the Applied Steps pane</p>
+<p>2. Rename steps such as <code>Changed Type</code></p>
+<p>3. Use descriptive names</p>
+<ul>
+<li><p>Set Correct Data Types</p></li>
+<li><p>Standardize Yes No Values</p></li>
+<li><p>Replace Sentinel Values</p></li>
+</ul>
+<p><strong>Reflection:</strong></p>
+<ul>
+<li><p>Could another analyst understand this logic?</p></li>
+<li><p>Would this hold up in an audit or handover?</p></li>
+</ul>
+</div>
+</div>
+<div id="data-quality-rules-reference" class="section level2" number="5.13">
+<h2>
+<span class="header-section-number">5.13</span> Data Quality Rules Reference<a class="anchor" aria-label="anchor" href="#data-quality-rules-reference"><i class="fas fa-link"></i></a>
+</h2>
+<p>The table below summarizes data quality rules applied throughout this book.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th>Domain</th>
+<th>Data Element</th>
+<th>Common Issue</th>
+<th>Rule Applied</th>
+<th>Rationale</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Demographics</td>
+<td>Age</td>
+<td>Text instead of numeric</td>
+<td>Convert to numeric, invalid to null</td>
+<td>Prevent calculation errors</td>
+</tr>
+<tr class="even">
+<td>Visits</td>
+<td>Visit Date</td>
+<td>Stored as text</td>
+<td>Convert to Date</td>
+<td>Enable time analysis</td>
+</tr>
+<tr class="odd">
+<td>ANC</td>
+<td>ANC Visit</td>
+<td>Inconsistent categories</td>
+<td>Standardize values</td>
+<td>Reliable filtering</td>
+</tr>
+<tr class="even">
+<td>HIV</td>
+<td>HIV Tested</td>
+<td>Mixed encodings</td>
+<td>Normalize categories</td>
+<td>Accurate rates</td>
+</tr>
+<tr class="odd">
+<td>ART</td>
+<td>ART Start Date</td>
+<td>Missing when ART = Yes</td>
+<td>Flag as incomplete</td>
+<td>Avoid false counts</td>
+</tr>
+<tr class="even">
+<td>ART</td>
+<td>ART Regimen</td>
+<td>Inconsistent labels</td>
+<td>Standardize text</td>
+<td>Regimen analysis</td>
+</tr>
+<tr class="odd">
+<td>Malaria</td>
+<td>Test Result</td>
+<td>Placeholder values</td>
+<td>Replace with null</td>
+<td>Correct positivity</td>
+</tr>
+<tr class="even">
+<td>TB</td>
+<td>TB Screened</td>
+<td>Missing values</td>
+<td>Treat conservatively</td>
+<td>Avoid overestimation</td>
+</tr>
+<tr class="odd">
+<td>NCD</td>
+<td>Screening Result</td>
+<td>Mixed formats</td>
+<td>Normalize categories</td>
+<td>Comparable indicators</td>
+</tr>
+</tbody>
+</table></div>
+<p>These rules support <strong>clean analysis</strong>, not indicator definitions.</p>
+</div>
+<div id="what-not-to-do-in-power-query" class="section level2" number="5.14">
+<h2>
+<span class="header-section-number">5.14</span> What Not to Do in Power Query<a class="anchor" aria-label="anchor" href="#what-not-to-do-in-power-query"><i class="fas fa-link"></i></a>
+</h2>
+<p>At this stage, do not:</p>
+<p><strong>- Calculate indicators</strong></p>
+<p><strong>- Create ratios or percentages</strong></p>
+<p><strong>- Join fact and dimension tables</strong></p>
+<p><strong>- Apply user-specific logic</strong></p>
+<blockquote>
+<p><strong>Note:</strong></p>
+<p>Power Query prepares data. Meaning is defined later.</p>
+</blockquote>
+</div>
+<div id="a-simple-exit-checklist" class="section level2" number="5.15">
+<h2>
+<span class="header-section-number">5.15</span> A Simple Exit Checklist<a class="anchor" aria-label="anchor" href="#a-simple-exit-checklist"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before leaving Power Query, <strong>ask</strong>:</p>
+<p><strong><em>- Are data types correct?<br>
+- Are categories consistent?<br>
+- Are missing values handled properly?<br>
+- Are steps readable and ordered?</em></strong></p>
+<p>If yes, you are ready to model.</p>
+</div>
+<div id="what-this-enables-next" class="section level2" number="5.16">
+<h2>
+<span class="header-section-number">5.16</span> What This Enables Next<a class="anchor" aria-label="anchor" href="#what-this-enables-next"><i class="fas fa-link"></i></a>
+</h2>
+<p>By the end of this chapter, you should have:<br><strong>- Clean, structured tables<br>
+- Documented transformations<br>
+- Confidence in your inputs</strong></p>
+<p>In the next chapter, we will build a <strong>data model</strong> that connects these tables using relationships and prepares them for indicator calculation.</p>
+<blockquote>
+<p><strong>Notes:</strong></p>
+<p><em>Power Query gives you control over data. Modeling gives you control over meaning.</em><br><em>Good dashboards start with good visuals.Trusted dashboards start with clean data.</em></p>
+</blockquote>
+</div>
+<div id="stop-point-when-to-leave-power-query" class="section level2" number="5.17">
+<h2>
+<span class="header-section-number">5.17</span> Stop Point: When to Leave Power Query<a class="anchor" aria-label="anchor" href="#stop-point-when-to-leave-power-query"><i class="fas fa-link"></i></a>
+</h2>
+<p>You should exit Power Query when:</p>
+<ul>
+<li>Data types are correct</li>
+<li>Categories are standardized</li>
+<li>Missing values are handled consistently</li>
+<li>Structural issues are resolved</li>
+</ul>
+<p>You should <strong>not</strong> remain in Power Query to:</p>
+<ul>
+<li>Interpret indicators</li>
+<li>Create performance metrics</li>
+</ul>
+<p>At this point, the data is <em>clean</em>, not <em>meaningful</em>. The meaning comes next.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></div>
+<div class="next"><a href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#power-query-basics-that-actually-matter"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="nav-link" href="#why-power-query-matters-in-public-health-data"><span class="header-section-number">5.1</span> Why Power Query Matters in Public Health Data</a></li>
+<li><a class="nav-link" href="#what-power-query-is-and-is-not"><span class="header-section-number">5.2</span> What Power Query Is (and Is Not)</a></li>
+<li>
+<a class="nav-link" href="#understanding-the-power-query-interface"><span class="header-section-number">5.3</span> Understanding the Power Query Interface</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-ribbon"><span class="header-section-number">5.3.1</span> The Ribbon</a></li>
+<li><a class="nav-link" href="#the-queries-pane"><span class="header-section-number">5.3.2</span> The Queries Pane</a></li>
+<li><a class="nav-link" href="#the-applied-steps-pane"><span class="header-section-number">5.3.3</span> The Applied Steps Pane</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#why-power-query-feels-like-magic"><span class="header-section-number">5.4</span> Why Power Query Feels Like “Magic”</a></li>
+<li><a class="nav-link" href="#power-query-thinking-vs-excel-thinking"><span class="header-section-number">5.5</span> Power Query Thinking vs Excel Thinking</a></li>
+<li><a class="nav-link" href="#the-principle-of-repeatable-cleaning"><span class="header-section-number">5.6</span> The Principle of Repeatable Cleaning</a></li>
+<li><a class="nav-link" href="#query-level-vs-column-level-cleaning"><span class="header-section-number">5.7</span> Query-Level vs Column-Level Cleaning</a></li>
+<li><a class="nav-link" href="#working-with-the-sample-dataset"><span class="header-section-number">5.8</span> Working With the Sample Dataset</a></li>
+<li><a class="nav-link" href="#understanding-the-role-of-each-table-in-cleaning"><span class="header-section-number">5.9</span> Understanding the Role of Each Table in Cleaning</a></li>
+<li>
+<a class="nav-link" href="#core-data-cleaning-patterns-for-messy-health-data"><span class="header-section-number">5.10</span> Core Data Cleaning Patterns for Messy Health Data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#setting-correct-data-types"><span class="header-section-number">5.10.1</span> Setting Correct Data Types</a></li>
+<li><a class="nav-link" href="#exercise-5.1-data-type-audit"><span class="header-section-number">5.10.2</span> Exercise 5.1: Data Type Audit</a></li>
+<li><a class="nav-link" href="#standardizing-categorical-values"><span class="header-section-number">5.10.3</span> Standardizing Categorical Values</a></li>
+<li><a class="nav-link" href="#exercise-5.2-standardizing-yes-and-no-fields"><span class="header-section-number">5.10.4</span> Exercise 5.2: Standardizing Yes and No Fields</a></li>
+<li><a class="nav-link" href="#handling-missing-and-sentinel-values"><span class="header-section-number">5.10.5</span> Handling Missing and Sentinel Values</a></li>
+<li><a class="nav-link" href="#exercise-5.3-replacing-sentinel-values"><span class="header-section-number">5.10.6</span> Exercise 5.3: Replacing Sentinel Values</a></li>
+<li><a class="nav-link" href="#cleaning-art-related-fields"><span class="header-section-number">5.10.7</span> Cleaning ART-Related Fields</a></li>
+<li><a class="nav-link" href="#exercise-5.4-art-logic-consistency"><span class="header-section-number">5.10.8</span> Exercise 5.4: ART Logic Consistency</a></li>
+<li><a class="nav-link" href="#unpivoting-for-time-and-indicator-analysis"><span class="header-section-number">5.10.9</span> Unpivoting for Time and Indicator Analysis</a></li>
+<li><a class="nav-link" href="#exercise-5.5-unpivoting-data"><span class="header-section-number">5.10.10</span> Exercise 5.5: Unpivoting Data</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#reading-power-query-steps-as-logic"><span class="header-section-number">5.11</span> Reading Power Query Steps as Logic</a></li>
+<li>
+<a class="nav-link" href="#why-the-order-of-steps-matters"><span class="header-section-number">5.12</span> Why the Order of Steps Matters</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#exercise-5.6-renaming-applied-steps"><span class="header-section-number">5.12.1</span> Exercise 5.6: Renaming Applied Steps</a></li></ul>
+</li>
+<li><a class="nav-link" href="#data-quality-rules-reference"><span class="header-section-number">5.13</span> Data Quality Rules Reference</a></li>
+<li><a class="nav-link" href="#what-not-to-do-in-power-query"><span class="header-section-number">5.14</span> What Not to Do in Power Query</a></li>
+<li><a class="nav-link" href="#a-simple-exit-checklist"><span class="header-section-number">5.15</span> A Simple Exit Checklist</a></li>
+<li><a class="nav-link" href="#what-this-enables-next"><span class="header-section-number">5.16</span> What This Enables Next</a></li>
+<li><a class="nav-link" href="#stop-point-when-to-leave-power-query"><span class="header-section-number">5.17</span> Stop Point: When to Leave Power Query</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/06-power-query.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/06-power-query.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

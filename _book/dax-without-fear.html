@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 7 DAX Without Fear | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="For many Power BI users, DAX is where confidence breaks. People describe DAX as too complex, too mathematical, easy to get wrong, or meant only for “advanced users.” In reality, DAX is none of...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 7 DAX Without Fear | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="For many Power BI users, DAX is where confidence breaks. People describe DAX as too complex, too mathematical, easy to get wrong, or meant only for “advanced users.” In reality, DAX is none of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 7 DAX Without Fear | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="For many Power BI users, DAX is where confidence breaks. People describe DAX as too complex, too mathematical, easy to get wrong, or meant only for “advanced users.” In reality, DAX is none of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="active" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="dax-without-fear" class="section level1" number="7">
+<h1>
+<span class="header-section-number">Chapter: 7</span> DAX Without Fear<a class="anchor" aria-label="anchor" href="#dax-without-fear"><i class="fas fa-link"></i></a>
+</h1>
+<p>For many Power BI users, DAX is where confidence breaks. People describe DAX as too complex, too mathematical, easy to get wrong, or meant only for “advanced users.”</p>
+<p>In reality, DAX is none of these things.</p>
+<p><strong>DAX is simply the language Power BI uses to answer questions precisely.</strong></p>
+<p>If you already work in Monitoring and Evaluation or Public Health, you already think in DAX terms. You define indicators, specify eligibility criteria, apply reporting rules, and interpret numbers in context. DAX simply formalizes that thinking into code.</p>
+<div id="what-dax-really-is" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> What DAX Really Is<a class="anchor" aria-label="anchor" href="#what-dax-really-is"><i class="fas fa-link"></i></a>
+</h2>
+<p>DAX stands for <strong>Data Analysis Expressions</strong>. At its core, DAX is a way to:</p>
+<ul>
+<li>Create reusable calculations (Indicators).</li>
+<li>Define relationships between tables.</li>
+<li>Express logic clearly.</li>
+<li>Control how numbers respond to filters.</li>
+<li>Ensure consistency across reports.</li>
+</ul>
+<p><strong>DAX is not:</strong></p>
+<ul>
+<li>A data cleaning tool (That’s Power Query).</li>
+<li>A scripting language like R or Python.</li>
+<li>A substitute for proper modeling.</li>
+</ul>
+<blockquote>
+<p><strong>Important Principle:</strong> DAX works best on top of a well-structured star schema. It cannot compensate for poor data modeling. If your DAX feels overly complicated, check your model first.</p>
+</blockquote>
+<hr>
+</div>
+<div id="measures-vs-calculated-columns" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Measures vs Calculated Columns<a class="anchor" aria-label="anchor" href="#measures-vs-calculated-columns"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>(The Most Important Concept to Understand)</strong></p>
+<p>This distinction appears in almost every Power BI interview, and misunderstanding it leads to slow, fragile reports.</p>
+<p><strong>Calculated Columns</strong> and <strong>Measures</strong> are both ways to create new data in Power BI, but they serve different purposes. Understanding when to use each is crucial for building efficient and reliable models.</p>
+<div id="i.-calculated-columns" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> i. Calculated Columns<a class="anchor" aria-label="anchor" href="#i.-calculated-columns"><i class="fas fa-link"></i></a>
+</h3>
+<p>A calculated column is a new column added physically to a table.</p>
+<ul>
+<li>
+<strong>How it works:</strong> Calculated row by row.</li>
+<li>
+<strong>When it runs:</strong> Computed only during data refresh.</li>
+<li>
+<strong>Storage:</strong> Stored in the model and consumes memory. <strong>Unlike measures, calculated columns increase the file size of your Power BI model.</strong>
+</li>
+</ul>
+<p>A calculated column answers the question: <strong>“What is true about this specific row?”</strong></p>
+<p>Common M&amp;E use cases include:</p>
+<ul>
+<li>
+<strong>Grouping age bands:</strong> <code>dax     Age Group = IF ( 'Patients'[Age] &lt; 5, "Under 5", "5 and Above" )</code>
+</li>
+<li>Creating categorical flags (e.g., “Lost to Follow-up”).</li>
+<li>Creating display-friendly labels by combining fields.</li>
+</ul>
+<p><strong>Takeaway:</strong> Calculated columns are useful for classification, grouping, and slicing, not for final indicators.</p>
+</div>
+<div id="ii.-measures" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> ii. Measures<a class="anchor" aria-label="anchor" href="#ii.-measures"><i class="fas fa-link"></i></a>
+</h3>
+<p>A measure is a dynamic calculation formula.</p>
+<ul>
+<li>
+<strong>How it works:</strong> Aggregates data based on filters.</li>
+<li>
+<strong>When it runs:</strong> Evaluated at query time (whenever a user clicks a visual or changes a slicer).</li>
+<li>
+<strong>Storage:</strong> Not stored as physical data. It is just saved logic.</li>
+</ul>
+<p>A measure answers the question: <strong>“What is the result right now, given the current filters?”</strong></p>
+<p>Common M&amp;E use cases include:</p>
+<ul>
+<li>Total patient visits.</li>
+<li>Number of patients tested.</li>
+<li>Coverage rates (percentages).</li>
+<li>Positivity rates.</li>
+</ul>
+<p>In professional models, your final indicators are almost always measures.</p>
+<blockquote>
+<p><strong>Rule of Thumb:</strong> * If you want to put it on an Axis or Slicer (to define categories), use a <strong>Column</strong>. * If you want to put it in the Values area (to see a number), use a <strong>Measure</strong>.</p>
+</blockquote>
+<hr>
+</div>
+</div>
+<div id="thinking-in-indicators-not-formulas" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Thinking in Indicators, Not Formulas<a class="anchor" aria-label="anchor" href="#thinking-in-indicators-not-formulas"><i class="fas fa-link"></i></a>
+</h2>
+<p>Many beginners ask: “What formula should I write?” A better question is: <strong>“What exactly am I trying to measure?”</strong></p>
+<p>In Monitoring and Evaluation, indicators are defined long before software tools are opened. DAX simply encodes those definitions. An indicator usually consists of:</p>
+<ol style="list-style-type: decimal">
+<li>A population of interest.</li>
+<li>Inclusion and exclusion rules.</li>
+<li>A numerator.</li>
+<li>A denominator.</li>
+<li>A reporting context (e.g., “Annual”).</li>
+</ol>
+<p>DAX allows you to express this logic once and reuse it everywhere.</p>
+<hr>
+</div>
+<div id="context-the-core-idea-behind-dax" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Context: The Core Idea Behind DAX<a class="anchor" aria-label="anchor" href="#context-the-core-idea-behind-dax"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most confusion around DAX comes from misunderstanding “Context.” Context simply answers one question:</p>
+<p><strong>“Which rows are visible right now?”</strong></p>
+<p>Context is created by: * Slicers on the page. * Visual or page-level filters. * The specific row or column in a chart or matrix. * Relationships flowing between tables in the data model.</p>
+<p><strong>DAX does not invent numbers.</strong> It evaluates expressions based on the rows that are currently visible in the context.</p>
+<div id="the-simplest-measure-you-can-write" class="section level3" number="7.4.1">
+<h3>
+<span class="header-section-number">7.4.1</span> The Simplest Measure You Can Write<a class="anchor" aria-label="anchor" href="#the-simplest-measure-you-can-write"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you have a line list of patient visits, the simplest measure is counting them.</p>
+<pre class="dax"><code>Total Visits = COUNTROWS ( fact_patient_visits )</code></pre>
+<p>This measure:</p>
+<ul>
+<li><p>Counts rows in the fact table</p></li>
+<li><p>Automatically respects filters</p></li>
+</ul>
+<p>If you filter by:</p>
+<ul>
+<li><p><strong>Facility</strong> → counts visits for that facility</p></li>
+<li><p><strong>Date</strong> → counts visits for that period</p></li>
+<li><p><strong>District</strong> → counts visits for that district</p></li>
+</ul>
+<p>No additional logic is required. This is DAX working as intended.</p>
+<hr>
+</div>
+</div>
+<div id="core-dax-patterns-you-will-reuse" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Core DAX Patterns You Will Reuse<a class="anchor" aria-label="anchor" href="#core-dax-patterns-you-will-reuse"><i class="fas fa-link"></i></a>
+</h2>
+<p>You do not need to learn the entire DAX language. Most public health dashboards rely on a small set of reusable patterns.</p>
+<p><strong>Pattern 1: Explicit Aggregation</strong></p>
+<p>Always write explicit measures instead of relying on Power BI’s default “drag and drop” summarization. Explicit measures are clear, reusable, and auditable.</p>
+<p>If your data has a column for quantities (e.g., commodities distributed), use <code>SUM</code>:</p>
+<pre><code>Total Commodities = SUM ( fact_distribution[quantity] )</code></pre>
+<p>If your data is a line list of events (e.g., patient visits), use <code>COUNTROWS</code>:</p>
+<p><code>Total Visits = COUNTROWS ( fact_patient_visits )</code></p>
+<p><strong><em>Explicit measures are:</em></strong></p>
+<ul>
+<li>Clear</li>
+<li>Reusable</li>
+<li>Auditable</li>
+</ul>
+<p><em>Avoid implicit measures like this:</em></p>
+<p><code>Total Visits = fact_patient_visits[visit_count]</code></p>
+<p><strong>Implicit measures:</strong></p>
+<ul>
+<li>Are hard to read</li>
+<li>Cannot be reused</li>
+<li>Lead to inconsistent results</li>
+</ul>
+<p><strong>Pattern 2: Filtered Calculations with CALCULATE</strong></p>
+<p><strong><em>CALCULATE</em></strong> is the most powerful function in DAX. It modifies the context. It answers the question: <em>“Calculate this number, BUT apply these specific rules first.”</em></p>
+<p>Example: Counting only Malaria-positive cases tested via RDT.</p>
+<pre class="dax"><code>Malaria Positive Cases RDT =
+CALCULATE (
+    [Total Visits],         // The base measure
+    'fact_patient_visits'[test_type] = "Malaria RDT", // Rule 1
+    'fact_patient_visits'[test_result] = "Positive"   // Rule 2
+)</code></pre>
+<p>This measure respects existing slicers on the page (like Date or District) but adds the strict conditions that the test must be RDT and the result must be Positive. It will produce consistent results across visuals</p>
+<blockquote>
+<p>Note: <strong>CALCULATE</strong> applies your specific hard-coded rules on top of the current context. It ensures your indicator definition is always applied, regardless of what other slicers the user touches.</p>
+</blockquote>
+<p><strong>Pattern 3: Safe Ratios with DIVIDE</strong></p>
+<p>Never divide indicators using <em>/</em> symbol. Division by zero is common in health data (e.g., a facility that did no testing last month). Using <em>/</em> will break your visuals with errors.</p>
+<p>Always use <strong><em>DIVIDE</em></strong>. It handles zeros gracefully.</p>
+<p><code>Positivity Rate =  DIVIDE ([Malaria Positive Cases RDT],// Numerator      [Total Tested],   // Denominator      0               // Alternate result if denominator is 0 )</code></p>
+<p>This ensures:</p>
+<ul>
+<li>No errors</li>
+<li>Stable visuals</li>
+<li>Predictable output</li>
+</ul>
+<p><strong>Pattern 4: Time Intelligence</strong></p>
+<p>Time-based comparison is central to monitoring. These calculations work best when you have a dedicated Date Dimension connected in your model.</p>
+<p>Example: Calculating visits in the previous month for comparison.</p>
+<pre class="dax"><code>Visits Last Month = 
+CALCULATE ( [Total Visits], DATEADD ( dim_date[date], -1, MONTH ) )</code></pre>
+<p><strong><em>Month-on-month growth:</em></strong></p>
+<pre class="dax"><code>Visits MoM Growth = 
+DIVIDE ( [Total Visits] - [Visits Last Month], 
+[Visits Last Month], 0 )</code></pre>
+<hr>
+</div>
+<div id="variables-making-dax-easier-to-read-and-trust" class="section level2" number="7.6">
+<h2>
+<span class="header-section-number">7.6</span> <strong>Variables:</strong> Making DAX Easier to Read and Trust<a class="anchor" aria-label="anchor" href="#variables-making-dax-easier-to-read-and-trust"><i class="fas fa-link"></i></a>
+</h2>
+<p>As your logic grows, readability matters. Variables (<em>VAR</em>) allow you to break logic into steps, name those steps clearly, and simplify debugging. They make formulas look like indicator definitions.</p>
+<p>Instead of writing one giant ratio formula, break it down:</p>
+<pre class="dax"><code>Positivity Rate = 
+VAR Numerator = [Malaria Positive Cases]
+VAR Denominator = [Total Tested]
+RETURN
+DIVIDE( Numerator, Denominator, 0 )</code></pre>
+<p>Variables do not change results. They change clarity. They make complex formulas easier to read by letting you label the steps, like clearly defining your numerator and denominator before dividing</p>
+<hr>
+</div>
+<div id="common-dax-mistakes-and-why-they-happen" class="section level2" number="7.7">
+<h2>
+<span class="header-section-number">7.7</span> Common DAX Mistakes (And Why They Happen)<a class="anchor" aria-label="anchor" href="#common-dax-mistakes-and-why-they-happen"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most DAX problems are not syntax errors.They are <em>“thinking”</em> errors. Common causes include:</p>
+<ul>
+<li>Using DAX to compensate for weak models</li>
+<li>Overusing calculated columns</li>
+<li>Removing filters unnecessarily</li>
+<li>Copying and pasting formulas from the internet without understanding the context they were written for.</li>
+</ul>
+<p>When DAX feels difficult, stop and ask:</p>
+<ul>
+<li>What is the event I am counting?</li>
+<li>What filters apply naturally?</li>
+<li>What filters am I adding deliberately?</li>
+<li>Am I defining logic or patching structure?</li>
+</ul>
+<p><u><strong>Here is a Simple DAX Checklist</strong></u></p>
+<p>Before writing any measure, ask:</p>
+<ol style="list-style-type: decimal">
+<li>What is the exact indicator definition in plain English?</li>
+<li>Which table contains the events I am counting?</li>
+<li>Which filters should apply automatically (from slicers)?</li>
+<li>Which hard-coded filters do I need to add using CALCULATE?</li>
+<li>Am I defining a ratio? If so, use DIVIDE.</li>
+</ol>
+<p>If you can answer these questions, the DAX will be straightforward.</p>
+</div>
+<div id="what-to-carry-forward" class="section level2" number="7.8">
+<h2>
+<span class="header-section-number">7.8</span> What to Carry Forward<a class="anchor" aria-label="anchor" href="#what-to-carry-forward"><i class="fas fa-link"></i></a>
+</h2>
+<p>DAX is not something to fear. It is the language of explicit definitions. When used correctly, indicators remain consistent, numbers are trusted, and dashboards become stable decision tools</p>
+<p><em>The next chapter focuses on designing visuals that respect indicators, ensuring that strong logic is communicated clearly and responsibly.</em></p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></div>
+<div class="next"><a href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dax-without-fear"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="nav-link" href="#what-dax-really-is"><span class="header-section-number">7.1</span> What DAX Really Is</a></li>
+<li>
+<a class="nav-link" href="#measures-vs-calculated-columns"><span class="header-section-number">7.2</span> Measures vs Calculated Columns</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#i.-calculated-columns"><span class="header-section-number">7.2.1</span> i. Calculated Columns</a></li>
+<li><a class="nav-link" href="#ii.-measures"><span class="header-section-number">7.2.2</span> ii. Measures</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#thinking-in-indicators-not-formulas"><span class="header-section-number">7.3</span> Thinking in Indicators, Not Formulas</a></li>
+<li>
+<a class="nav-link" href="#context-the-core-idea-behind-dax"><span class="header-section-number">7.4</span> Context: The Core Idea Behind DAX</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-simplest-measure-you-can-write"><span class="header-section-number">7.4.1</span> The Simplest Measure You Can Write</a></li></ul>
+</li>
+<li><a class="nav-link" href="#core-dax-patterns-you-will-reuse"><span class="header-section-number">7.5</span> Core DAX Patterns You Will Reuse</a></li>
+<li><a class="nav-link" href="#variables-making-dax-easier-to-read-and-trust"><span class="header-section-number">7.6</span> Variables: Making DAX Easier to Read and Trust</a></li>
+<li><a class="nav-link" href="#common-dax-mistakes-and-why-they-happen"><span class="header-section-number">7.7</span> Common DAX Mistakes (And Why They Happen)</a></li>
+<li><a class="nav-link" href="#what-to-carry-forward"><span class="header-section-number">7.8</span> What to Carry Forward</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/08-dax.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/08-dax.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

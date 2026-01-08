@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter: 4 Connecting to Common Data Sources | Power BI for M&amp;E and Public Health Data Analysts</title>
+<meta name="author" content="Oluwatobi Olatunbosun">
+<meta name="description" content="Power BI Desktop can connect to hundreds of different data sources, but most Monitoring and Evaluation and Public Health workflows rely on a small and predictable subset. The Get Data button on...">
+<meta name="generator" content="bookdown 0.46 with bs4_book()">
+<meta property="og:title" content="Chapter: 4 Connecting to Common Data Sources | Power BI for M&amp;E and Public Health Data Analysts">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Power BI Desktop can connect to hundreds of different data sources, but most Monitoring and Evaluation and Public Health workflows rely on a small and predictable subset. The Get Data button on...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter: 4 Connecting to Common Data Sources | Power BI for M&amp;E and Public Health Data Analysts">
+<meta name="twitter:description" content="Power BI Desktop can connect to hundreds of different data sources, but most Monitoring and Evaluation and Public Health workflows rely on a small and predictable subset. The Get Data button on...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Power BI for M&amp;E and Public Health Data Analysts</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="about-the-author.html">About the Author</a></li>
+<li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="prerequisites.html">Prerequisites</a></li>
+<li><a class="" href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></li>
+<li><a class="" href="from-question-to-dashboard-mindset.html"><span class="header-section-number">2</span> From Question to Dashboard (Mindset)</a></li>
+<li><a class="" href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></li>
+<li><a class="active" href="connecting-to-common-data-sources.html"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li><a class="" href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></li>
+<li><a class="" href="the-star-schema-the-backbone-of-analytical-models.html"><span class="header-section-number">6</span> The Star Schema: The Backbone of Analytical Models</a></li>
+<li><a class="" href="dax-without-fear.html"><span class="header-section-number">7</span> DAX Without Fear</a></li>
+<li><a class="" href="designing-dashboards-people-actually-use.html"><span class="header-section-number">8</span> Designing Dashboards People Actually Use</a></li>
+<li><a class="" href="publishing-and-sharing-your-report.html"><span class="header-section-number">9</span> Publishing and Sharing Your Report</a></li>
+<li><a class="" href="acknowledgements.html">Acknowledgements</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tobilayemi/powerbi-for-development-sector">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="connecting-to-common-data-sources" class="section level1" number="4">
+<h1>
+<span class="header-section-number">Chapter: 4</span> Connecting to Common Data Sources<a class="anchor" aria-label="anchor" href="#connecting-to-common-data-sources"><i class="fas fa-link"></i></a>
+</h1>
+<p>Power BI Desktop can connect to hundreds of different data sources, but most Monitoring and Evaluation and Public Health workflows rely on a small and predictable subset.</p>
+<p>The <strong>Get Data</strong> button on the Home ribbon is always the starting point. However, effective use of Power BI is less about knowing <em>every</em> connector and more about knowing <strong>which connector to use in a given situation</strong>.</p>
+<p>In this chapter, we will connect Power BI to the <strong>integrated sample datasets used throughout this book</strong> and build confidence before we begin cleaning and modeling the data.</p>
+<div id="before-you-begin-the-sample-dataset-used-in-this-book" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Before You Begin: The Sample Dataset Used in This Book<a class="anchor" aria-label="anchor" href="#before-you-begin-the-sample-dataset-used-in-this-book"><i class="fas fa-link"></i></a>
+</h2>
+<p>All practical exercises in this guide use a <strong>synthetic, patient-level integrated health dataset</strong> generated specifically for learning.</p>
+<p>The dataset represents routine service delivery across:</p>
+<ul>
+<li>Antenatal Care (ANC)</li>
+<li>HIV and ART</li>
+<li>Malaria</li>
+<li>Tuberculosis (TB)</li>
+<li>Non-Communicable Diseases (NCDs)</li>
+</ul>
+<p><span style="color: red; font-weight: bold;">
+No real patient data is used.
+</span></p>
+<div id="files-included" class="section level3" number="4.1.1">
+<h3>
+<span class="header-section-number">4.1.1</span> Files Included<a class="anchor" aria-label="anchor" href="#files-included"><i class="fas fa-link"></i></a>
+</h3>
+<p>You should have the following CSV files available:</p>
+<ul>
+<li><code>dim_patient.csv</code></li>
+<li><code>dim_facility.csv</code></li>
+<li><code>dim_date.csv</code></li>
+<li><code>fact_patient_visits.csv</code></li>
+</ul>
+<p>These files are intentionally <strong>not clean</strong>. They contain common data quality issues that reflect real health information systems. We will address these issues in later chapters.</p>
+<p>For now, focus only on <strong>connecting the data successfully</strong>.</p>
+</div>
+</div>
+<div id="file-based-data-sources" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> File-Based Data Sources<a class="anchor" aria-label="anchor" href="#file-based-data-sources"><i class="fas fa-link"></i></a>
+</h2>
+<p>File-based data is the most common entry point for M&amp;E professionals and is how we will begin.</p>
+<p>All sample datasets used in this book are provided as <strong>CSV files</strong>, making them easy to import and reuse.</p>
+<div id="practical-exercise-4.1-importing-the-integrated-health-fact-table" class="section level3" number="4.2.1">
+<h3>
+<span class="header-section-number">4.2.1</span> Practical Exercise 4.1: Importing the Integrated Health Fact Table<a class="anchor" aria-label="anchor" href="#practical-exercise-4.1-importing-the-integrated-health-fact-table"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Connect Power BI to the main patient-level fact table.</p>
+<p><strong>Steps:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Open Power BI Desktop<br>
+</li>
+<li>Click <strong>Get Data → Text/CSV</strong><br>
+</li>
+<li>Select <code>fact_patient_visits.csv</code><br>
+</li>
+<li>Review the data preview<br>
+</li>
+<li>Click <strong>Load</strong>
+</li>
+</ol>
+<p>To import a CSV file, use the <strong>Get Data</strong> menu and select the <strong>Text/CSV</strong> option.</p>
+<div class="inline-figure"><img src="assets/images/screenshots/import-data-csv.png" alt="Getting CSV file using the Get Data button in Power BI Desktop" width="50%"></div>
+<p><strong>What to Observe:</strong></p>
+<ul>
+<li>The number of rows loaded</li>
+<li>Yes/No fields with inconsistent formatting</li>
+<li>Date fields that appear as text</li>
+<li>Missing or unexpected values</li>
+</ul>
+<p>To view the imported data, click the <strong>Table View</strong> icon on the left sidebar.</p>
+<div class="inline-figure"><img src="assets/images/screenshots/powerbi-table-view-icon.png" alt="Table view icon in Power BI Desktop" width="30%"></div>
+<p>Do <strong>not</strong> attempt to fix anything yet. We will address these issues in the next chapter.</p>
+</div>
+<div id="practical-exercise-4.2-importing-dimension-tables" class="section level3" number="4.2.2">
+<h3>
+<span class="header-section-number">4.2.2</span> Practical Exercise 4.2: Importing Dimension Tables<a class="anchor" aria-label="anchor" href="#practical-exercise-4.2-importing-dimension-tables"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Import supporting dimension tables used for analysis.</p>
+<p>Repeat the steps above for each of the following files:</p>
+<ul>
+<li><code>dim_patient.csv</code></li>
+<li><code>dim_facility.csv</code></li>
+<li><code>dim_date.csv</code></li>
+</ul>
+<p>You should now have <strong>four tables</strong> loaded into Power BI.</p>
+<p><strong>Reflection:</strong></p>
+<p>As you review the imported tables, consider:</p>
+<ul>
+<li>Which tables contain unique records?</li>
+<li>Which tables are primarily descriptive?</li>
+<li>Which table contains repeated transactional records?</li>
+<li>Which fields look suitable for relationships?</li>
+</ul>
+<p>These questions will become important in the modeling chapter.</p>
+</div>
+</div>
+<div id="understanding-why-csv-is-used-here" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Understanding Why CSV Is Used Here<a class="anchor" aria-label="anchor" href="#understanding-why-csv-is-used-here"><i class="fas fa-link"></i></a>
+</h2>
+<p>CSV files are widely used for data exchange in public health systems, including exports from:</p>
+<ul>
+<li><strong>DHIS2</strong></li>
+<li><strong>EMRs</strong></li>
+<li><strong>KoboToolbox and ODK</strong></li>
+<li><strong>Laboratory systems</strong></li>
+</ul>
+<p>They are lightweight, consistent, and ideal for automation, but they often contain:</p>
+<ul>
+<li>Formatting inconsistencies</li>
+<li>Missing values</li>
+<li>Invalid dates</li>
+<li>Mixed data types</li>
+</ul>
+<p>Power BI is designed to handle these challenges when used correctly.</p>
+</div>
+<div id="the-folder-connector-optional-but-powerful" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> The Folder Connector (Optional but Powerful)<a class="anchor" aria-label="anchor" href="#the-folder-connector-optional-but-powerful"><i class="fas fa-link"></i></a>
+</h2>
+<p>In real-world reporting, data is often received periodically, such as:</p>
+<ul>
+<li>Monthly extracts</li>
+<li>Quarterly program reports</li>
+<li>Routine facility submissions</li>
+</ul>
+<p>The <strong>Folder connector</strong> allows Power BI to combine multiple files with the same structure automatically.</p>
+<div id="practical-exercise-4.3-exploring-the-folder-connector-optional" class="section level3" number="4.4.1">
+<h3>
+<span class="header-section-number">4.4.1</span> Practical Exercise 4.3: Exploring the Folder Connector (Optional)<a class="anchor" aria-label="anchor" href="#practical-exercise-4.3-exploring-the-folder-connector-optional"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Objective:</strong> Understand how Power BI handles multiple files.</p>
+<p><strong>Setup (Optional):</strong></p>
+<ul>
+<li>Create a folder on your computer</li>
+<li>Copy <code>fact_patient_visits.csv</code> into it multiple times</li>
+<li>Rename the copies (for example: <code>Jan_visits.csv</code>, <code>Feb_visits.csv</code>)</li>
+</ul>
+<p><strong>Steps:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Click <strong>Get Data → Folder</strong><br>
+</li>
+<li>Select the folder<br>
+</li>
+<li>Click <strong>Combine and Transform</strong>
+</li>
+</ol>
+<p><strong>Reflection:</strong></p>
+<ul>
+<li>Review the combined data preview</li>
+<li>Observe how Power BI applies the same steps to each file</li>
+<li>Note how this approach supports ongoing reporting</li>
+</ul>
+<p>We will not use this method for the main exercises, but it is important to understand.</p>
+</div>
+</div>
+<div id="database-and-online-sources-context-only" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Database and Online Sources (Context Only)<a class="anchor" aria-label="anchor" href="#database-and-online-sources-context-only"><i class="fas fa-link"></i></a>
+</h2>
+<p>As programs scale, data may be stored in:</p>
+<ul>
+<li>SQL databases</li>
+<li>Cloud platforms</li>
+<li>APIs</li>
+<li>SharePoint Lists</li>
+</ul>
+<p>Power BI supports these sources, often with the help of a gateway for secure refresh.</p>
+<p>For now, we focus on file-based data to keep learning accessible and reproducible.</p>
+</div>
+<div id="understanding-connection-modes" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Understanding Connection Modes<a class="anchor" aria-label="anchor" href="#understanding-connection-modes"><i class="fas fa-link"></i></a>
+</h2>
+<p>When importing the sample datasets, Power BI uses <strong>Import mode</strong> by default.</p>
+<div id="import-mode-recommended" class="section level3" number="4.6.1">
+<h3>
+<span class="header-section-number">4.6.1</span> Import Mode (Recommended)<a class="anchor" aria-label="anchor" href="#import-mode-recommended"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Data is copied into Power BI’s internal engine</li>
+<li>Performance is fast</li>
+<li>All features are available</li>
+<li>Ideal for most M&amp;E and public health analysis</li>
+</ul>
+</div>
+<div id="directquery-mode-not-used-here" class="section level3" number="4.6.2">
+<h3>
+<span class="header-section-number">4.6.2</span> DirectQuery Mode (Not Used Here)<a class="anchor" aria-label="anchor" href="#directquery-mode-not-used-here"><i class="fas fa-link"></i></a>
+</h3>
+<p>DirectQuery keeps data in the source system and queries it live. While useful in some scenarios, it introduces complexity and limitations that are unnecessary for this guide.</p>
+<blockquote>
+<p><strong>Rule of thumb:</strong><br>
+If you are learning or unsure, use Import.</p>
+</blockquote>
+</div>
+</div>
+<div id="practice-summary" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Practice Summary<a class="anchor" aria-label="anchor" href="#practice-summary"><i class="fas fa-link"></i></a>
+</h2>
+<p>By the end of this chapter, you should have:</p>
+<ul>
+<li>Imported all four sample datasets</li>
+<li>Confirmed that data loads successfully</li>
+<li>Resisted the urge to clean or model prematurely</li>
+</ul>
+<p>At this stage, the data may look messy. That is expected.</p>
+<p>The next chapter focuses on <strong>cleaning and transforming data using Power Query</strong>, where we will systematically fix these issues and prepare the data for proper modeling and analysis.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="understanding-the-power-bi-ecosystem.html"><span class="header-section-number">3</span> Understanding the Power BI Ecosystem</a></div>
+<div class="next"><a href="power-query-basics-that-actually-matter.html"><span class="header-section-number">5</span> Power Query Basics That Actually Matter</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#connecting-to-common-data-sources"><span class="header-section-number">4</span> Connecting to Common Data Sources</a></li>
+<li>
+<a class="nav-link" href="#before-you-begin-the-sample-dataset-used-in-this-book"><span class="header-section-number">4.1</span> Before You Begin: The Sample Dataset Used in This Book</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#files-included"><span class="header-section-number">4.1.1</span> Files Included</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#file-based-data-sources"><span class="header-section-number">4.2</span> File-Based Data Sources</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#practical-exercise-4.1-importing-the-integrated-health-fact-table"><span class="header-section-number">4.2.1</span> Practical Exercise 4.1: Importing the Integrated Health Fact Table</a></li>
+<li><a class="nav-link" href="#practical-exercise-4.2-importing-dimension-tables"><span class="header-section-number">4.2.2</span> Practical Exercise 4.2: Importing Dimension Tables</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#understanding-why-csv-is-used-here"><span class="header-section-number">4.3</span> Understanding Why CSV Is Used Here</a></li>
+<li>
+<a class="nav-link" href="#the-folder-connector-optional-but-powerful"><span class="header-section-number">4.4</span> The Folder Connector (Optional but Powerful)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#practical-exercise-4.3-exploring-the-folder-connector-optional"><span class="header-section-number">4.4.1</span> Practical Exercise 4.3: Exploring the Folder Connector (Optional)</a></li></ul>
+</li>
+<li><a class="nav-link" href="#database-and-online-sources-context-only"><span class="header-section-number">4.5</span> Database and Online Sources (Context Only)</a></li>
+<li>
+<a class="nav-link" href="#understanding-connection-modes"><span class="header-section-number">4.6</span> Understanding Connection Modes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#import-mode-recommended"><span class="header-section-number">4.6.1</span> Import Mode (Recommended)</a></li>
+<li><a class="nav-link" href="#directquery-mode-not-used-here"><span class="header-section-number">4.6.2</span> DirectQuery Mode (Not Used Here)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#practice-summary"><span class="header-section-number">4.7</span> Practice Summary</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tobilayemi/powerbi-for-development-sector/blob/master/05-data-sources.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tobilayemi/powerbi-for-development-sector/edit/master/05-data-sources.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Power BI for M&amp;E and Public Health Data Analysts</strong>" was written by Oluwatobi Olatunbosun. It was last built on 2025.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
