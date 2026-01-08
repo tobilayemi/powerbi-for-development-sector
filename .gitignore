@@ -1,0 +1,11 @@
+# R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+
+# Book output
+_book/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
