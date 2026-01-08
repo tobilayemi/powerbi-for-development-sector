@@ -1,0 +1,25 @@
+# How to Cite This Book {-}
+
+If you use ideas, structure, figures, or examples from this book in reports, presentations, academic work, or training materials, please cite it as follows.
+
+## Recommended Citation
+
+Olatunbosun, O. (2025).  
+*Power BI for Monitoring and Evaluation and Public Health*.  
+Available online at: *[URL to be added]*
+
+## Informal Reference
+
+For slide decks or non-academic materials, you may reference the book as:
+
+> Olatunbosun, *Power BI for M&E and Public Health* (2025)
+
+## Versioning Note
+
+This book is published online and may be updated over time.  
+If citing a specific version, include the access date or version tag where applicable.
+
+Example:
+
+> Accessed March 2025.
+

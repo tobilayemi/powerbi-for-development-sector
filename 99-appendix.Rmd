@@ -1,0 +1,173 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# (APPENDIX) Appendix {.unnumbered}
+
+# Data Dictionary and Access {#data-dictionary}
+
+In any Monitoring and Evaluation project, a **Data Dictionary** is
+essential. It defines exactly what each column means, ensuring that
+everyone calculates indicators using the same logic.
+
+## Accessing the Data
+
+All datasets used in this book can be downloaded from the link below.
+
+[**Download the Project Data (Google
+Drive)**](https://drive.google.com/drive/folders/1hitXL7MFdsz03OVi_ihTtrh1g29kk9xc?usp=sharing)
+
+The folder contains:
+
+1.  `fact_patient_visits.csv`
+2.  `dim_facility.csv`
+3.  `dim_date.csv`
+4.  `dim_patient.csv`
+
+------------------------------------------------------------------------
+
+## Dictionary: Fact Table
+
+**File:** `fact_patient_visits.csv`
+**Description:** This table records every individual patient visit to a
+health facility. It is the **transactional line list**.
+
+| Column Name | Data Type | Description | Values / Notes |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| **VisitID** | Text | Unique identifier for the visit | e.g., `VIS1001` |
+| **FacilityID** | Text | Foreign Key linking to `dim_facility` | e.g., `FAC001` |
+| **Date** | Date | The date the patient presented at the facility | Format: `YYYY-MM-DD` |
+| **Age** | Whole Number | Age of the patient in years | 0 - 99 |
+| **Sex** | Text | Biological sex of the patient | `Male`, `Female` |
+| **Test_Type** | Text | The type of Malaria test conducted | `RDT` (Rapid Diagnostic Test), `Microscopy` |
+| **Test_Result** | Text | The result of the malaria test | `Positive`, `Negative` |
+| **Treatment_Given** | Text | The medication dispensed to the patient | `Artemether`, `Quinine`, `None` |
+| **Service_Type** | Text | The program area for the visit | `Malaria`, `ANC`, `TB`, `OPD` |
+
+## Dictionary: Dimension Tables
+
+### Facilities
+
+**File:** `dim_facility.csv`
+**Description:** Metadata for all health facilities, allowing analysis
+by geography and ownership.
+
+| Column Name | Data Type | Description | Values / Notes |
+|:-----------------|:-----------------|:-----------------|:-----------------|
+| **FacilityID** | Text | Unique Key. Links to Fact Table. | e.g., `FAC001` |
+| **FacilityName** | Text | The common name of the facility | e.g., `Central Hospital` |
+| **District** | Text | The administrative district | `Highland`, `Coastal` |
+| **Province** | Text | The larger administrative region | `North`, `South` |
+| **Ownership** | Text | Who manages the facility | `Government`, `Private`, `NGO`, `Faith-Based` |
+| **Type** | Text | Level of care provided | `Hospital`, `Health Center`, `Dispensary` |
+
+### Date Table
+
+**File:** `dim_date.csv`
+**Description:** A standard calendar table used for time intelligence
+calculations.
+
+| Column Name | Data Type    | Description                                       |
+|:--------------|:--------------|:-----------------------------------------|
+| **Date**    | Date         | Continuous dates from Jan 1, 2023 to Dec 31, 2024 |
+| **Year**    | Whole Number | The calendar year (e.g., 2024)                    |
+| **Quarter** | Text         | Q1, Q2, Q3, Q4                                    |
+| **Month**   | Text         | January, February, etc.                           |
+
+------------------------------------------------------------------------
+
+# Generating the Data (R Script) {#r-script}
+
+For transparency (and for those interested in data simulation), we
+generated the dataset for this book using the **R programming
+language**.
+
+If you wish to generate a **larger** dataset (e.g., 1 million rows) to
+test Power BI's performance, you can run the script below in RStudio.
+
+``` r
+# --- Data Generation Script for Power BI Training ---
+# Simulates a Public Health Line List
+set.seed(2025) 
+
+# 1. Setup
+n_rows <- 10000
+districts <- c("Highland", "Coastal")
+facility_types <- c("Hospital", "Health Center", "Dispensary")
+owners <- c("Government", "Private", "NGO", "FBO")
+
+# 2. Generate Facilities (Dimension)
+facilities <- data.frame(
+  FacilityID = paste0("FAC", 101:150),
+  FacilityName = paste("Facility", 1:50),
+  District = sample(districts, 50, replace = TRUE),
+  Ownership = sample(owners, 50, replace = TRUE),
+  Type = sample(facility_types, 50, replace = TRUE)
+)
+write.csv(facilities, "dim_facility.csv", row.names = FALSE)
+
+# 3. Generate Visits (Fact)
+# Logic: Coastal district has high cases but low treatment (Stockouts)
+dates <- seq(as.Date("2024-01-01"), as.Date("2024-12-31"), by="day")
+
+generate_visit <- function(id) {
+  fac_id <- sample(facilities$FacilityID, 1)
+  district <- facilities$District[facilities$FacilityID == fac_id]
+  
+  # Demographics
+  age <- sample(0:80, 1)
+  sex <- sample(c("Male", "Female"), 1)
+  visit_date <- sample(dates, 1)
+  
+  # Clinical Logic
+  test_result <- sample(c("Positive", "Negative"), 1, prob = c(0.4, 0.6))
+  treatment <- "None"
+  
+  if(test_result == "Positive") {
+    if(district == "Highland") {
+      treatment <- "Artemether" # Highland treats everyone
+    } else {
+      treatment <- sample(c("Artemether", "None"), 1, prob = c(0.5, 0.5)) # Coastal has stockouts
+    }
+  }
+  
+  return(c(paste0("VIS", id), fac_id, as.character(visit_date), age, sex, test_result, treatment))
+}
+
+visits_matrix <- t(sapply(1:n_rows, generate_visit))
+colnames(visits_matrix) <- c("VisitID", "FacilityID", "Date", "Age", "Sex", "Test_Result", "Treatment_Given")
+write.csv(visits_matrix, "fact_patient_visits.csv", row.names = FALSE)
+
+print("Data Generation Complete.")
+```
+
+------------------------------------------------------------------------
+# References and Key Frameworks {-}
+
+While this book focuses on practical implementation, the methodologies used are grounded in established standards for data warehousing, visualization, and public health monitoring.
+
+Below are the primary sources and frameworks that informed the structure of this guide.
+
+## 1. Data Modeling & Warehousing
+The "Star Schema" approach used in Chapter 5 is based on **Dimensional Modeling** theory.
+
+* **Kimball, R., & Ross, M.** (2013). *The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling*. Wiley. (The industry standard for star schema design).
+
+## 2. Data Visualization Theory
+The design principles in Chapter 12 (The 5-Second Rule, Z-Pattern) draw from cognitive psychology and information design.
+
+* **Knaflic, C. N.** (2015). *Storytelling with Data: A Data Visualization Guide for Business Professionals*. Wiley.
+* **Few, S.** (2004). *Show Me the Numbers: Designing Tables and Graphs to Enlighten*. Analytics Press.
+
+## 3. M&E and Public Health Standards
+The indicator definitions and synthetic data structure align with common global health frameworks.
+
+* **World Health Organization (WHO).** (2020). *Data Quality Review (DQR) Toolkit*. (For data quality checks and validation logic).
+* **DHIS2.** *DHIS2 User Guide / Analytics*. (For the logic behind facility-district-province hierarchies).
+
+## 4. Microsoft Power BI Documentation
+Technical features and DAX behaviors change frequently. The official documentation remains the primary reference.
+
+* **Microsoft Learn.** *Power BI Documentation*. [https://learn.microsoft.com/en-us/power-bi/](https://learn.microsoft.com/en-us/power-bi/)

@@ -1,0 +1,276 @@
+# DAX Without Fear
+
+For many Power BI users, DAX is where confidence breaks. People describe DAX as too complex, too mathematical, easy to get wrong, or meant only for "advanced users."
+
+In reality, DAX is none of these things.
+
+**DAX is simply the language Power BI uses to answer questions precisely.**
+
+If you already work in Monitoring and Evaluation or Public Health, you already think in DAX terms. You define indicators, specify eligibility criteria, apply reporting rules, and interpret numbers in context. DAX simply formalizes that thinking into code.
+
+## What DAX Really Is
+
+DAX stands for **Data Analysis Expressions**. At its core, DAX is a way to:
+
+-   Create reusable calculations (Indicators).
+-   Define relationships between tables.
+-   Express logic clearly.
+-   Control how numbers respond to filters.
+-   Ensure consistency across reports.
+
+**DAX is not:**
+
+-   A data cleaning tool (That's Power Query).
+-   A scripting language like R or Python.
+-   A substitute for proper modeling.
+
+> **Important Principle:** DAX works best on top of a well-structured star schema. It cannot compensate for poor data modeling. If your DAX feels overly complicated, check your model first.
+
+------------------------------------------------------------------------
+
+## Measures vs Calculated Columns
+
+**(The Most Important Concept to Understand)**
+
+This distinction appears in almost every Power BI interview, and misunderstanding it leads to slow, fragile reports.
+
+**Calculated Columns** and **Measures** are both ways to create new data in Power BI, but they serve different purposes. Understanding when to use each is crucial for building efficient and reliable models.
+
+### i. Calculated Columns
+
+A calculated column is a new column added physically to a table.
+
+-   **How it works:** Calculated row by row.
+-   **When it runs:** Computed only during data refresh.
+-   **Storage:** Stored in the model and consumes memory. **Unlike measures, calculated columns increase the file size of your Power BI model.**
+
+A calculated column answers the question: **"What is true about this specific row?"**
+
+Common M&E use cases include:
+
+-   **Grouping age bands:** `dax     Age Group = IF ( 'Patients'[Age] < 5, "Under 5", "5 and Above" )`
+-   Creating categorical flags (e.g., "Lost to Follow-up").
+-   Creating display-friendly labels by combining fields.
+
+**Takeaway:** Calculated columns are useful for classification, grouping, and slicing, not for final indicators.
+
+### ii. Measures
+
+A measure is a dynamic calculation formula.
+
+-   **How it works:** Aggregates data based on filters.
+-   **When it runs:** Evaluated at query time (whenever a user clicks a visual or changes a slicer).
+-   **Storage:** Not stored as physical data. It is just saved logic.
+
+A measure answers the question: **"What is the result right now, given the current filters?"**
+
+Common M&E use cases include:
+
+-   Total patient visits.
+-   Number of patients tested.
+-   Coverage rates (percentages).
+-   Positivity rates.
+
+In professional models, your final indicators are almost always measures.
+
+> **Rule of Thumb:** \* If you want to put it on an Axis or Slicer (to define categories), use a **Column**. \* If you want to put it in the Values area (to see a number), use a **Measure**.
+
+------------------------------------------------------------------------
+
+## Thinking in Indicators, Not Formulas
+
+Many beginners ask: "What formula should I write?" A better question is: **"What exactly am I trying to measure?"**
+
+In Monitoring and Evaluation, indicators are defined long before software tools are opened. DAX simply encodes those definitions. An indicator usually consists of:
+
+1.  A population of interest.
+2.  Inclusion and exclusion rules.
+3.  A numerator.
+4.  A denominator.
+5.  A reporting context (e.g., "Annual").
+
+DAX allows you to express this logic once and reuse it everywhere.
+
+------------------------------------------------------------------------
+
+## Context: The Core Idea Behind DAX
+
+Most confusion around DAX comes from misunderstanding "Context." Context simply answers one question:
+
+**"Which rows are visible right now?"**
+
+Context is created by: \* Slicers on the page. \* Visual or page-level filters. \* The specific row or column in a chart or matrix. \* Relationships flowing between tables in the data model.
+
+**DAX does not invent numbers.** It evaluates expressions based on the rows that are currently visible in the context.
+
+### The Simplest Measure You Can Write
+
+If you have a line list of patient visits, the simplest measure is counting them.
+
+``` dax
+Total Visits = COUNTROWS ( fact_patient_visits )
+```
+
+This measure:
+
+-   Counts rows in the fact table
+
+-   Automatically respects filters
+
+If you filter by:
+
+-   **Facility** → counts visits for that facility
+
+-   **Date** → counts visits for that period
+
+-   **District** → counts visits for that district
+
+No additional logic is required. This is DAX working as intended.
+
+------------------------------------------------------------------------
+
+## Core DAX Patterns You Will Reuse
+
+You do not need to learn the entire DAX language. Most public health dashboards rely on a small set of reusable patterns.
+
+**Pattern 1: Explicit Aggregation**
+
+Always write explicit measures instead of relying on Power BI's default "drag and drop" summarization. Explicit measures are clear, reusable, and auditable.
+
+If your data has a column for quantities (e.g., commodities distributed), use `SUM`:
+
+```         
+Total Commodities = SUM ( fact_distribution[quantity] )
+```
+
+If your data is a line list of events (e.g., patient visits), use `COUNTROWS`:
+
+`Total Visits = COUNTROWS ( fact_patient_visits )`
+
+***Explicit measures are:***
+
+-   Clear
+-   Reusable
+-   Auditable
+
+*Avoid implicit measures like this:*
+
+`Total Visits = fact_patient_visits[visit_count]`
+
+**Implicit measures:**
+
+-   Are hard to read
+-   Cannot be reused
+-   Lead to inconsistent results
+
+**Pattern 2: Filtered Calculations with CALCULATE**
+
+***CALCULATE*** is the most powerful function in DAX. It modifies the context. It answers the question: *"Calculate this number, BUT apply these specific rules first."*
+
+Example: Counting only Malaria-positive cases tested via RDT.
+
+``` dax
+Malaria Positive Cases RDT =
+CALCULATE (
+    [Total Visits],         // The base measure
+    'fact_patient_visits'[test_type] = "Malaria RDT", // Rule 1
+    'fact_patient_visits'[test_result] = "Positive"   // Rule 2
+)
+```
+
+This measure respects existing slicers on the page (like Date or District) but adds the strict conditions that the test must be RDT and the result must be Positive. It will produce consistent results across visuals
+
+> Note: **CALCULATE** applies your specific hard-coded rules on top of the current context. It ensures your indicator definition is always applied, regardless of what other slicers the user touches.
+
+**Pattern 3: Safe Ratios with DIVIDE**
+
+Never divide indicators using */* symbol. Division by zero is common in health data (e.g., a facility that did no testing last month). Using */* will break your visuals with errors.
+
+Always use ***DIVIDE***. It handles zeros gracefully.
+
+```Positivity Rate = 
+DIVIDE ([Malaria Positive Cases RDT],// Numerator     
+[Total Tested],   // Denominator     
+0               // Alternate result if denominator is 0 )
+```
+
+This ensures:
+
+-   No errors
+-   Stable visuals
+-   Predictable output
+
+**Pattern 4: Time Intelligence**
+
+Time-based comparison is central to monitoring. These calculations work best when you have a dedicated Date Dimension connected in your model.
+
+Example: Calculating visits in the previous month for comparison.
+
+``` dax
+Visits Last Month = 
+CALCULATE ( [Total Visits], DATEADD ( dim_date[date], -1, MONTH ) )
+```
+
+***Month-on-month growth:***
+
+``` dax
+Visits MoM Growth = 
+DIVIDE ( [Total Visits] - [Visits Last Month], 
+[Visits Last Month], 0 )
+```
+
+------------------------------------------------------------------------
+
+## **Variables:** Making DAX Easier to Read and Trust
+
+As your logic grows, readability matters. Variables (*VAR*) allow you to break logic into steps, name those steps clearly, and simplify debugging. They make formulas look like indicator definitions.
+
+Instead of writing one giant ratio formula, break it down:
+
+``` dax
+Positivity Rate = 
+VAR Numerator = [Malaria Positive Cases]
+VAR Denominator = [Total Tested]
+RETURN
+DIVIDE( Numerator, Denominator, 0 )
+```
+
+Variables do not change results. They change clarity. They make complex formulas easier to read by letting you label the steps, like clearly defining your numerator and denominator before dividing
+
+------------------------------------------------------------------------
+
+## Common DAX Mistakes (And Why They Happen)
+
+Most DAX problems are not syntax errors.They are *"thinking"* errors. Common causes include:
+
+-   Using DAX to compensate for weak models
+-   Overusing calculated columns
+-   Removing filters unnecessarily
+-   Copying and pasting formulas from the internet without understanding the context they were written for.
+
+When DAX feels difficult, stop and ask:
+
+-   What is the event I am counting?
+-   What filters apply naturally?
+-   What filters am I adding deliberately?
+-   Am I defining logic or patching structure?
+
+[**Here is a Simple DAX Checklist**]{.underline}
+
+Before writing any measure, ask:
+
+1.  What is the exact indicator definition in plain English?
+2.  Which table contains the events I am counting?
+3.  Which filters should apply automatically (from slicers)?
+4.  Which hard-coded filters do I need to add using CALCULATE?
+5.  Am I defining a ratio? If so, use DIVIDE.
+
+      
+If you can answer these questions, the DAX will be straightforward.
+
+
+## What to Carry Forward
+
+DAX is not something to fear. It is the language of explicit definitions. When used correctly, indicators remain consistent, numbers are trusted, and dashboards become stable decision tools
+
+*The next chapter focuses on designing visuals that respect indicators, ensuring that strong logic is communicated clearly and responsibly.*

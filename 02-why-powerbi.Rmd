@@ -1,0 +1,132 @@
+# Why Power BI Matters for Data Use
+
+In the development and public health sector, data is abundant but rarely usable in the moment decisions need to be made. Financial data may live in one system, facility targets in Excel files, survey results in KoboToolbox or ODK, and service delivery data in platforms such as DHIS2 or electronic medical records.
+
+Each system works in isolation. The result is not a data shortage, but a **data use problem**.
+
+Teams spend more time preparing data than actually analysing it. By the time reports are produced, the opportunity to act may already have passed.
+
+Power BI matters because it directly addresses this gap between **data availability** and **data use**.
+
+---
+
+## Data Use Is Not the Same as Reporting
+
+In many organisations, reporting and data use are treated as the same thing. They are not.
+
+| **Reporting Focuses On...** | **Data Use Focuses On...** |
+| :--- | :--- |
+| Submitting figures on time | Understanding trends and patterns |
+| Meeting donor or regulatory requirements | Identifying gaps early |
+| Producing static tables and charts | Supporting operational and strategic decisions |
+| **Retrospective** (What happened?) | **Continuous** (What is happening now?) |
+
+Most traditional reporting workflows are retrospective. They tell you what happened last month or last quarter. Effective data use, however, supports **continuous monitoring**, allowing teams to identify issues while there is still time to respond.
+
+Power BI is designed for this second purpose.
+
+---
+
+## The Problem with the Excel Cycle
+
+Most Monitoring and Evaluation teams operate in a familiar manual loop.
+
+
+
+1.  Export data from the server on the 5th of the month.
+2.  Spend several days cleaning it in Excel by fixing dates, removing extra headers, and correcting formats.
+3.  Copy and paste the cleaned data into a "master dashboard" file.
+4.  Email the file to multiple stakeholders.
+5.  **Repeat the same process the following month.**
+
+This cycle feels productive because it produces outputs. In reality, it introduces several hidden risks:
+
+* **Human error** increases with every manual step.
+* **Inconsistencies** arise when different people clean data differently.
+* **Delays** mean decisions are based on outdated information.
+* **Fatigue** sets in as teams repeat the same work every reporting period.
+
+Excel is a powerful tool, but it was never designed to serve as a scalable monitoring system.
+
+> **Note:**
+> Manual Excel workflows also make audit trails weak, since transformation logic often exists only in someone’s memory or personal file.
+
+---
+
+## What Power BI Changes Fundamentally
+
+Power BI does not simply create better charts. It changes how data workflows are designed and maintained.
+
+### 1. From Manual to Automated Workflows
+In Power BI, data preparation steps are defined once using **Power Query**. These steps are saved, documented, and reused. Instead of rebuilding dashboards every month, teams refresh data using the same logic. This shift alone can save days of effort per reporting cycle.
+
+### 2. From Static Files to Live Models
+Excel dashboards are usually copies of data frozen in time. Power BI works with a **data model** that can be refreshed regularly. This enables:
+* More frequent updates.
+* Consistent indicator definitions.
+* Reuse of the same model across multiple reports.
+
+When the model is correct, dashboards become lightweight views rather than separate files to manage.
+
+### 3. From Individual Files to Shared Truth
+In Excel-based reporting, it is common for different stakeholders to have slightly different versions of the same report. Power BI introduces a **Single Source of Truth**:
+* One dataset.
+* One set of indicator definitions.
+* Multiple audiences accessing the same numbers.
+
+This improves trust in the data and reduces time spent reconciling discrepancies.
+
+---
+
+## Scale Matters in Public Health and M&E
+
+Health and development data grows quickly. Line lists, facility-level reporting, and longitudinal patient records can easily exceed what Excel can reliably handle. As datasets grow, performance issues and file instability become common.
+
+Power BI is built to:
+* Compress large datasets efficiently.
+* Handle millions of rows.
+* Support complex relationships between tables.
+
+This makes it suitable for national programs, multi-partner projects, and long-term monitoring systems.
+
+---
+
+## Security and Responsible Data Access
+
+Public health and M&E data often contains sensitive information. Emailing Excel files creates unnecessary risk. Files can be forwarded, copied, or stored without proper controls.
+
+Power BI supports:
+* **Secure access** through user accounts.
+* **Role-based permissions**.
+* **Row-Level Security (RLS)** to restrict what each user can see.
+
+For example, a state or district officer can be limited to viewing data *only* for their assigned location, while national teams retain full visibility. This enables wider data access without compromising confidentiality.
+
+---
+
+## Power BI as a Data Use Enabler
+
+Power BI does not replace sound data management practices. Poor data quality will still produce poor results.
+
+What Power BI does is make good practices easier to maintain:
+* Cleaning steps are explicit and repeatable.
+* Models enforce structure.
+* Calculations are centralized.
+* Visuals are connected to real questions.
+
+When implemented correctly, Power BI shifts teams from spending time on **data preparation** to spending time on **analysis and action**.
+
+That shift is what makes Power BI matter for real-world data use.
+
+---
+
+## What This Means for the Rest of This Guide
+
+This book is not about turning M&E professionals into software developers. It is about helping you:
+
+* Build repeatable data workflows.
+* Reduce manual reporting burden.
+* Improve consistency and trust in indicators.
+* Design dashboards that support decisions, not just reporting.
+
+*The next chapter introduces the Power BI ecosystem and explains how its components work together in practice.*

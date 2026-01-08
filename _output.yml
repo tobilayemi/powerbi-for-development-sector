@@ -1,0 +1,5 @@
+bookdown::bs4_book:
+  theme:
+    primary: "darkblue"
+    secondary: "lightblue"
+  repo: https://github.com/tobilayemi/powerbi-for-development-sector

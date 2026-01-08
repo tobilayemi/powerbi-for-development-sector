@@ -1,0 +1,3193 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Power BI for M\&E and Public Health Data Analysts},
+  pdfauthor={Oluwatobi Olatunbosun},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Power BI for M\&E and Public Health Data Analysts}
+\author{Oluwatobi Olatunbosun}
+\date{(c)2025}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\thispagestyle{empty}
+\begin{center}
+\vspace*{3cm}
+\includegraphics[width=0.9\textwidth]{assets/images/cover/cover-page.png}
+\vfill
+\end{center}
+\newpage
+
+\section*{Preface}\label{preface}
+\addcontentsline{toc}{section}{Preface}
+
+\subsection{Author's Note}\label{authors-note}
+
+This book was written from lived experience.It is an independent work authored in a personal capacity.
+
+Over the years, I have worked with Monitoring and Evaluation teams, data managers, and program leads across public health and development programs who are under constant pressure to produce timely, accurate, and actionable reports. In many of these settings, Power BI is introduced as a tool, but not as a system for thinking about data use.
+
+This guide exists to close that gap.
+
+Rather than teaching Power BI as a collection of buttons and visuals, I focus on the underlying principles that make dashboards reliable, scalable, and trusted. The examples in this book are drawn from real program realities, using synthetic data designed to reflect the complexity and imperfections of health information systems.
+
+My hope is that this resource helps you move beyond reporting and toward meaningful, confident data use.
+
+--- \emph{Oluwatobi Olatunbosun}
+
+\emph{O.O}
+
+\subsection{The Gap in Data Training}\label{the-gap-in-data-training}
+
+If you search for Power BI tutorials online, you will find thousands of examples built around sales revenue, customer churn, and profit margins. These examples are useful, but they are designed for a world where data is clean, definitions are stable, and success is measured primarily in financial terms.
+
+That is not the reality for most Monitoring and Evaluation or Public Health professionals.
+
+In practice, we work with patients, communities, and health facilities. Our data comes from multiple systems that rarely speak to each other. Definitions vary by donor, reporting cycle, and program area. We do not track profit. We track coverage, outcomes, service quality, and impact, often under tight reporting timelines and with imperfect data.
+
+As a result, many professionals learn Power BI in theory but struggle to apply it in real program settings. Dashboards look impressive but break when indicators change. Numbers differ across reports. Teams spend more time fixing spreadsheets than using data to guide decisions.
+
+This guide exists to bridge that gap.
+
+It takes proven Power BI practices from the corporate analytics world and translates them into the context of development programs, health systems, and population-level data. The focus is not on decorative visuals, but on building reliable, reusable, and trusted analytical systems that reflect how public health data actually works.
+
+The goal is simple: \textbf{to help you move from reporting numbers to using data with confidence.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Who This Guide Is For}\label{who-this-guide-is-for}
+
+This guide is written for professionals working with data in development and public health programs who require tools that function effectively in real-world conditions.
+
+It is particularly relevant for:
+
+\begin{itemize}
+\item
+  \textbf{Monitoring and Evaluation Officers}\\
+  Who are responsible for producing routine reports and dashboards, and are tired of manually updating Excel files every reporting cycle. If you spend more time cleaning data and fixing formulas than interpreting results, this guide is written with your workflow in mind.
+\item
+  \textbf{Data Managers and Health Information Officers}\\
+  Who work with data from multiple systems such as KoboToolbox, ODK, DHIS2, laboratory systems, and electronic medical records. If your role involves harmonizing datasets, resolving inconsistencies, and ensuring data quality across sources, this guide focuses on building repeatable and defensible processes.
+\item
+  \textbf{Program Managers and Technical Leads}\\
+  Who rely on data to track performance, identify gaps, and make programmatic decisions. If static PDF reports arrive too late to influence action, this guide demonstrates how interactive dashboards can support timely and informed decision-making.
+\end{itemize}
+
+No prior Power BI expertise is assumed. Concepts are introduced progressively, with practical examples designed to build confidence for beginners while reinforcing best practices for experienced users.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{How to Use This Guide}\label{how-to-use-this-guide}
+
+The book follows a simple and practical \textbf{data lifecycle} that mirrors real project workflows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Orientation}\\
+  Understanding the Power BI ecosystem and how its components fit together.
+\item
+  \textbf{Preparation (ETL)}\\
+  Extracting data from common sources and applying repeatable data cleaning patterns.
+\item
+  \textbf{Modeling}\\
+  Structuring data correctly to support accurate analysis and long-term reuse.
+\item
+  \textbf{Analytics}\\
+  Using DAX to calculate indicators, rates, ratios, and trends commonly used in M\&E and Public Health.
+\item
+  \textbf{Storytelling}\\
+  Designing dashboards that communicate clearly and support action.
+\end{enumerate}
+
+Each chapter builds on the previous one. You can read the book sequentially or jump directly to the section that matches your current needs.
+
+\emph{© 2025 All rights reserved.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Why Power BI Matters for Data Use}\label{why-power-bi-matters-for-data-use}
+
+In the development and public health sector, data is abundant but rarely usable in the moment decisions need to be made. Financial data may live in one system, facility targets in Excel files, survey results in KoboToolbox or ODK, and service delivery data in platforms such as DHIS2 or electronic medical records.
+
+Each system works in isolation. The result is not a data shortage, but a \textbf{data use problem}.
+
+Teams spend more time preparing data than actually analysing it. By the time reports are produced, the opportunity to act may already have passed.
+
+Power BI matters because it directly addresses this gap between \textbf{data availability} and \textbf{data use}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Data Use Is Not the Same as Reporting}\label{data-use-is-not-the-same-as-reporting}
+
+In many organisations, reporting and data use are treated as the same thing. They are not.
+
+Reporting focuses on Submitting figures on time, Meeting donor or regulatory requirements, Producing static tables and charts while Data use focuses on Understanding trends and patterns, Identifying gaps early,Supporting operational and strategic decisions
+
+Most traditional reporting workflows are retrospective. They tell you what happened last month or last quarter. Effective data use, however, supports \textbf{continuous monitoring}, allowing teams to identify issues while there is still time to respond.
+
+Power BI is designed for this second purpose.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The Problem with the Excel Cycle}\label{the-problem-with-the-excel-cycle}
+
+Most Monitoring and Evaluation teams operate in a familiar manual loop:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Export data from the server on the 5th of the month.\\
+\item
+  Spend several days cleaning it in Excel by fixing dates, removing extra headers, and correcting formats.\\
+\item
+  Copy and paste the cleaned data into a ``master dashboard'' file.\\
+\item
+  Email the file to multiple stakeholders.\\
+\item
+  \textbf{Repeat the same process the following month.}
+\end{enumerate}
+
+This cycle feels productive because it produces outputs. In reality, it introduces several hidden risks.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Human error} increases with every manual step.\\
+\item
+  \textbf{Inconsistencies} arise when different people clean data differently.\\
+\item
+  \textbf{Delays} mean decisions are based on outdated information.\\
+\item
+  \textbf{Fatigue} sets in as teams repeat the same work every reporting period.
+\end{itemize}
+
+Excel is a powerful tool, but it was never designed to serve as a scalable monitoring system.
+
+\begin{quote}
+\textbf{Note:}\\
+Manual Excel workflows also make audit trails weak, since transformation logic often exists only in someone's memory or personal file.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{What Power BI Changes Fundamentally}\label{what-power-bi-changes-fundamentally}
+
+Power BI does not simply create better charts. It changes how data workflows are designed and maintained.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{From Manual to Automated Workflows}
+\end{itemize}
+
+In Power BI, data preparation steps are defined once using Power Query. These steps are saved, documented, and reused.
+
+Instead of rebuilding dashboards every month, teams refresh data using the same logic. This shift alone can save days of effort per reporting cycle.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{From Static Files to Live Models}
+\end{itemize}
+
+Excel dashboards are usually copies of data frozen in time. Power BI works with a \textbf{data model} that can be refreshed regularly.
+
+This enables:
+
+\begin{itemize}
+\tightlist
+\item
+  More frequent updates
+\item
+  Consistent indicator definitions
+\item
+  Reuse of the same model across multiple reports
+\end{itemize}
+
+When the model is correct, dashboards become lightweight views rather than separate files to manage.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{From Individual Files to Shared Truth}
+\end{itemize}
+
+In Excel-based reporting, it is common for different stakeholders to have slightly different versions of the same report.
+
+Power BI introduces a shared source of truth:
+
+\begin{itemize}
+\item
+  One dataset
+\item
+  One set of indicator definitions
+\item
+  Multiple audiences accessing the same numbers
+\end{itemize}
+
+This improves trust in the data and reduces time spent reconciling discrepancies.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Scale Matters in Public Health and M\&E}\label{scale-matters-in-public-health-and-me}
+
+Health and development data grows quickly.
+
+Line lists, facility-level reporting, and longitudinal patient records can easily exceed what Excel can reliably handle. As datasets grow, performance issues and file instability become common.
+
+Power BI is built to:
+
+\begin{itemize}
+\tightlist
+\item
+  Compress large datasets efficiently
+\item
+  Handle millions of rows
+\item
+  Support complex relationships between tables
+\end{itemize}
+
+This makes it suitable for national programs, multi-partner projects, and long-term monitoring systems.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Security and Responsible Data Access}\label{security-and-responsible-data-access}
+
+Public health and M\&E data often contains sensitive information.
+
+Emailing Excel files creates unnecessary risk. Files can be forwarded, copied, or stored without proper controls.
+
+Power BI supports:
+
+\begin{itemize}
+\tightlist
+\item
+  Secure access through user accounts
+\item
+  Role-based permissions
+\item
+  Row-Level Security to restrict what each user can see
+\end{itemize}
+
+For example, a state or district officer can be limited to viewing data only for their assigned location, while national teams retain full visibility.
+
+This enables wider data access without compromising confidentiality.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Power BI as a Data Use Enabler}\label{power-bi-as-a-data-use-enabler}
+
+Power BI does not replace sound data management practices. Poor data quality will still produce poor results.
+
+What Power BI does is make good practices easier to maintain:
+
+\begin{itemize}
+\tightlist
+\item
+  Cleaning steps are explicit and repeatable
+\item
+  Models enforce structure
+\item
+  Calculations are centralized
+\item
+  Visuals are connected to real questions
+\end{itemize}
+
+When implemented correctly, Power BI shifts teams from spending time on \textbf{data preparation} to spending time on \textbf{analysis and action}.
+
+That shift is what makes Power BI matter for real-world data use.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{What This Means for the Rest of This Guide}\label{what-this-means-for-the-rest-of-this-guide}
+
+This book is not about turning M\&E professionals into software developers. It is about helping you:
+
+\begin{itemize}
+\tightlist
+\item
+  Build repeatable data workflows
+\item
+  Reduce manual reporting burden
+\item
+  Improve consistency and trust in indicators
+\item
+  Design dashboards that support decisions, not just reporting
+\end{itemize}
+
+\emph{The next chapter introduces the Power BI ecosystem and explains how its components work together in practice.}
+
+\section{Understanding the Power BI Ecosystem}\label{understanding-the-power-bi-ecosystem}
+
+Power BI isn't just a single program. It is a \textbf{collection of tools},
+each designed for a specific role in the data life cycle.
+
+Honestly, most frustrations with Power BI come from not understanding
+this separation. You often see analysts trying to share files directly
+from Desktop, stakeholders expecting to edit reports in the Service, or
+teams completely underestimating the importance of the Gateway.
+
+This chapter gives you a clear mental model of how the ecosystem works
+and how the components fit together in real-world M\&E and public health
+workflows.
+
+At a high level, the ecosystem separates:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Development}
+\item
+  \textbf{Distribution}
+\item
+  \textbf{Consumption}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Power BI Desktop (The Kitchen)}\label{power-bi-desktop-the-kitchen}
+
+Power BI Desktop is a \textbf{free Windows application} where the technical
+work happens.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary role:} Authoring and development
+\item
+  \textbf{Who uses it:} Data analysts, M\&E officers, data managers
+\item
+  \textbf{Typical tasks:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Connecting to data sources
+  \item
+    Cleaning and transforming data with Power Query
+  \item
+    Building data models and relationships
+  \item
+    Writing DAX calculations
+  \item
+    Designing report pages
+  \end{itemize}
+\end{itemize}
+
+Think of Power BI Desktop as the \textbf{Kitchen}.
+
+This is where ingredients are prepared and recipes are tested. It is
+\textbf{not} designed for end users. When too many people work directly in
+the Desktop file, version control breaks down and consistency is lost.
+
+When you first open Power BI Desktop, you are presented with the main
+report canvas and common data connection options.
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/powerbi-desktop-start-screen.png}}
+\caption{Power BI Desktop start screen showing data connection
+options}
+\end{figure}
+
+\begin{quote}
+\textbf{Note:} Treat Power BI Desktop as a controlled environment. Fewer
+authors and stronger standards lead to more reliable dashboards.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Power BI Service (The Restaurant)}\label{power-bi-service-the-restaurant}
+
+The Power BI Service is the \textbf{cloud-based platform} accessed through a
+web browser.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary role:} Distribution and collaboration
+\item
+  \textbf{Who uses it:} Program managers, technical leads, leadership,
+  partners
+\item
+  \textbf{Typical tasks:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Publishing reports from Desktop
+  \item
+    Scheduling data refreshes
+  \item
+    Managing users and permissions
+  \item
+    Creating dashboards from reports
+  \item
+    Sharing content securely
+  \end{itemize}
+\end{itemize}
+
+The Service is the \textbf{Restaurant}.
+
+Stakeholders come here to consume data. They can filter, drill down, and
+interact with visuals, but they cannot change the underlying
+calculations or data structures. This separation protects data integrity
+while still encouraging exploration.
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/Power-Bi-Service.png}}
+\caption{Power BI Service}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Power BI Mobile (The Takeout)}\label{power-bi-mobile-the-takeout}
+
+Power BI Mobile consists of native applications for \textbf{Android and iOS}
+devices.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Primary role:} Quick access and field-level consumption
+\item
+  \textbf{Who uses it:} Field officers, supervisors, roving program staff
+\item
+  \textbf{Typical tasks:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Viewing dashboards optimized for small screens
+  \item
+    Checking trends before meetings or site visits
+  \end{itemize}
+\end{itemize}
+
+This is the \textbf{Takeout} experience.
+
+In decentralised programs, mobile access allows teams to engage with
+data closer to the point of service delivery rather than waiting to get
+back to the office. \pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/PowerBi-Mobile.png}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The Power BI Gateway (The Bridge)}\label{the-power-bi-gateway-the-bridge}
+
+Many development and public health organisations rely on \textbf{on-premise
+systems}, including:
+
+\begin{itemize}
+\tightlist
+\item
+  Local SQL databases
+\item
+  DHIS2 instances hosted within private government networks
+\item
+  EMRs deployed at the facility or state level
+\end{itemize}
+
+The Power BI Gateway acts as a secure bridge between these systems and
+the Power BI Service.
+
+\begin{itemize}
+\tightlist
+\item
+  It enables automated refresh from internal data sources.
+\item
+  It runs inside the organisation's network.
+\item
+  It prevents direct exposure of databases to the internet. \pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/Power-Bi-Gateway.png}}
+\end{itemize}
+
+\begin{quote}
+\textbf{Note:} Gateway misconfiguration is one of the most common reasons
+dashboards fail after deployment. Plan for this early.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{How the Ecosystem Works in Practice}\label{how-the-ecosystem-works-in-practice}
+
+A typical workflow looks like this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Data is connected, cleaned, and modeled in \textbf{Power BI Desktop}.
+\item
+  The report is published to the \textbf{Power BI Service}.
+\item
+  A \textbf{Gateway} refreshes data on a schedule (if the data is
+  on-premise).
+\item
+  Stakeholders access dashboards via the \textbf{Service or Mobile app}.
+  \pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/PowerBi-Ecosystem-Workflow.png}}
+\end{enumerate}
+
+\begin{quote}
+\textbf{Note} Each component has a defined responsibility. Respecting these
+boundaries keeps systems stable and scalable.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Common Misunderstandings to Avoid}\label{common-misunderstandings-to-avoid}
+
+\begin{itemize}
+\tightlist
+\item
+  Treating Power BI Desktop as a sharing tool (don't email .pbix
+  files).
+\item
+  Allowing many people to independently rebuild the same report.
+\item
+  Ignoring gateway planning until deployment.
+\item
+  Expecting mobile apps to replace full dashboards.
+\end{itemize}
+
+Understanding these limits early prevents frustration later.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{What to Remember from This Chapter}\label{what-to-remember-from-this-chapter}
+
+\begin{itemize}
+\tightlist
+\item
+  Power BI Desktop is for \textbf{building and modeling}.
+\item
+  Power BI Service is for \textbf{sharing and collaboration}.
+\item
+  Power BI Mobile supports \textbf{field-level access}.
+\item
+  The Gateway enables \textbf{secure, automated refresh}.
+\end{itemize}
+
+Once this ecosystem is clear, Power BI becomes much easier to learn and
+use effectively.
+
+The next chapter focuses on connecting Power BI to common data sources
+used in M\&E and public health programs.
+
+\section{From Question to Dashboard (Mindset)}\label{from-question-to-dashboard-mindset}
+
+A common mistake beginners make is opening Power BI and immediately trying to draw charts. The tool makes it easy to drag fields onto visuals, it feels intuitive, fast, and rewarding.
+
+Unfortunately, this instinct is the primary reason public health dashboards fail.
+
+Dashboards built ``visuals-first'' may look impressive during a demo, but they are often fragile. They fail to answer meaningful questions, they break when next month's data arrives, and they require complete rebuilding when a stakeholder asks for a simple
+change.
+
+Effective data use requires a fundamental shift in mindset. Power BI rewards \textbf{structure before style}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Data Use Starts with Questions, Not Charts}\label{data-use-starts-with-questions-not-charts}
+
+Power BI is not a charting tool. It is a decision-support tool.
+
+In the rush to visualize, analysts often skip the most important step: \textbf{\emph{defining the purpose}}. Before you connect to a single data source, you must pause to ask:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{What decision needs to be made?} (e.g., allocating mobile clinics, ordering ARV stock, hiring staff)
+\item
+  \textbf{Who needs to make that decision?} (e.g., District Health Officer, M\&E Manager, Donor)
+\item
+  \textbf{What information would change their action?}
+\end{itemize}
+
+In Monitoring and Evaluation (M\&E) and Public Health, these questions are rarely abstract. They are practical, high-stakes, and time-bound:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{``Are we on track to meet the UNAIDS 95-95-95 targets in the Northern Region?''}
+\item
+  \emph{``Which facilities have a Lost-to-Follow-Up rate higher than 5\% this quarter?''}
+\item
+  \emph{``Is the drop in ANC visits seasonal, or is it a service delivery failure?''}
+\end{itemize}
+
+Dashboards exist to answer these questions. If a visual does not support a decision, it is noise.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Indicators Come Before Dashboards}\label{indicators-come-before-dashboards}
+
+In development programs, \textbf{indicators} are the bridge between raw data and decisions.
+
+In Excel, you might be used to creating a pivot table and calculating a percentage right there in the cell. If you need to change the definition, you edit the cell formula.
+
+In Power BI, this approach is dangerous.
+
+A useful workflow looks like this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Define the \textbf{Question}
+\item
+  Define the \textbf{Indicator} (The Logic)
+\item
+  Define the \textbf{Data Required} (The Ingredients)
+\item
+  Build the \textbf{Dashboard} (The Surface)
+\end{enumerate}
+
+Skipping directly to dashboards reverses this logic. It forces you to build logic \emph{inside} the visual, which creates ``Implicit Logic.''
+
+\subsubsection{The Danger of ``Implicit Logic''}\label{the-danger-of-implicit-logic}
+
+Implicit logic happens when you define an indicator using filters on a specific chart rather than a global formula.
+
+\begin{quote}
+\textbf{Case Study: The ``Retention Rate'' Trap}
+
+Imagine you want to show the \textbf{Retention Rate} for HIV patients.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The Visuals-First Approach:} You drag a count of patients to a bar chart. You drag a filter to the side and uncheck ``Transferred Out'' and ``Dead.'' You rename the chart title to ``Retention.''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{The Risk:} Next week, a colleague copies that chart but forgets to copy the filters. Or, they add a filter for ``Age \textless{} 15.'' Suddenly, the two charts show different numbers for the same metric. There is no single ``truth''(only different views).
+  \end{itemize}
+\item
+  \textbf{The Indicators-First Approach:} You write a \textbf{DAX Measure}. You explicitly define the math: \texttt{Retention\ Rate\ =\ DIVIDE(\ {[}Active\ Patients{]},\ {[}Total\ Enrolled{]}\ -\ {[}Transferred\ Out{]}\ )}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{The Reward:} This definition is now hard-coded into the model. Whether you put it on a map, a card, or a table, it always calculates correctly. You have created a \textbf{Single Source of Truth}.
+  \end{itemize}
+\end{itemize}
+\end{quote}
+
+For the M\&E professional, ``Viral Load Suppression'' is not a chart. It is a strict definition. Once that definition is clear, Power BI can calculate it consistently across time, geography, and disaggregation.
+
+This is why \textbf{modeling and calculations matter more than visuals}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The Concept-to-Canvas Workflow}\label{the-concept-to-canvas-workflow}
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/Power-Bi-Concept-to-Canvas Workflow.png}}
+\caption{To implement this mindset, follow this 4-step workflow for every report you build.}
+\end{figure}
+
+\textbf{\emph{1. Define the Question (The Strategic Layer)}} Don't ask ``What data do we have?'' Ask ``What do we need to know?'' * \emph{Bad Start:} ``I have a CSV of malaria cases.'' * \emph{Good Start:} ``We need to identify districts where malaria incidence is rising despite
+bed net distribution.''
+
+\textbf{\emph{2. Define the Indicator (The Logic Layer)}}
+
+Treat this like a laboratory protocol. It must be reproducible. In M\&E, this usually involves defining a \textbf{Numerator} and a \textbf{Denominator}.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Indicator:} Viral Load Suppression Rate.
+\item
+  \textbf{Numerator:} Number of patients with VL \textless{} 1000 copies/ml.
+\item
+  \textbf{Denominator:} Total number of patients with a documented VL result.
+\item
+  \textbf{Nuance:} Does ``documented result'' mean within the last 12 months? Does it include children? These rules must be written down \emph{before} you build.
+\end{itemize}
+
+\textbf{\emph{3. Define the Data Required (The Data Layer)}}
+
+Now that you know the formula, identify the ingredients.
+
+\begin{itemize}
+\tightlist
+\item
+  Do you need the \texttt{lab\_results} table from the LIMS?
+\item
+  Do you need the \texttt{patient\_demographics} table from the EMR?
+\item
+  Do you need to join them on \texttt{PatientID}?
+\item
+  Do these tables speak the same language? (e.g., does one use ``M/F'' and the other ``Male/Female''?)
+\end{itemize}
+
+\textbf{\emph{4. Build the Dashboard (The Visual Layer)}} Only now, after steps 1--3, do you open the Power BI canvas. Because you have defined the indicator, you know exactly what measures to write. The visuals become simple containers for your logic.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The 5-Step Technical Workflow}\label{the-5-step-technical-workflow}
+
+Once you have your plan, Power BI follows a technical workflow that mirrors good analytical practice.
+
+\subsubsection{1. Get Data (Connect)}\label{get-data-connect}
+
+This step answers one question: \emph{Where does the data live?} Data may come from Excel, DHIS2, SQL Server, ODK/KoboToolbox, or APIs. At this stage, the goal is \textbf{access}, not perfection. In public health, data is often fragmented across multiple systems;
+your first task is simply to bring it into the Power BI kitchen.
+
+\subsubsection{2. Transform (Shape)}\label{transform-shape}
+
+Raw data reflects how systems \emph{collect} information, not how analysts \emph{use} it. Common public health data issues include:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{``Wide'' Data:} Months spread across columns (Jan, Feb, Mar) instead of rows.
+\item
+  \textbf{Dirty Data:} ``District A'' and ``Dist. A'' treated as different places.
+\item
+  \textbf{Missing Headers:} Cryptic codes like \texttt{var\_001} instead of \texttt{Diagnosis}.
+\end{itemize}
+
+In Excel, you might fix these manually every month. In Power BI, you use \textbf{Power Query} to record these steps. This ensures that next month, when the new data arrives, the cleaning happens automatically.
+
+\subsubsection{3. Model (The Brain of the Report)}\label{model-the-brain-of-the-report}
+
+The data model is where the magic happens. It determines what questions your dashboard can answer. You define relationships between tables:
+
+\begin{itemize}
+\item
+  Patients belong to Facilities.
+\item
+  Facilities belong to Districts.
+\item
+  Results belong to Time Periods.
+\end{itemize}
+
+A strong model allows you to slice a single indicator (like \emph{``Positivity Rate''}) by any dimension (\emph{Age}, \emph{Sex}, \emph{Location}, \emph{Time}) without writing new formulas. This is the superpower of Power BI compared to Excel.
+
+\subsubsection{4. Visualize (With Purpose)}\label{visualize-with-purpose}
+
+Visualization is the tip of the iceberg. It is the only part the user sees, but it relies entirely on the model beneath it.
+
+Good visuals in Public Health are functional, not decorative. They should:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Answer the question:} What is the HIV prevalence in a specified populations?
+\item
+  \textbf{Highlight outliers:} Which facility is failing?
+\item
+  \textbf{Show trends:} Is the epidemic curve flattening?
+\item
+  \textbf{Enable drill-down:} Click on a province to see its districts.
+\end{itemize}
+
+\subsubsection{5. Publish (Enable Use)}\label{publish-enable-use}
+
+A dashboard that lives on your desktop is useless. Publishing involves sharing the report to the Power BI Service, setting up automated data refreshes (so you don't have to email files), and managing security (so the right people see the right data).
+
+\begin{figure}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{assets/images/screenshots/Power-Bi-5-Workflow.png}}
+\caption{Power BI Publish}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The M\&E Mindset Shift}\label{the-me-mindset-shift}
+
+This workflow requires a deliberate shift in thinking. The table below outlines how your approach must change when moving from Excel to Power BI.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1241}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3655}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5103}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Feature
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Old Mindset (Excel)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+New Mindset (Power BI)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Goal} & ``I need to make a chart for the donor.'' & ``I need to build a model that answers donor questions.'' \\
+\textbf{Formulas} & Logic is hidden in cell formulas (e.g., \texttt{=C2/D2}). & Logic is explicit in named Measures (e.g., \texttt{{[}New\ Positives{]}\ /\ {[}Tests{]}}). \\
+\textbf{Data Updates} & New data requires manual copy-pasting and checking. & New data flows through an automated pipeline. \\
+\textbf{Filtering} & Filters are applied to specific charts or rows. & Filters propagate through relationships in the data model. \\
+\textbf{Outcome} & \textbf{Fragile \& One-off} & \textbf{Robust \& Scalable} \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{A Simple Mental Checklist}\label{a-simple-mental-checklist}
+
+Before building any dashboard, ask yourself:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Question:} Do I know what decision this supports?
+\item
+  \textbf{Definition:} Can I write the formula for the indicator on a whiteboard?
+\item
+  \textbf{Data:} Is the raw data accessible and consistent?
+\item
+  \textbf{Model:} Will this model survive if the user asks for a new disaggregation?
+\end{enumerate}
+
+If the answer to any of these is no, the solution is not another chart. It is to step back and plan.
+
+\textbf{What to Carry Forward}
+
+This book follows this exact workflow:
+
+\begin{itemize}
+\item
+  \textbf{Questions before dashboards.}
+\item
+  \textbf{Structure before style.}
+\item
+  \textbf{Reuse before reinvention.}
+\end{itemize}
+
+The next chapter moves into the first technical step: connecting Power BI to common data sources used in M\&E and public health programs.
+
+\section{Connecting to Common Data Sources}\label{connecting-to-common-data-sources}
+
+Power BI Desktop can connect to hundreds of different data sources, but most Monitoring and Evaluation and Public Health workflows rely on a small and predictable subset.
+
+The \textbf{Get Data} button on the Home ribbon is always the starting point. However, effective use of Power BI is less about knowing \emph{every} connector and more about knowing \textbf{which connector to use in a given situation}.
+
+In this chapter, we will connect Power BI to the \textbf{integrated sample datasets used throughout this book} and build confidence before we begin cleaning and modeling the data.
+
+\subsection{Before You Begin: The Sample Dataset Used in This Book}\label{before-you-begin-the-sample-dataset-used-in-this-book}
+
+All practical exercises in this guide use a \textbf{synthetic, patient-level integrated health dataset} generated specifically for learning.
+
+The dataset represents routine service delivery across:
+
+\begin{itemize}
+\tightlist
+\item
+  Antenatal Care (ANC)
+\item
+  HIV and ART
+\item
+  Malaria
+\item
+  Tuberculosis (TB)
+\item
+  Non-Communicable Diseases (NCDs)
+\end{itemize}
+
+{
+No real patient data is used.
+}
+
+\subsubsection{Files Included}\label{files-included}
+
+You should have the following CSV files available:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{dim\_patient.csv}
+\item
+  \texttt{dim\_facility.csv}
+\item
+  \texttt{dim\_date.csv}
+\item
+  \texttt{fact\_patient\_visits.csv}
+\end{itemize}
+
+These files are intentionally \textbf{not clean}. They contain common data quality issues that reflect real health information systems. We will address these issues in later chapters.
+
+For now, focus only on \textbf{connecting the data successfully}.
+
+\subsection{File-Based Data Sources}\label{file-based-data-sources}
+
+File-based data is the most common entry point for M\&E professionals and is how we will begin.
+
+All sample datasets used in this book are provided as \textbf{CSV files}, making them easy to import and reuse.
+
+\subsubsection{Practical Exercise 4.1: Importing the Integrated Health Fact Table}\label{practical-exercise-4.1-importing-the-integrated-health-fact-table}
+
+\textbf{Objective:} Connect Power BI to the main patient-level fact table.
+
+\textbf{Steps:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open Power BI Desktop\\
+\item
+  Click \textbf{Get Data → Text/CSV}\\
+\item
+  Select \texttt{fact\_patient\_visits.csv}\\
+\item
+  Review the data preview\\
+\item
+  Click \textbf{Load}
+\end{enumerate}
+
+To import a CSV file, use the \textbf{Get Data} menu and select the \textbf{Text/CSV} option.
+
+\textbf{What to Observe:}
+
+\begin{itemize}
+\tightlist
+\item
+  The number of rows loaded
+\item
+  Yes/No fields with inconsistent formatting
+\item
+  Date fields that appear as text
+\item
+  Missing or unexpected values
+\end{itemize}
+
+To view the imported data, click the \textbf{Table View} icon on the left sidebar.
+
+Do \textbf{not} attempt to fix anything yet. We will address these issues in the next chapter.
+
+\subsubsection{Practical Exercise 4.2: Importing Dimension Tables}\label{practical-exercise-4.2-importing-dimension-tables}
+
+\textbf{Objective:} Import supporting dimension tables used for analysis.
+
+Repeat the steps above for each of the following files:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{dim\_patient.csv}
+\item
+  \texttt{dim\_facility.csv}
+\item
+  \texttt{dim\_date.csv}
+\end{itemize}
+
+You should now have \textbf{four tables} loaded into Power BI.
+
+\textbf{Reflection:}
+
+As you review the imported tables, consider:
+
+\begin{itemize}
+\tightlist
+\item
+  Which tables contain unique records?
+\item
+  Which tables are primarily descriptive?
+\item
+  Which table contains repeated transactional records?
+\item
+  Which fields look suitable for relationships?
+\end{itemize}
+
+These questions will become important in the modeling chapter.
+
+\subsection{Understanding Why CSV Is Used Here}\label{understanding-why-csv-is-used-here}
+
+CSV files are widely used for data exchange in public health systems, including exports from:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{DHIS2}
+\item
+  \textbf{EMRs}
+\item
+  \textbf{KoboToolbox and ODK}
+\item
+  \textbf{Laboratory systems}
+\end{itemize}
+
+They are lightweight, consistent, and ideal for automation, but they often contain:
+
+\begin{itemize}
+\tightlist
+\item
+  Formatting inconsistencies
+\item
+  Missing values
+\item
+  Invalid dates
+\item
+  Mixed data types
+\end{itemize}
+
+Power BI is designed to handle these challenges when used correctly.
+
+\subsection{The Folder Connector (Optional but Powerful)}\label{the-folder-connector-optional-but-powerful}
+
+In real-world reporting, data is often received periodically, such as:
+
+\begin{itemize}
+\tightlist
+\item
+  Monthly extracts
+\item
+  Quarterly program reports
+\item
+  Routine facility submissions
+\end{itemize}
+
+The \textbf{Folder connector} allows Power BI to combine multiple files with the same structure automatically.
+
+\subsubsection{Practical Exercise 4.3: Exploring the Folder Connector (Optional)}\label{practical-exercise-4.3-exploring-the-folder-connector-optional}
+
+\textbf{Objective:} Understand how Power BI handles multiple files.
+
+\textbf{Setup (Optional):}
+
+\begin{itemize}
+\tightlist
+\item
+  Create a folder on your computer
+\item
+  Copy \texttt{fact\_patient\_visits.csv} into it multiple times
+\item
+  Rename the copies (for example: \texttt{Jan\_visits.csv}, \texttt{Feb\_visits.csv})
+\end{itemize}
+
+\textbf{Steps:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Click \textbf{Get Data → Folder}\\
+\item
+  Select the folder\\
+\item
+  Click \textbf{Combine and Transform}
+\end{enumerate}
+
+\textbf{Reflection:}
+
+\begin{itemize}
+\tightlist
+\item
+  Review the combined data preview
+\item
+  Observe how Power BI applies the same steps to each file
+\item
+  Note how this approach supports ongoing reporting
+\end{itemize}
+
+We will not use this method for the main exercises, but it is important to understand.
+
+\subsection{Database and Online Sources (Context Only)}\label{database-and-online-sources-context-only}
+
+As programs scale, data may be stored in:
+
+\begin{itemize}
+\tightlist
+\item
+  SQL databases
+\item
+  Cloud platforms
+\item
+  APIs
+\item
+  SharePoint Lists
+\end{itemize}
+
+Power BI supports these sources, often with the help of a gateway for secure refresh.
+
+For now, we focus on file-based data to keep learning accessible and reproducible.
+
+\subsection{Understanding Connection Modes}\label{understanding-connection-modes}
+
+When importing the sample datasets, Power BI uses \textbf{Import mode} by default.
+
+\subsubsection{Import Mode (Recommended)}\label{import-mode-recommended}
+
+\begin{itemize}
+\tightlist
+\item
+  Data is copied into Power BI's internal engine
+\item
+  Performance is fast
+\item
+  All features are available
+\item
+  Ideal for most M\&E and public health analysis
+\end{itemize}
+
+\subsubsection{DirectQuery Mode (Not Used Here)}\label{directquery-mode-not-used-here}
+
+DirectQuery keeps data in the source system and queries it live. While useful in some scenarios, it introduces complexity and limitations that are unnecessary for this guide.
+
+\begin{quote}
+\textbf{Rule of thumb:}\\
+If you are learning or unsure, use Import.
+\end{quote}
+
+\subsection{Practice Summary}\label{practice-summary}
+
+By the end of this chapter, you should have:
+
+\begin{itemize}
+\tightlist
+\item
+  Imported all four sample datasets
+\item
+  Confirmed that data loads successfully
+\item
+  Resisted the urge to clean or model prematurely
+\end{itemize}
+
+At this stage, the data may look messy. That is expected.
+
+The next chapter focuses on \textbf{cleaning and transforming data using Power Query}, where we will systematically fix these issues and prepare the data for proper modeling and analysis.
+
+\section{Power Query Basics That Actually Matter}\label{power-query-basics-that-actually-matter}
+
+If Power BI is a house, Power Query is the foundation. If the foundation is weak, everything built on top of it will eventually fail.
+
+In public health and development programs, most reporting problems are not caused by poor visuals. They are caused by inconsistent, fragile, or undocumented data preparation. Power Query exists to make data cleaning \textbf{explicit, repeatable, and defensible}.
+
+This chapter focuses on the parts of Power Query that actually matter for reliable data use.
+
+\subsection{Why Power Query Matters in Public Health Data}\label{why-power-query-matters-in-public-health-data}
+
+Health data is complex by nature. It comes from multiple systems, is collected by different actors, and often changes definitions over time. Missing values, placeholder codes, and inconsistent formats are common.
+
+When these issues are handled manually in Excel, the logic is hidden. Hidden logic cannot be reviewed, reproduced, or trusted.
+
+Power Query forces transparency.
+
+Every transformation is recorded, ordered, and replayed exactly the same way every time data is refreshed. This is not convenience. It is \textbf{governance}.
+
+\subsection{What Power Query Is (and Is Not)}\label{what-power-query-is-and-is-not}
+
+Power Query is a \textbf{data transformation engine}.
+
+When you click \textbf{Transform Data} in Power BI Desktop, you open the \textbf{Power Query Editor}, a dedicated environment for preparing data before analysis.
+
+Power Query is:\\
+- Deterministic\\
+- Repeatable\\
+- Explicit
+
+Power Query is \textbf{not}:\\
+- A visualization tool\\
+- A place to calculate indicators\\
+- A replacement for data modeling
+
+Its purpose is singular:\\
+\textbf{turn raw, messy data into structured analytical inputs}.
+
+\subsection{Understanding the Power Query Interface}\label{understanding-the-power-query-interface}
+
+The Power Query Editor has three areas that matter conceptually.
+
+\subsubsection{The Ribbon}\label{the-ribbon}
+
+The ribbon contains buttons for common transformations such as:\\
+- Split Column\\
+- Group By\\
+- Replace Values\\
+- Change Data Type
+
+These buttons do not directly clean data. They generate \textbf{steps}. The step matters more than the button.
+
+\subsubsection{The Queries Pane}\label{the-queries-pane}
+
+Each item in the Queries pane represents a dataset, referred to as a query.
+
+In this book, these include:\\
+- \texttt{fact\_patient\_visits}\\
+- \texttt{dim\_patient}\\
+- \texttt{dim\_facility}\\
+- \texttt{dim\_date}
+
+At this stage:\\
+- Do not join queries\\
+- Do not calculate indicators\\
+- Do not optimize visuals
+
+Think of each query as an ingredient being prepared independently.
+
+\subsubsection{The Applied Steps Pane}\label{the-applied-steps-pane}
+
+This is the most important part of Power Query.
+
+Every transformation is recorded as a step:\\
+- Source\\
+- Navigation\\
+- Changed Type\\
+- Removed Columns\\
+- Replaced Values
+
+\begin{quote}
+Note: Together, these steps form a \textbf{data preparation contract}: This is exactly how raw data becomes analysis-ready.
+\end{quote}
+
+\begin{quote}
+Deleting or reordering steps changes that contract.
+\end{quote}
+
+\subsection{Why Power Query Feels Like ``Magic''}\label{why-power-query-feels-like-magic}
+
+In Excel, data cleaning is manual and repetitive. If you clean this month's file, you must repeat the same work next month.
+
+In Power Query, you are not cleaning data once. You are \textbf{recording logic}.
+
+When new data arrives and you click \textbf{Refresh}, Power Query replays every applied step automatically. The same rules. The same order. The same results.
+
+This is the difference between one-off reporting and sustainable monitoring.
+
+\subsection{Power Query Thinking vs Excel Thinking}\label{power-query-thinking-vs-excel-thinking}
+
+Excel encourages \textbf{manual correction}.
+
+Power Query requires \textbf{logical definition}.
+
+\textbf{In Excel:}
+
+- You fix a cell
+
+- The logic lives in your head
+
+\textbf{In Power Query:}
+
+- You define a rule
+
+- The logic lives in the steps
+
+If a fix cannot be described as a rule, it does not belong in Power Query.
+
+\subsection{The Principle of Repeatable Cleaning}\label{the-principle-of-repeatable-cleaning}
+
+In Monitoring and Evaluation work, numbers must be defensible.
+
+If someone asks, \emph{``How did you arrive at this figure?''}, the answer should be a documented sequence of steps, not personal judgment.
+
+Before applying any transformation, \textbf{ask}:\\
+- Will this still work if new rows are added?\\
+- Will this break if values change?\\
+- Can another analyst understand this step?
+
+If the answer is no, rethink the approach.
+
+\subsection{Query-Level vs Column-Level Cleaning}\label{query-level-vs-column-level-cleaning}
+
+Not all cleaning decisions are equal.
+
+Some issues affect the \textbf{entire dataset}, while others affect \textbf{specific columns}.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Query-level cleaning} applies to the structure of the dataset\\
+  Examples include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Removing empty rows
+  \item
+    Filtering invalid records
+  \item
+    Renaming queries
+  \end{itemize}
+\item
+  \textbf{Column-level cleaning} applies to individual fields\\
+  Examples include:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Standardizing Yes/No values
+  \item
+    Converting data types
+  \item
+    Replacing sentinel values
+  \end{itemize}
+\end{itemize}
+
+\begin{quote}
+A good rule of thumb:\\
+- Structural problems belong at the query level while Meaning problems belong at the column level.
+\end{quote}
+
+\subsection{Working With the Sample Dataset}\label{working-with-the-sample-dataset}
+
+This chapter focuses primarily on the \texttt{fact\_patient\_visits} table.
+
+This dataset intentionally includes:\\
+- Inconsistent Yes/No values\\
+- Dates stored as text\\
+- Sentinel values such as \texttt{999}\\
+- Missing ART start dates and regimens
+
+These are not errors. They reflect real system behaviour and are included to support learning.
+
+\subsection{Understanding the Role of Each Table in Cleaning}\label{understanding-the-role-of-each-table-in-cleaning}
+
+Not all tables require the same level of cleaning, and not all issues should be handled in the same place.
+
+In this project, the tables serve different purposes:
+
+\begin{itemize}
+\item
+  \textbf{\texttt{fact\_patient\_visits}}\strut \\
+  Contains transactional records and is the primary source of complexity. Most cleaning effort happens here.
+\item
+  \textbf{\texttt{dim\_patient}}\strut \\
+  Contains relatively stable demographic attributes. Cleaning focuses on consistency and validity.
+\item
+  \textbf{\texttt{dim\_facility}}\strut \\
+  Mostly descriptive. Cleaning focuses on standardization rather than logic.
+\item
+  \textbf{\texttt{dim\_date}}\strut \\
+  Should be clean by design. Any issues here usually indicate upstream problems.
+\end{itemize}
+
+Understanding the role of each table helps you decide \textbf{what to clean, where to clean it, and what to defer}.
+
+\subsection{Core Data Cleaning Patterns for Messy Health Data}\label{core-data-cleaning-patterns-for-messy-health-data}
+
+\subsubsection{Setting Correct Data Types}\label{setting-correct-data-types}
+
+This is the most common source of silent errors.
+
+Data types determine what can be calculated, aggregated, and filtered correctly.
+
+\textbf{Common issues include:} - Dates stored as text - Numeric values mixed with symbols - Boolean values recorded inconsistently
+
+Always review the automatically generated \textbf{Changed Type} step. Do not assume Power BI guessed correctly.
+
+\subsubsection{Exercise 5.1: Data Type Audit}\label{exercise-5.1-data-type-audit}
+
+\textbf{Objective:} Identify and correct incorrect data types.
+
+\textbf{Steps:} 1. Open the Power Query Editor 2. Select the \texttt{fact\_patient\_visits} query 3. Review the data type icon beside each column 4. Identify at least three columns with incorrect data types 5. Explicitly set the correct data type
+
+\textbf{Reflection:} - Which values became null after correction? - What does this reveal about source data quality?
+
+\subsubsection{Standardizing Categorical Values}\label{standardizing-categorical-values}
+
+Health datasets often encode the same concept in multiple ways: - Yes, YES, Y, 1 - No, NO, N, 0
+
+These differences matter in filters and calculations.
+
+The goal is \textbf{one representation per concept}.
+
+\subsubsection{Exercise 5.2: Standardizing Yes and No Fields}\label{exercise-5.2-standardizing-yes-and-no-fields}
+
+\textbf{Objective:} Normalize categorical values.
+
+\textbf{Steps:}
+
+1. Choose a Yes/No column (for example, \texttt{hiv\_tested})
+
+2. List all distinct values
+
+3. Use \textbf{Replace Values} to standardize to \texttt{Yes} and \texttt{No}
+
+\textbf{Reflection:}
+
+- How many representations existed?
+
+- What errors would occur if these were left uncleaned?
+
+\subsubsection{Handling Missing and Sentinel Values}\label{handling-missing-and-sentinel-values}
+
+Missing data is not the same as zero.
+
+Common placeholders include: - 999 - -1 - Unknown - Not Recorded
+
+Leaving these values untreated will distort averages and rates.
+
+Convert placeholders to \texttt{null}. Power BI ignores nulls in calculations.
+
+\subsubsection{Exercise 5.3: Replacing Sentinel Values}\label{exercise-5.3-replacing-sentinel-values}
+
+\textbf{Objective:} Prevent placeholder values from distorting analysis.
+
+\textbf{Steps:}
+
+1. Identify numeric columns with sentinel values
+
+2. Replace sentinel values with \texttt{null}
+
+3. Confirm the column data type remains numeric
+
+\textbf{Reflection:}
+
+- Why is null safer than a numeric placeholder?
+
+- How would this affect indicator calculations?
+
+\subsubsection{Cleaning ART-Related Fields}\label{cleaning-art-related-fields}
+
+Treatment data often contains logical inconsistencies.
+
+Examples include:
+
+- ART regimens without start dates
+
+- Start dates present when ART is marked as No
+
+These issues must be handled consistently.
+
+\subsubsection{Exercise 5.4: ART Logic Consistency}\label{exercise-5.4-art-logic-consistency}
+
+\textbf{Objective:} Apply logical rules to treatment data.
+
+\textbf{Steps:}
+
+1. Identify records where \texttt{art\_started\ =\ Yes} but \texttt{art\_start\_date} is missing
+
+2. Identify records where \texttt{art\_started\ =\ No} but \texttt{art\_regimen} is populated
+
+3. Define a consistent rule
+
+4. Apply the rule using Power Query logic
+
+\textbf{Reflection:}
+
+- What assumptions are safe at the cleaning stage?
+
+- What should be deferred to analysis?
+
+\subsubsection{Unpivoting for Time and Indicator Analysis}\label{unpivoting-for-time-and-indicator-analysis}
+
+Wide tables are human-readable. Tall tables are machine-readable.
+
+Power BI works best with tall tables where:
+
+- Time is a variable
+
+- Indicators are values, not column names
+
+\subsubsection{Exercise 5.5: Unpivoting Data}\label{exercise-5.5-unpivoting-data}
+
+\textbf{Objective:} Convert wide data into analysis-ready format.
+
+\textbf{Steps:}
+
+1. Identify identifier columns
+
+2. Select those columns
+
+3. Right-click and choose \textbf{Unpivot Other Columns}
+
+4. Rename resulting columns appropriately
+
+\textbf{Reflection:}
+
+- Why does this structure support trend analysis?
+
+- How does it simplify dashboard design?
+
+\subsection{Reading Power Query Steps as Logic}\label{reading-power-query-steps-as-logic}
+
+Every Power Query step is written in M language.
+
+You do not need to master M at this stage, but you should:
+
+\textbf{- Read step names carefully}
+
+\textbf{- Rename steps to reflect intent}
+
+\textbf{- Avoid leaving steps as generic defaults}
+
+\begin{quote}
+\textbf{Note:}
+
+Clear steps build trust.
+\end{quote}
+
+\subsection{Why the Order of Steps Matters}\label{why-the-order-of-steps-matters}
+
+Power Query steps are executed \textbf{from top to bottom}.
+
+This means:
+
+\begin{itemize}
+\item
+  Changing data types before replacing values may introduce errors
+\item
+  Removing columns too early may break later steps
+\item
+  Reordering steps can silently change results
+\end{itemize}
+
+For example:
+
+\begin{itemize}
+\item
+  Replacing \texttt{999} with \texttt{null} should happen \textbf{before} setting numeric data types
+\item
+  Splitting columns should happen \textbf{before} renaming them
+\end{itemize}
+
+\begin{quote}
+\textbf{Note:}
+
+When debugging Power Query issues, always review step order first.
+\end{quote}
+
+\subsubsection{Exercise 5.6: Renaming Applied Steps}\label{exercise-5.6-renaming-applied-steps}
+
+\textbf{Objective:} Improve transparency and maintainability.
+
+\textbf{Steps:}
+
+1. Review the Applied Steps pane
+
+2. Rename steps such as \texttt{Changed\ Type}
+
+3. Use descriptive names
+
+\begin{itemize}
+\item
+  Set Correct Data Types
+\item
+  Standardize Yes No Values
+\item
+  Replace Sentinel Values
+\end{itemize}
+
+\textbf{Reflection:}
+
+\begin{itemize}
+\item
+  Could another analyst understand this logic?
+\item
+  Would this hold up in an audit or handover?
+\end{itemize}
+
+\subsection{Data Quality Rules Reference}\label{data-quality-rules-reference}
+
+The table below summarizes data quality rules applied throughout this book.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Domain
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Data Element
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Common Issue
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rule Applied
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rationale
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Demographics & Age & Text instead of numeric & Convert to numeric, invalid to null & Prevent calculation errors \\
+Visits & Visit Date & Stored as text & Convert to Date & Enable time analysis \\
+ANC & ANC Visit & Inconsistent categories & Standardize values & Reliable filtering \\
+HIV & HIV Tested & Mixed encodings & Normalize categories & Accurate rates \\
+ART & ART Start Date & Missing when ART = Yes & Flag as incomplete & Avoid false counts \\
+ART & ART Regimen & Inconsistent labels & Standardize text & Regimen analysis \\
+Malaria & Test Result & Placeholder values & Replace with null & Correct positivity \\
+TB & TB Screened & Missing values & Treat conservatively & Avoid overestimation \\
+NCD & Screening Result & Mixed formats & Normalize categories & Comparable indicators \\
+\end{longtable}
+
+These rules support \textbf{clean analysis}, not indicator definitions.
+
+\subsection{What Not to Do in Power Query}\label{what-not-to-do-in-power-query}
+
+At this stage, do not:
+
+\textbf{- Calculate indicators}
+
+\textbf{- Create ratios or percentages}
+
+\textbf{- Join fact and dimension tables}
+
+\textbf{- Apply user-specific logic}
+
+\begin{quote}
+\textbf{Note:}
+
+Power Query prepares data. Meaning is defined later.
+\end{quote}
+
+\subsection{A Simple Exit Checklist}\label{a-simple-exit-checklist}
+
+Before leaving Power Query, \textbf{ask}:
+
+\textbf{\emph{- Are data types correct?\\
+- Are categories consistent?\\
+- Are missing values handled properly?\\
+- Are steps readable and ordered?}}
+
+If yes, you are ready to model.
+
+\subsection{What This Enables Next}\label{what-this-enables-next}
+
+By the end of this chapter, you should have:\\
+\textbf{- Clean, structured tables\\
+- Documented transformations\\
+- Confidence in your inputs}
+
+In the next chapter, we will build a \textbf{data model} that connects these tables using relationships and prepares them for indicator calculation.
+
+\begin{quote}
+\textbf{Notes:}
+
+\emph{Power Query gives you control over data. Modeling gives you control over meaning.}\\
+\emph{Good dashboards start with good visuals.Trusted dashboards start with clean data.}
+\end{quote}
+
+\subsection{Stop Point: When to Leave Power Query}\label{stop-point-when-to-leave-power-query}
+
+You should exit Power Query when: - Data types are correct - Categories are standardized - Missing values are handled consistently - Structural issues are resolved
+
+You should \textbf{not} remain in Power Query to: - Interpret indicators - Apply donor definitions - Create performance metrics
+
+At this point, the data is \emph{clean}, not \emph{meaningful}.
+
+Meaning comes next.
+
+\section{The Star Schema: The Backbone of Analytical Models}\label{the-star-schema-the-backbone-of-analytical-models}
+
+Reliable analytics do not start with visuals or calculations. They start
+with \textbf{structure}.
+
+In Power BI and in all analytical systems, the structure that enables
+clarity, consistency, and trust is the \textbf{star schema}.
+
+The star schema is not a Power BI feature.It is a \textbf{data modeling
+pattern} that predates modern BI tools and remains the foundation of
+professional analytics.
+
+Once you understand it, most modeling decisions become obvious.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{What is a Star Schema ?}\label{what-is-a-star-schema}
+
+A \textbf{star schema} organizes data around a single central table of
+events, surrounded by descriptive tables.
+
+\begin{itemize}
+\item
+  The \textbf{fact table} sits at the center
+\item
+  \textbf{Dimension tables} radiate outward
+\item
+  Relationships form a star-like shape
+\end{itemize}
+
+Each table has a single responsibility.
+
+The star schema is:
+
+\begin{itemize}
+\item
+  A way of \textbf{thinking}
+\item
+  A way of \textbf{separating meaning}
+\item
+  A way of \textbf{protecting definitions}
+\end{itemize}
+
+It is \textbf{not}:
+
+\begin{itemize}
+\item
+  A Power BI layout trick
+\item
+  A performance hack
+\item
+  A cosmetic design choice
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The Central Idea: Events Surrounded by Context}\label{the-central-idea-events-surrounded-by-context}
+
+At the core of the star schema is a simple question:
+
+\begin{quote}
+\emph{What actually happened?}
+\end{quote}
+
+The answer lives in the \textbf{fact table}.
+
+Everything else exists to describe that answer.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Fact Tables: Recording Reality}\label{fact-tables-recording-reality}
+
+A \textbf{fact table} records events as they occurred.
+
+\begin{quote}
+Each row answers the question:
+\end{quote}
+
+\begin{quote}
+``Something happened. What was it?''
+\end{quote}
+
+Fact tables typically contain:
+
+\begin{itemize}
+\item
+  Identifiers (who, where, when)
+\item
+  Measurements (counts, flags, results)
+\end{itemize}
+
+They do \textbf{not} explain context in detail.
+
+\subsubsection{Example: Health Service Delivery}\label{example-health-service-delivery}
+
+In this book:
+
+\begin{itemize}
+\item
+  \texttt{fact\_patient\_visits} records service delivery events
+\item
+  One row equals one interaction between a patient and the health
+  system
+\end{itemize}
+
+This table grows continuously over time and represents \textbf{measurable
+reality}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Dimension Tables: Stable Descriptions}\label{dimension-tables-stable-descriptions}
+
+A \textbf{dimension table} provides descriptive context for events.
+
+\begin{quote}
+Each row answers the question:
+\end{quote}
+
+\begin{quote}
+``What do we know about this entity?''
+\end{quote}
+
+Dimension tables:
+
+\begin{itemize}
+\item
+  Change slowly
+\item
+  Contain descriptive attributes
+\item
+  Are reused across multiple analyses
+\end{itemize}
+
+Examples:
+
+\begin{itemize}
+\item
+  One row per patient
+\item
+  One row per facility
+\item
+  One row per calendar date
+\end{itemize}
+
+Dimensions do not record activity. They provide \textbf{meaning}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Why Facts Should Not Contain Descriptions}\label{why-facts-should-not-contain-descriptions}
+
+A common beginner instinct is to ``simplify'' analysis by copying
+descriptive fields into the fact table.
+
+For example:
+
+\begin{itemize}
+\item
+  Facility name stored on every visit row
+\item
+  District repeated thousands of times
+\item
+  Patient age recalculated inconsistently
+\item
+  Month and year embedded as text
+\end{itemize}
+
+This creates three problems:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Redundancy} : The same information appears repeatedly.
+\item
+  \textbf{Inconsistency} : Descriptions drift over time.
+\item
+  \textbf{Fragility} : Small changes require rebuilding reports.
+\end{enumerate}
+
+In a star schema:
+
+\begin{itemize}
+\item
+  Fact tables contain \textbf{keys and measurements}
+\item
+  Dimension tables contain \textbf{descriptions}
+\end{itemize}
+
+This separation protects historical meaning.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The Role of Keys: Connecting Meaning Without Carrying It}\label{the-role-of-keys-connecting-meaning-without-carrying-it}
+
+Relationships exist because tables share \textbf{keys}.
+
+A key:
+
+\begin{itemize}
+\item
+  Uniquely identifies a record
+\item
+  Is stable over time
+\item
+  Has no analytical meaning itself
+\end{itemize}
+
+Good keys:
+
+\begin{itemize}
+\item
+  Patient IDs
+\item
+  Facility IDs
+\item
+  Date IDs
+\end{itemize}
+
+Bad keys:
+
+\begin{itemize}
+\item
+  Names
+\item
+  Labels
+\item
+  Descriptions
+\end{itemize}
+
+Keys exist to \textbf{connect meaning}, not to store it.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Relationships: How Meaning Flows}\label{relationships-how-meaning-flows}
+
+Relationships tell Power BI:
+
+\begin{itemize}
+\item
+  Which tables are connected
+\item
+  How filters propagate
+\item
+  Which tables control context
+\end{itemize}
+
+Without relationships, tables are isolated files. With correct
+relationships, the model behaves predictably.
+
+\emph{One-to-Many: The Default Relationship}
+
+In a star schema, relationships are almost always \textbf{one-to-many}.
+
+Examples:
+
+\begin{itemize}
+\item
+  One patient → many visits
+\item
+  One facility → many visits
+\item
+  One date → many visits
+\end{itemize}
+
+In Power BI terms:
+
+\begin{itemize}
+\item
+  Dimension table = \textbf{one}
+\item
+  Fact table = \textbf{many}
+\end{itemize}
+
+This pattern mirrors reality and supports reliable aggregation.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Filter Direction: Why It Must Be One-Way}\label{filter-direction-why-it-must-be-one-way}
+
+Relationships are directional.
+
+In a well-designed star schema:
+
+\begin{itemize}
+\item
+  Filters flow from \textbf{dimension → fact}
+\item
+  Not from fact → dimension
+\end{itemize}
+
+This reflects real-world logic:
+
+\begin{itemize}
+\item
+  Selecting a district limits visits
+\item
+  Selecting a patient limits events
+\item
+  Selecting a date limits outcomes
+\end{itemize}
+
+\begin{quote}
+Note: Allowing filters to flow both ways introduces ambiguity and
+should be avoided unless there is a very specific, justified reason.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Why Dimensions Should Not Connect to Each Other}\label{why-dimensions-should-not-connect-to-each-other}
+
+Another common mistake is linking dimension tables directly.
+
+For example:
+
+\begin{itemize}
+\item
+  \texttt{dim\_patient} linked to \texttt{dim\_facility}
+\item
+  \texttt{dim\_facility} linked to \texttt{dim\_date}
+\end{itemize}
+
+This creates:
+
+\begin{itemize}
+\item
+  Multiple filter paths
+\item
+  Ambiguous context
+\item
+  Unpredictable results
+\end{itemize}
+
+In a star schema:
+
+\begin{itemize}
+\item
+  Dimensions connect \textbf{only to the fact table}
+\item
+  The fact table is the bridge between all context
+\end{itemize}
+
+If two dimensions need to interact, they do so \textbf{through events}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Time as a First-Class Dimension}\label{time-as-a-first-class-dimension}
+
+Time is not just a filter.
+
+A date has structure:
+
+\begin{itemize}
+\item
+  Day
+\item
+  Month
+\item
+  Quarter
+\item
+  Year
+\item
+  Reporting period
+\item
+  Fiscal calendar
+\end{itemize}
+
+Embedding raw dates in fact tables limits analysis.
+
+A dedicated date dimension enables:
+
+\begin{itemize}
+\item
+  Consistent aggregation
+\item
+  Year-over-year comparison
+\item
+  Alignment with reporting calendars
+\end{itemize}
+
+This is why professional models never rely on raw date fields alone.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Visualizing the Star (Mental Model)}\label{visualizing-the-star-mental-model}
+
+Think of the model this way:
+
+\begin{itemize}
+\tightlist
+\item
+  The fact table is the \textbf{question}
+\item
+  Dimensions are the \textbf{ways to slice the answer}
+\end{itemize}
+
+If you remove the fact table, nothing is left to analyze.
+
+If you remove a dimension, analysis still works but just with less
+context.
+
+This is how you know the structure is correct.
+
+\subsubsection{Star Schema Diagram (Conceptual)}\label{star-schema-diagram-conceptual}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Hands-On: Building the Star Schema in Power BI}\label{hands-on-building-the-star-schema-in-power-bi}
+
+This section translates the concepts you have learned into practical
+modeling steps. Do not rush. Every action here reinforces the mental model you have just
+developed.
+
+\textbf{Step 1: Switch to Model View}
+
+After completing data cleaning in Power Query:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Close the Power Query Editor
+\item
+  In Power BI Desktop, select the \textbf{Model View} icon from the left
+  sidebar
+\end{enumerate}
+
+You should see all imported tables displayed separately.
+
+At this stage, Power BI may show suggested relationships. Do \textbf{not}
+accept or rely on them yet.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Step 2: Classify Tables Before Creating Relationships}
+
+Before dragging any fields, pause and classify each table using the
+concepts from this chapter.
+
+Using the datasets in this book:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Fact table}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{fact\_patient\_visits}
+  \end{itemize}
+\item
+  \textbf{Dimension tables}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{dim\_patient}
+  \item
+    \texttt{dim\_facility}
+  \item
+    \texttt{dim\_date}
+  \end{itemize}
+\end{itemize}
+
+Ask yourself:
+
+\begin{itemize}
+\item
+  Which table records events?
+\item
+  Which tables describe context?
+\end{itemize}
+
+If this is unclear, return to the earlier sections before proceeding.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Step 3: Identify Relationship Keys}
+
+Each relationship requires a key that uniquely identifies a record in a
+dimension table.
+
+Confirm the following keys exist:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{dim\_patient{[}patient\_id{]}}
+\item
+  \texttt{dim\_facility{[}facility\_id{]}}
+\item
+  \texttt{dim\_date{[}date\_id{]}}
+\end{itemize}
+
+In the fact table, these same fields appear repeatedly as references.
+
+\begin{quote}
+Reminder:\\
+Keys connect meaning. They do not describe it.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Step 4: Create Dimension-to-Fact Relationships}
+
+Create relationships manually to ensure correctness.
+
+\textbf{\emph{Example: Patient to Visits}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Drag \texttt{patient\_id} from \texttt{dim\_patient}
+\item
+  Drop it onto \texttt{patient\_id} in \texttt{fact\_patient\_visits}
+\end{enumerate}
+
+In the relationship dialog, confirm (\emph{see image below}):
+
+- Cardinality: \textbf{One-to-many}
+
+- Cross-filter direction: \textbf{Single}
+
+- Active relationship: \textbf{Yes}
+
+Repeat the same process for:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{facility\_id} → \texttt{dim\_facility}
+\end{itemize}
+
+-\texttt{date\_id} → \texttt{dim\_date}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Step 5: Enforce the Star Shape Visually}
+
+Arrange tables in the Model View so that:
+
+\begin{itemize}
+\item
+  \texttt{fact\_patient\_visits} sits at the center
+\item
+  Dimension tables surround it
+\item
+  No dimension table connects directly to another dimension
+\end{itemize}
+
+This visual layout is not cosmetic.\\
+It reinforces correct analytical thinking and simplifies
+troubleshooting.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Step 6: Validate Filter Flow}
+
+Before building visuals or calculations, test whether the model behaves
+as expected.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Switch to \textbf{Report View}
+\item
+  Add a simple table visual
+\item
+  Add:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Facility Name (from \texttt{dim\_facility})
+  \item
+    Count of rows from \texttt{fact\_patient\_visits}
+  \end{itemize}
+\end{enumerate}
+
+Now apply filters:
+
+\begin{itemize}
+\item
+  Select a district
+\item
+  Select a reporting period
+\end{itemize}
+
+If counts respond logically, filter flow is working correctly.
+
+If not, return to Model View and review relationships.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Step 7: Hide Technical Fields (Optional but Recommended)}
+
+Keys are essential for modeling but confusing for report users.
+
+To hide them:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Switch to \textbf{Data View}
+\item
+  Right-click technical fields
+\end{enumerate}
+
+such as:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{patient\_id}
+\item
+  \texttt{facility\_id}
+\item
+  \texttt{date\_id}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Select \textbf{Hide in report view}
+\end{enumerate}
+
+This prevents accidental misuse during visualization.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Common Modeling Errors to Watch For}\label{common-modeling-errors-to-watch-for}
+
+Most Power BI models do not fail loudly. They fail quietly. Numbers still appear, Charts still render, Filters still move but the logic underneath becomes unstable.
+
+The following mistakes are responsible for the majority of ``almost correct'' dashboards in public health and M\&E.
+
+\textbf{1. Many-to-Many Relationships Created Unintentionally}
+
+This is one of the most dangerous modeling errors because Power BI often allows it without warning.
+
+\textbf{\emph{Why it happens}}
+
+Many-to-many relationships usually appear when:
+
+\begin{itemize}
+\tightlist
+\item
+  A dimension table contains duplicate keys
+\item
+  A fact table is linked to another fact table
+\item
+  Text fields are used as join keys
+\item
+  Aggregated data is mixed with transaction-level data
+\end{itemize}
+
+In health data, this commonly happens when:
+
+\begin{itemize}
+\tightlist
+\item
+  Facility names are duplicated across systems
+\item
+  Patient identifiers are inconsistent
+\item
+  Monthly summaries are joined directly to line lists
+\end{itemize}
+
+\textbf{Why it is dangerous}
+
+Many-to-many relationships:
+
+\begin{itemize}
+\tightlist
+\item
+  Inflate counts
+\item
+  Distort totals
+\item
+  Produce inconsistent results depending on filters
+\item
+  Make DAX calculations unpredictable
+\end{itemize}
+
+The same indicator may return different values depending on where it is used.
+
+\textbf{How to think your way out}
+
+If a relationship is many-to-many, pause and ask:
+
+\begin{itemize}
+\tightlist
+\item
+  ``What is the event?''
+\item
+  ``What is the description?''
+\item
+  ``Should these tables even be directly connected?''
+\end{itemize}
+
+In most cases, the solution is:
+
+\begin{itemize}
+\tightlist
+\item
+  Introduce or fix a dimension table
+\item
+  Clean keys
+\item
+  Revisit granularity
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{2. Bi-Directional Filters Applied Without Justification}
+
+Bi-directional filtering allows context to flow in both directions between tables.
+
+It feels powerful.\\
+It is rarely necessary.
+
+\textbf{\emph{Why it happens}}
+
+Users often enable bi-directional filters because:
+
+\begin{itemize}
+\tightlist
+\item
+  A visual ``doesn't work''
+\item
+  A slicer does not behave as expected
+\item
+  Power BI suggests it automatically
+\end{itemize}
+
+Instead of fixing structure, filters are allowed to flow both ways.
+
+\textbf{\emph{Why it is dangerous}}
+
+Bi-directional filters:
+
+\begin{itemize}
+\tightlist
+\item
+  Create hidden filter paths
+\item
+  Introduce ambiguity
+\item
+  Make results dependent on visual layout
+\item
+  Break assumptions in DAX measures
+\end{itemize}
+
+The model becomes difficult to reason about.
+
+\textbf{\emph{How to think your way out}}
+
+In a star schema:
+
+\begin{itemize}
+\tightlist
+\item
+  Dimensions define context
+\item
+  Facts respond to context
+\end{itemize}
+
+If you feel the need for bi-directional filters, it often means:
+- The model is not truly star-shaped
+- Tables are playing multiple roles
+- A bridge table is missing
+
+Fix structure before changing filter direction.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{3. Descriptive Fields Used as Relationship Keys}
+
+Using names, labels, or descriptions as join fields is a common beginner shortcut.
+
+It almost always leads to long-term problems.
+
+\textbf{\emph{Why it happens}}
+
+Descriptive fields are:
+
+\begin{itemize}
+\tightlist
+\item
+  Human-readable
+\item
+  Easy to recognize
+\item
+  Available in every dataset
+\end{itemize}
+
+So they feel convenient.
+
+\textbf{\emph{Why it is dangerous}}
+
+Descriptions:
+
+\begin{itemize}
+\tightlist
+\item
+  Change over time
+\item
+  Are not guaranteed to be unique
+\item
+  May be spelled inconsistently
+\item
+  May include formatting differences
+\end{itemize}
+
+When a description changes, historical analysis breaks.
+
+\textbf{\emph{How to think your way out}}
+
+Relationships should be built on:
+
+\begin{itemize}
+\tightlist
+\item
+  Stable identifiers
+\item
+  Surrogate keys
+\item
+  Fields with no business meaning
+\end{itemize}
+
+Descriptions belong in dimension tables.\\
+Keys exist only to connect.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{4. Dimension Tables Linked Directly to Each Other}
+
+Linking dimension tables may feel logical, but it breaks analytical clarity.
+
+\textbf{\emph{Why it happens}}
+
+This usually occurs when:
+
+\begin{itemize}
+\tightlist
+\item
+  Users try to ``help'' Power BI navigate context
+\item
+  Dimensions share a common attribute
+\item
+  The fact table feels unnecessary
+\end{itemize}
+
+\textbf{\emph{Why it is dangerous}}
+
+When dimensions link directly:
+
+\begin{itemize}
+\tightlist
+\item
+  Filter paths multiply
+\item
+  Context becomes ambiguous
+\item
+  Results depend on evaluation order
+\item
+  Measures become fragile
+\end{itemize}
+
+Power BI can no longer determine a single, authoritative path.
+
+\textbf{\emph{How to think your way out}}
+
+In a star schema:
+
+\begin{itemize}
+\tightlist
+\item
+  Dimensions never describe each other
+\item
+  They describe events
+\end{itemize}
+
+If two dimensions need to interact, ask:
+
+\begin{itemize}
+\tightlist
+\item
+  ``Where did this interaction occur?''
+\item
+  ``What event connects them?''
+\end{itemize}
+
+The answer almost always points back to the fact table.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{A Simple Rule to Remember}\label{a-simple-rule-to-remember}
+
+If your model:
+
+\begin{itemize}
+\tightlist
+\item
+  Is hard to explain
+\item
+  Requires frequent filter overrides
+\item
+  Produces inconsistent totals
+\item
+  Breaks when visuals change
+\end{itemize}
+
+The problem is rarely DAX. It is almost always the model. Strong models make analytics boring. Weak models make analytics confusing.
+
+This chapter exists to help you build the former.
+
+\subsection{Reflection: Why This Step Matters}\label{reflection-why-this-step-matters}
+
+At this point, you have not created a single indicator or chart.
+
+Yet you have already:
+
+\begin{itemize}
+\tightlist
+\item
+  Defined how data flows
+\item
+  Controlled how context is applied
+\item
+  Protected future calculations from ambiguity
+\end{itemize}
+
+This is the difference between \textbf{building dashboards} and \textbf{building analytical systems}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Stop Point: Do Not Move Forward Yet}\label{stop-point-do-not-move-forward-yet}
+
+Before proceeding to calculations, confirm:
+
+\begin{itemize}
+\tightlist
+\item
+  There is exactly one central fact table
+\item
+  All dimensions connect only to the fact table
+\item
+  All relationships are one-to-many
+\item
+  Filter direction flows from dimension to fact
+\end{itemize}
+
+If any of these conditions are not met, fix them now.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{What Comes Next}\label{what-comes-next}
+
+With a proper star schema in place, Power BI can now:
+
+\begin{itemize}
+\tightlist
+\item
+  Understand context
+\item
+  Apply filters consistently
+\item
+  Support reusable indicator definitions
+\end{itemize}
+
+The next chapter introduces \textbf{DAX measures}, where numerators and denominators are defined once and trusted everywhere.
+
+\emph{A strong model makes DAX simpler. A weak model makes DAX fragile.}
+
+\section{DAX Without Fear}\label{dax-without-fear}
+
+For many Power BI users, DAX is where confidence breaks. People describe DAX as:
+
+\begin{itemize}
+\tightlist
+\item
+  Too complex
+\item
+  Too mathematical
+\item
+  Easy to get wrong
+\item
+  Meant only for ``advanced users''
+\end{itemize}
+
+In reality, DAX is none of these things.
+
+DAX is simply the language Power BI uses to answer questions \textbf{precisely}.
+
+If you already work in Monitoring and Evaluation or Public Health, you already think in DAX terms. You define indicators, specify eligibility, apply reporting rules, and interpret numbers in context. DAX formalizes that thinking.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{What DAX Really Is}\label{what-dax-really-is}
+
+DAX stands for \textbf{Data Analysis Expressions}. At its core, DAX is a way to:
+
+\begin{itemize}
+\tightlist
+\item
+  Create reusable calculations
+\item
+  Define relationships between tables
+\item
+  Express logic clearly
+\item
+  Define indicators
+\item
+  Control how numbers respond to filters
+\item
+  Ensure consistency across reports
+\end{itemize}
+
+DAX is \textbf{not}:
+
+\begin{itemize}
+\tightlist
+\item
+  A data cleaning tool
+\item
+  A scripting language like R or Python
+\item
+  A substitute for proper modeling
+\end{itemize}
+
+\begin{quote}
+Important principle:\\
+DAX works best on top of a well-structured star schema.\\
+It cannot compensate for poor data modeling.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Measures vs Calculated Columns}\label{measures-vs-calculated-columns}
+
+\emph{(The Most Important Concept to Understand)}
+
+This distinction appears in almost every Power BI interview, and misunderstanding it leads to fragile reports.
+
+\subsubsection{Calculated Columns}\label{calculated-columns}
+
+A calculated column is a new column added to a table.
+
+\begin{itemize}
+\tightlist
+\item
+  Calculated \textbf{row by row}
+\item
+  Computed during data refresh
+\item
+  Stored in the model and consumes memory
+\end{itemize}
+
+A calculated column answers the question: ``What is true about this specific row?''
+
+\textbf{Common M\&E use cases include:}
+
+\begin{itemize}
+\tightlist
+\item
+  Grouping age bands\\
+  \texttt{Age\ Group\ =\ IF\ (\ Age\ \textless{}\ 5,\ "Under\ 5",\ "5\ and\ Above"\ )}
+\item
+  Creating categorical flags
+\item
+  Creating display-friendly labels
+\end{itemize}
+
+Calculated columns are useful for \textbf{classification and grouping}, not for indicators.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Measures}\label{measures}
+
+A measure is a dynamic calculation.
+
+\begin{itemize}
+\tightlist
+\item
+  Not stored as data
+\item
+  Evaluated at query time
+\item
+  Responds to slicers, filters, and visual context
+\end{itemize}
+
+A measure answers the question: ``What is true right now, given the current filters?''
+
+\textbf{Common M\&E use cases include:}
+
+\begin{itemize}
+\tightlist
+\item
+  Total visits
+\item
+  Number of patients tested
+\item
+  Coverage rates
+\item
+  Positivity rates
+\end{itemize}
+
+In professional models, \textbf{indicators are almost always measures}.
+
+\begin{quote}
+\textbf{Rule of thumb:}
+
+If it defines \emph{categories}, use a column.\\
+If it defines \emph{numbers}, use a measure.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Thinking in Indicators, Not Formulas}\label{thinking-in-indicators-not-formulas}
+
+Many beginners ask: ``What formula should I write?''
+
+A better question is: ``What exactly am I trying to measure?''
+
+In Monitoring and Evaluation, indicators are defined before tools are opened. DAX simply encodes those definitions.
+
+An indicator usually consists of:
+
+\begin{itemize}
+\tightlist
+\item
+  A population of interest
+\item
+  Inclusion and exclusion rules
+\item
+  A numerator
+\item
+  A denominator
+\item
+  A reporting context
+\end{itemize}
+
+DAX allows you to express this logic once and reuse it everywhere.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Context: The Core Idea Behind DAX}\label{context-the-core-idea-behind-dax}
+
+Most confusion around DAX comes from misunderstanding \textbf{context}.
+
+Context answers one question:
+
+\begin{quote}
+``Which rows are visible right now?''
+\end{quote}
+
+Context is created by:
+- Slicers
+- Filters
+- Rows and columns in visuals
+- Relationships in the data model
+
+DAX does not invent numbers.\\
+It evaluates expressions \textbf{within the current context}.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{The Simplest Measure You Can Write}\label{the-simplest-measure-you-can-write}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Total Visits =}
+\NormalTok{COUNTROWS ( fact\_patient\_visits )}
+\end{Highlighting}
+\end{Shaded}
+
+This measure:
+
+\begin{itemize}
+\item
+  Counts rows in the fact table
+\item
+  Automatically respects filters
+\end{itemize}
+
+If you filter by:
+
+\begin{itemize}
+\item
+  Facility → counts visits for that facility
+\item
+  Date → counts visits for that period
+\item
+  District → counts visits for that district
+\end{itemize}
+
+No additional logic is required. This is DAX working as intended.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Core DAX Patterns You Will Reuse}\label{core-dax-patterns-you-will-reuse}
+
+You do not need to learn the entire DAX language. Most public health dashboards rely on a small set of reusable patterns.
+
+\textbf{Pattern 1: Explicit Aggregation}
+
+Always write explicit measures instead of relying on default aggregation.
+
+Total Visits =
+SUM ( fact\_patient\_visits{[}visit\_count{]} )
+
+Explicit measures are:
+
+\begin{itemize}
+\tightlist
+\item
+  Clear
+\item
+  Reusable
+\item
+  Auditable
+\end{itemize}
+
+Avoid implicit measures like this:
+
+Total Visits =
+fact\_patient\_visits{[}visit\_count{]}
+
+Implicit measures:
+
+\begin{itemize}
+\tightlist
+\item
+  Are hard to read
+\item
+  Cannot be reused
+\item
+  Lead to inconsistent results
+\end{itemize}
+
+\textbf{Pattern 2: Filtered Calculations with CALCULATE}
+
+\emph{CALCULATE} modifies context. It answers the question:
+
+``Calculate this number, but only for these rows.''
+
+Example: Malaria-positive cases.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Malaria Positive Cases =}
+\NormalTok{CALCULATE (}
+\NormalTok{    COUNTROWS ( fact\_patient\_visits ),}
+\NormalTok{    fact\_patient\_visits[test\_type] = "Malaria RDT",}
+\NormalTok{    fact\_patient\_visits[test\_result] = "Positive"}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This measure:
+
+\begin{itemize}
+\tightlist
+\item
+  Respects existing slicers
+\item
+  Applies additional conditions
+\item
+  Produces consistent results across visuals
+\end{itemize}
+
+\begin{quote}
+Note:
+CALCULATE does not remove filters. It refines them.
+\end{quote}
+
+\textbf{Pattern 3: Safe Ratios with DIVIDE}
+
+Never divide indicators using \emph{/}.
+
+Division by zero is common in health data.
+
+Always use \emph{DIVIDE}.
+
+\texttt{Positivity\ Rate\ =\ DIVIDE\ (\ \ \ \ \ {[}Malaria\ Positive\ Cases{]},\ \ \ \ \ {[}Total\ Visits{]},\ \ \ \ \ 0\ )}
+
+This ensures:
+
+\begin{itemize}
+\tightlist
+\item
+  No errors
+\item
+  Stable visuals
+\item
+  Predictable output
+\end{itemize}
+
+\textbf{Pattern 4: Time Intelligence}
+
+Time-based comparison is central to monitoring.These calculations work best when:
+
+\begin{itemize}
+\tightlist
+\item
+  A proper date dimension exists
+\item
+  Relationships are correctly defined
+\end{itemize}
+
+Example: Visits in the previous month.
+
+Visits Last Month =
+CALCULATE (
+{[}Total Visits{]},
+DATEADD ( dim\_date{[}date{]}, -1, MONTH )
+)
+
+Month-on-month growth:
+
+Visits MoM Growth =
+DIVIDE (
+{[}Total Visits{]} - {[}Visits Last Month{]},
+{[}Visits Last Month{]},
+0
+)
+
+The same logic applies across facilities, districts, and programs.
+
+Variables: Making DAX Easier to Read and Trust
+
+As logic grows, readability matters.
+
+Variables allow you to:
+
+Break logic into steps
+
+Mirror indicator definitions
+
+Simplify debugging
+
+ANC Visits =
+VAR Visits =
+COUNTROWS ( fact\_patient\_visits )
+RETURN
+Visits
+
+Variables do not change results.
+They change clarity.
+
+Common DAX Mistakes (And Why They Happen)
+
+Most DAX problems are not syntax errors.
+
+They are thinking errors.
+
+Common causes include:
+
+Using DAX to compensate for weak models
+
+Overusing calculated columns
+
+Removing filters unnecessarily
+
+Copying formulas without understanding context
+
+When DAX feels difficult, stop and ask:
+
+What is the event I am counting?
+
+What filters apply naturally?
+
+What filters am I adding deliberately?
+
+Am I defining logic or patching structure?
+
+A Simple DAX Checklist
+
+Before writing any measure, ask:
+
+What is the indicator definition?
+
+Which table contains the event?
+
+Which filters should apply automatically?
+
+Do I need CALCULATE?
+
+Can this logic be reused?
+
+If you can answer these questions, the DAX will be straightforward.
+
+What to Carry Forward
+
+DAX is not something to fear.
+
+It is the language of explicit definitions.
+
+When used correctly:
+
+Indicators remain consistent
+
+Numbers are trusted
+
+Dashboards become stable decision tools
+
+The next chapter focuses on designing visuals that respect indicators, ensuring that strong logic is communicated clearly and responsibly.
+
+\end{document}

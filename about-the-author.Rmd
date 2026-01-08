@@ -1,0 +1,11 @@
+# About the Author {-}
+
+**Oluwatobi Olatunbosun** is a public health data professional with extensive experience working at the intersection of data management, monitoring and evaluation, and decision support for large-scale health programs.
+
+His work has focused on strengthening how health data is collected, cleaned, structured, analyzed, and used across program areas such as HIV, malaria, tuberculosis, maternal health, and integrated service delivery. He has supported teams at facility, district, and national levels to move beyond static reporting toward systems that enable continuous monitoring and informed decision-making.
+
+Oluwatobi’s technical practice spans data analysis, visualization, and analytical system design, with particular emphasis on building reproducible workflows, protecting indicator definitions, and ensuring analytical consistency across reporting cycles. He works primarily with tools such as Power BI, R, and SQL, applying them in contexts where data is often incomplete, inconsistent, and operationally constrained.
+
+This book reflects how he approaches Power BI in real public health settings: not as a visualization tool, but as an analytical framework for structuring data, embedding logic, and supporting responsible data use. The examples and principles presented here are shaped by practical realities around messy datasets, evolving definitions, and the need to balance speed with accuracy.
+
+He believes that effective analytics is less about technical sophistication and more about **structure, clarity, and accountability**, and that well-designed data systems can meaningfully improve how programs serve people and communities.

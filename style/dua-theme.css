@@ -1,0 +1,76 @@
+/* Base typography */
+body {
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.7;
+  color: #222;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #0f172a; /* deep slate */
+}
+
+h1 {
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+/* Links */
+a {
+  color: #2563eb;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code blocks */
+pre {
+  background-color: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 1em;
+}
+
+/* Inline code */
+code {
+  background-color: #f1f5f9;
+  padding: 0.15em 0.3em;
+  border-radius: 4px;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em;
+}
+
+/* Blockquotes (notes, reflections) */
+blockquote {
+  border-left: 4px solid #0ea5e9;
+  background: #f0f9ff;
+  padding: 0.8em 1em;
+  margin: 1em 0;
+}
+
+/* Emphasized warnings / caveats */
+span[style*="color: red"] {
+  background-color: #fee2e2;
+  padding: 0.4em 0.6em;
+  display: inline-block;
+  border-radius: 4px;
+}

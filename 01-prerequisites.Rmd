@@ -1,0 +1,127 @@
+
+# Prerequisites {-}
+
+This chapter outlines what you need before working through the rest of
+this book. The goal is to ensure that all readers start from a **shared
+baseline**, regardless of prior experience.
+
+Nothing here is advanced. If you can open Power BI Desktop and follow
+simple instructions, you are ready.
+
+------------------------------------------------------------------------
+
+## Software Requirements
+
+### Power BI Desktop
+
+You must have **Power BI Desktop** installed.
+
+-   **Platform:** Windows 10 or 11
+-   **Version:** Latest stable release (updated monthly)
+-   **Download:**
+    [powerbi.microsoft.com/desktop](https://powerbi.microsoft.com/desktop/)
+
+All examples, screenshots, and exercises in this book use Power BI
+Desktop.
+
+> **Note on Licensing:** Power BI Desktop is **free**. A paid Power BI
+> Pro license is *not* required to follow the exercises in this book.
+
+### A Note for Mac Users
+
+Power BI Desktop **does not run natively on macOS**. If you are using a
+Mac, you have two options: 
+
+1. Install Windows on your Mac using a virtual machine (e.g., Parallels or VMWare). 
+2. Use a Windows 365 Cloud PC.
+
+------------------------------------------------------------------------
+
+## Hardware Recommendations
+
+Power BI is an in-memory tool. For the best experience: \* **RAM:** 8 GB
+minimum (16 GB recommended). \* **Screen:** A second monitor is highly
+recommended (one screen for this book, one screen for Power BI).
+
+------------------------------------------------------------------------
+
+## Data Used in This Book
+
+All practical exercises use a **synthetic, patient-level integrated
+health dataset** created specifically for learning.
+
+The dataset represents routine service delivery across: 
+
+- Antenatal Care (ANC) 
+- HIV and ART 
+- Malaria 
+- Tuberculosis (TB) 
+- Non-Communicable Diseases (NCDs)
+
+**Privacy Note:** No real patient data is used. All names and IDs are
+randomly generated.
+
+The dataset is intentionally **not clean**. It includes missing values,
+inconsistent formats, and common data quality issues that reflect real
+health information systems. You will clean, model, and analyze this data
+step by step in later chapters.
+
+------------------------------------------------------------------------
+
+## Files You Will Work With
+
+You should have access to the project folder containing the following
+CSV files:
+
+-   `fact_patient_visits.csv` (The transactional line list)
+-   `dim_patient.csv` (Demographics)
+-   `dim_facility.csv` (Locations and ownership)
+-   `dim_date.csv` (Reporting periods)
+
+These files form a simple star-schema structure that will be used
+throughout the book.
+
+> **Important:** Do not edit these files manually in Excel. All cleaning
+> and transformation will be done inside Power BI.
+
+------------------------------------------------------------------------
+
+## Knowledge Assumptions
+
+This book assumes: - Basic familiarity with tables (rows and columns). -
+Comfort opening files and using software menus. - **No** prior Power BI
+experience. - **No** prior DAX experience. - **No** database background.
+
+If you have used Excel for reporting (even just for simple sums and
+filters), you are more than prepared.
+
+------------------------------------------------------------------------
+
+## How This Book Is Organized
+
+Each chapter builds on the previous one.
+
+1.  **Concept & Structure:** Understanding the "Why" and the ecosystem.
+2.  **Preparation (ETL):** Getting messy data ready for analysis.
+3.  **Modeling:** Building the relationships (Star Schema).
+4.  **Analytics:** Using DAX for indicators.
+5.  **Storytelling:** Visualizing data for decision support.
+
+Practical exercises are included in most chapters. You are encouraged to
+follow along in Power BI rather than reading passively.
+
+------------------------------------------------------------------------
+
+## Before You Continue
+
+Before moving to the next chapter, confirm that:
+
+  [ ] Power BI Desktop opens successfully without errors.
+  [ ] You can locate the sample CSV files on your computer.   
+  [ ] You have created a folder (e.g., `My Power BI Project`) to save
+    your work.
+
+Once these are in place, you are ready to begin.
+
+*The next chapter explains **why Power BI matters for Monitoring and
+Evaluation**, and how it fits into real program workflows.*

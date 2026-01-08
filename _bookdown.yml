@@ -1,0 +1,27 @@
+book_filename: "powerbi-for-development-sector"
+delete_merged_file: true
+date: "© 2025"
+language:
+  ui:
+    chapter_name: "Chapter: "
+cover-image: "assets/images/cover/cover-page.png"
+bookdown::pdf_book:
+  latex_engine: xelatex
+  citation_package: natbib
+  
+rmd_files:
+  - index.Rmd
+  - about-the-author.Rmd
+  - how-to-cite.Rmd
+  - license.Rmd
+  - 01-prerequisites.Rmd
+  - 02-why-powerbi.Rmd
+  - 03-data-use-mindset.Rmd
+  - 04-powerbi-ecosystem.Rmd
+  - 05-data-sources.Rmd
+  - 06-power-query.Rmd
+  - 07-data-modeling.Rmd
+  - 08-dax.Rmd
+  - 09-visual-design.Rmd
+  - 10-publishing-sharing.Rmd
+  - acknowledgements.Rmd

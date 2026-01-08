@@ -1,0 +1,7 @@
+# Acknowledgements {-}
+
+This book was shaped by years of working with real-world public health data.
+
+I am grateful to the many colleagues, analysts, program staff, and public health practitioners who, through everyday collaboration and shared problem-solving, have influenced how I think about data use, structure, and accountability. While they are not named here, their questions, constraints, and insights are reflected throughout this work.
+
+The views and any errors in this book are the author’s alone.
