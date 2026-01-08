@@ -5,7 +5,7 @@ This repository contains the source files for the book
 
 The book is a practical, open resource for Monitoring and Evaluation and Public Health professionals working with real-world health data.
 
-📘 **Online version:** https://pbi4ds.netlify.app
+📘 **Online version:** https://pbx4ds.netlify.app/
 
 ## License
 This work is licensed under a  
