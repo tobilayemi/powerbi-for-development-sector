@@ -6,7 +6,7 @@ If you use ideas, structure, figures, or examples from this book in reports, pre
 
 Olatunbosun, O. (2025).  
 *Power BI for Monitoring and Evaluation and Public Health*.  
-Available online at: *[URL to be added]*
+Available online at: *https://doi.org/10.5281/zenodo.18178614*
 
 ## Informal Reference
 
