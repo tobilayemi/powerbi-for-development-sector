@@ -3,8 +3,7 @@
 .Rhistory
 .RData
 
-# Book output
-_book/
+
 
 # OS / editor noise
 .DS_Store
