@@ -63,7 +63,7 @@ In the Power BI Service, reports are organized into **Workspaces**.
 > **Best Practice:** Always create a Shared Workspace for official Monitoring and Evaluation dashboards.
 
 
-![Power BI Service showing "My Workspace"](assets/images/screenshots/my-workspace.png){width=100%}
+![*Power BI Service showing "My Workspace"*](assets/images/screenshots/my-workspace.png){width=100%}
 
 ---
 
@@ -178,6 +178,6 @@ You have learned to:
 
 You are no longer just an "Excel user." You are building systems that help save lives, improve efficiency, and direct resources where they are needed most.
 
-The tools will change—Power BI updates every month—but the principles of **Structure**, **Clarity**, and **Responsibility** will always remain.
+The tools will change, Power BI updates every month, but the principles of **Structure**, **Clarity**, and **Responsibility** will always remain.
 
 **Go build something that matters.**

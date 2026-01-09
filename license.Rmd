@@ -5,14 +5,14 @@ This book is licensed under the
 
 ## You Are Free To
 
-- **Share** — copy and redistribute the material in any medium or format  
-- **Adapt** — remix, transform, and build upon the material  
+- **Share** - copy and redistribute the material in any medium or format  
+- **Adapt** - remix, transform, and build upon the material  
 
 ## Under the Following Terms
 
-- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
+- **Attribution** - You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
 
-- **NonCommercial** — You may not use the material for commercial purposes without explicit permission.
+- **NonCommercial** - You may not use the material for commercial purposes without explicit permission.
 
 ## Attribution Example
 

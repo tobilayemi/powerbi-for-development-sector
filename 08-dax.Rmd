@@ -273,4 +273,5 @@ If you can answer these questions, the DAX will be straightforward.
 
 DAX is not something to fear. It is the language of explicit definitions. When used correctly, indicators remain consistent, numbers are trusted, and dashboards become stable decision tools
 
-*The next chapter focuses on designing visuals that respect indicators, ensuring that strong logic is communicated clearly and responsibly.*
+
+**The next chapter focuses on designing visuals that respect indicators, ensuring that strong logic is communicated clearly and responsibly.**

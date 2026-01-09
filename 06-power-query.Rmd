@@ -444,7 +444,7 @@ By the end of this chapter, you should have:\
 - Documented transformations\
 - Confidence in your inputs**
 
-In the next chapter, we will build a **data model** that connects these tables using relationships and prepares them for indicator calculation.
+**In the next chapter, we will build a *data model* that connects these tables using relationships and prepares them for indicator calculation.**
 
 > **Notes:**
 >

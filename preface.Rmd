@@ -1,0 +1,84 @@
+# Preface {.unnumbered}
+
+## Author’s Note
+
+This book was written from lived experience. It is an independent work authored in a personal capacity.
+
+Over the years, I have worked with Monitoring and Evaluation teams, data managers, and program leads across public health and development programs who are under constant pressure to produce timely, accurate, and actionable reports. In many of these settings, Power BI is introduced as a tool, but not as a system for thinking about data use.
+
+This guide exists to close that gap.
+
+Rather than teaching Power BI as a collection of buttons and visuals, I focus on the underlying principles that make dashboards reliable, scalable, and trusted. The examples in this book are drawn from real program realities, using synthetic data designed to reflect the complexity and imperfections of health information systems.
+
+My hope is that this resource helps you move beyond reporting and toward meaningful, confident data use.
+
+— *Oluwatobi Olatunbosun*
+
+
+## The Gap in Data Training
+
+If you search for Power BI tutorials online, you will find thousands of examples built around sales revenue, customer churn, and profit margins. These examples are useful, but they are designed for a world where data is clean, definitions are stable, and success is measured primarily in financial terms.
+
+That is not the reality for most Monitoring and Evaluation or Public Health professionals.
+
+In practice, we work with patients, communities, and health facilities. Our data comes from multiple systems that rarely speak to each other. Definitions vary by donor, reporting cycle, and program area. We do not track profit. We track coverage, outcomes, service quality, and impact, often under tight reporting timelines and with imperfect data.
+
+As a result, many professionals learn Power BI in theory but struggle to apply it in real program settings. Dashboards look impressive but break when indicators change. Numbers differ across reports. Teams spend more time fixing spreadsheets than using data to guide decisions.
+
+This guide exists to bridge that gap.
+
+It takes proven Power BI practices from the corporate analytics world and translates them into the context of development programs, health systems, and population-level data. The focus is not on decorative visuals, but on building reliable, reusable, and trusted analytical systems that reflect how public health data actually works.
+
+The goal is simple: **to help you move from reporting numbers to using data with confidence.**
+
+------------------------------------------------------------------------
+
+## Who This Guide Is For
+
+This guide is written for professionals working with data in development and public health programs who require tools that function effectively in real-world conditions.
+
+It is particularly relevant for:
+
+-   **Monitoring and Evaluation Officers**\
+    Who are responsible for producing routine reports and dashboards, and are tired of manually updating Excel files every reporting cycle. If you spend more time cleaning data and fixing formulas than interpreting results, this guide is written with your workflow in mind.
+
+-   **Data Managers and Health Information Officers**\
+    Who work with data from multiple systems such as KoboToolbox, ODK, DHIS2, laboratory systems, and electronic medical records. If your role involves harmonizing datasets, resolving inconsistencies, and ensuring data quality across sources, this guide focuses on building repeatable and defensible processes.
+
+-   **Program Managers and Technical Leads**\
+    Who rely on data to track performance, identify gaps, and make programmatic decisions. If static PDF reports arrive too late to influence action, this guide demonstrates how interactive dashboards can support timely and informed decision-making.
+
+No prior Power BI expertise is assumed. Concepts are introduced progressively, with practical examples designed to build confidence for beginners while reinforcing best practices for experienced users.
+
+------------------------------------------------------------------------
+
+## How to Use This Guide
+
+The book follows a simple and practical **data lifecycle** that mirrors real project workflows:
+
+1.  **Orientation**\
+    Understanding the Power BI ecosystem and how its components fit together.
+
+2.  **Preparation (ETL)**\
+    Extracting data from common sources and applying repeatable data cleaning patterns.
+
+3.  **Modeling**\
+    Structuring data correctly to support accurate analysis and long-term reuse.
+
+4.  **Analytics**\
+    Using DAX to calculate indicators, rates, ratios, and trends commonly used in M&E and Public Health.
+
+5.  **Storytelling**\
+    Designing dashboards that communicate clearly and support action.
+
+Each chapter builds on the previous one. You can read the book sequentially or jump directly to the section that matches your current needs.
+
+
+
+**License**
+
+This book is published under a Creative Commons license.  
+See the *License* section for full details.
+
+
+*© 2025 Oluwatobi Olatunbosun*

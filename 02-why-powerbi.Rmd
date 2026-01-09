@@ -12,9 +12,9 @@ Power BI matters because it directly addresses this gap between **data availabil
 
 ## Data Use Is Not the Same as Reporting
 
-In many organisations, reporting and data use are treated as the same thing. They are not.
+In many organisations, reporting and data use are treated as the same thing. They are actually not.
 
-| **Reporting Focuses On...** | **Data Use Focuses On...** |
+| **Reporting Focuses On:** | **Data Use Focuses On:** |
 | :--- | :--- |
 | Submitting figures on time | Understanding trends and patterns |
 | Meeting donor or regulatory requirements | Identifying gaps early |
@@ -129,4 +129,4 @@ This book is not about turning M&E professionals into software developers. It is
 * Improve consistency and trust in indicators.
 * Design dashboards that support decisions, not just reporting.
 
-*The next chapter introduces the Power BI ecosystem and explains how its components work together in practice.*
+**The next chapter introduces the Power BI ecosystem and explains how its components work together in practice.**

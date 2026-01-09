@@ -122,7 +122,7 @@ Tables are not a failure of design. They are essential when:
 
 **Power BI Tip:** Use the **Matrix** visual instead of the standard Table visual. The Matrix acts like an Excel Pivot Table, allowing users to drill down rows (e.g., click "Region" to expand "Districts") and aggregate columns. 
 
-![Chart Selection Guide](assets/images/screenshots/chart-guide.png) {width=50%}
+![*Chart Selection Guide* ](assets/images/screenshots/chart-guide.png){width=80%}
 
 ---
 
@@ -355,4 +355,4 @@ Good dashboards are quiet. They do not shout. They do not impress with decoratio
 
 When indicators are well defined and visuals are chosen deliberately, dashboards become trusted tools rather than presentation artifacts.
 
-*The next chapter focuses on **publishing and sharing dashboards responsibly**, ensuring that the right people see the right information at the right level of detail.*
+**The next chapter focuses on *Publishing and sharing dashboards* responsibly, ensuring that the right people see the right information at the right level of detail.**

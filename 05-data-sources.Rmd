@@ -190,4 +190,4 @@ By the end of this chapter, you should have:
 
 At this stage, the data may look messy. That is expected.
 
-The next chapter focuses on **cleaning and transforming data using Power Query**, where we will systematically fix these issues and prepare the data for proper modeling and analysis.
+**The next chapter focuses on **cleaning and transforming data using Power Query**, where we will systematically fix these issues and prepare the data for proper modeling and analysis.**

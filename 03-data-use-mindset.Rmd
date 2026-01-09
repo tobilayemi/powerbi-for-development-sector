@@ -62,10 +62,10 @@ Implicit logic happens when you define an indicator using filters on a specific 
 >
 > Imagine you want to show the **Retention Rate** for HIV patients.
 >
-> -   **The Visuals-First Approach:** You drag a count of patients to a bar chart. You drag a filter to the side and uncheck "Transferred Out" and "Dead." You rename the chart title to "Retention."
->     -   *The Risk:* Next week, a colleague copies that chart but forgets to copy the filters. Or, they add a filter for "Age \< 15." Suddenly, the two charts show different numbers for the same metric. There is no single "truth"(only different views).
-> -   **The Indicators-First Approach:** You write a **DAX Measure**. You explicitly define the math: `Retention Rate = DIVIDE( [Active Patients], [Total Enrolled] - [Transferred Out] )`
->     -   *The Reward:* This definition is now hard-coded into the model. Whether you put it on a map, a card, or a table, it always calculates correctly. You have created a **Single Source of Truth**.
+> - **The Visuals-First Approach:** You drag a count of patients to a bar chart. You drag a filter to the side and uncheck "Transferred Out" and "Dead." You rename the chart title to "Retention."
+>     -   ***The Risk:*** Next week, a colleague copies that chart but forgets to copy the filters. Or, they add a filter for "Age \< 15." Suddenly, the two charts show different numbers for the same metric. There is no single "truth"(only different views).
+> - **The Indicators-First Approach:** You write a **DAX Measure**. You explicitly define the math: `Retention Rate = DIVIDE( [Active Patients], [Total Enrolled] - [Transferred Out] )`
+>     -   ***The Reward:*** This definition is now hard-coded into the model. Whether you put it on a map, a card, or a table, it always calculates correctly. You have created a **Single Source of Truth**.
 
 For the M&E professional, "Viral Load Suppression" is not a chart. It is a strict definition. Once that definition is clear, Power BI can calculate it consistently across time, geography, and disaggregation.
 
@@ -75,7 +75,7 @@ This is why **modeling and calculations matter more than visuals**.
 
 ## The Concept-to-Canvas Workflow
 
-![To implement this mindset, follow this 4-step workflow for every report you build.](assets/images/screenshots/Power-Bi-Concept-to-Canvas%20Workflow.png)
+![To implement this mindset, follow this 4-step workflow for every report you build.](assets/images/screenshots/Power-Bi-Concept-to-Canvas-Workflow.png){width=80%}
 
 ***1. Define the Question (The Strategic Layer)*** Don't ask "What data do we have?" Ask "What do we need to know?" \* *Bad Start:* "I have a CSV of malaria cases." \* *Good Start:* "We need to identify districts where malaria incidence is rising despite
 bed net distribution."
@@ -108,12 +108,12 @@ Once you have your plan, Power BI follows a technical workflow that mirrors good
 
 ### 1. Get Data (Connect)
 
-This step answers one question: *Where does the data live?* Data may come from Excel, DHIS2, SQL Server, ODK/KoboToolbox, or APIs. At this stage, the goal is **access**, not perfection. In public health, data is often fragmented across multiple systems;
+This step answers one question: ***Where does the data live?*** Data may come from Excel, DHIS2, SQL Server, ODK/KoboToolbox, or APIs. At this stage, the goal is **access**, not perfection. In public health, data is often fragmented across multiple systems;
 your first task is simply to bring it into the Power BI kitchen.
 
 ### 2. Transform (Shape)
 
-Raw data reflects how systems *collect* information, not how analysts *use* it. Common public health data issues include:
+Raw data reflects how systems ***collect*** information, not how analysts **use** it. Common public health data issues include:
 
 -   **"Wide" Data:** Months spread across columns (Jan, Feb, Mar) instead of rows.
 -   **Dirty Data:** "District A" and "Dist. A" treated as different places.
@@ -148,7 +148,7 @@ Good visuals in Public Health are functional, not decorative. They should:
 
 A dashboard that lives on your desktop is useless. Publishing involves sharing the report to the Power BI Service, setting up automated data refreshes (so you don't have to email files), and managing security (so the right people see the right data).
 
-![Power BI Publish](assets/images/screenshots/Power-Bi-5-Workflow.png)
+![Power BI Publish](assets/images/screenshots/Power-Bi-5-Workflow.png){width=80%}
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -187,4 +187,4 @@ This book follows this exact workflow:
 
 -   **Reuse before reinvention.**
 
-The next chapter moves into the first technical step: connecting Power BI to common data sources used in M&E and public health programs.
+The next chapter moves into the first technical step: **Connecting Power BI to common data sources** used in M&E and public health programs.

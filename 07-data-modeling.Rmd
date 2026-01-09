@@ -425,7 +425,7 @@ Repeat the same process for:
 
 - `facility_id` → `dim_facility` 
 
--`date_id` → `dim_date`
+- `date_id` → `dim_date`
 
 
 ------------------------------------------------------------------------
@@ -721,6 +721,6 @@ With a proper star schema in place, Power BI can now:
 -   Apply filters consistently
 -   Support reusable indicator definitions
 
-The next chapter introduces **DAX measures**, where numerators and denominators are defined once and trusted everywhere.
+**The next chapter introduces *DAX measures*, where numerators and denominators are defined once and trusted everywhere.**
 
 *A strong model makes DAX simpler. A weak model makes DAX fragile.*

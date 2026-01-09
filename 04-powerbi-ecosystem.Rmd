@@ -34,11 +34,11 @@ work happens.
 -   **Primary role:** Authoring and development
 -   **Who uses it:** Data analysts, M&E officers, data managers
 -   **Typical tasks:**
-    -   Connecting to data sources
-    -   Cleaning and transforming data with Power Query
-    -   Building data models and relationships
-    -   Writing DAX calculations
-    -   Designing report pages
+    i.   Connecting to data sources
+    ii.   Cleaning and transforming data with Power Query
+    iii.   Building data models and relationships
+    iv.   Writing DAX calculations
+    v.   Designing report pages
 
 Think of Power BI Desktop as the **Kitchen**.
 
@@ -49,7 +49,7 @@ the Desktop file, version control breaks down and consistency is lost.
 When you first open Power BI Desktop, you are presented with the main
 report canvas and common data connection options.
 
-![Power BI Desktop start screen showing data connection options](assets/images/screenshots/powerbi-desktop-start-screen.png){width=100%}
+![*Power BI Desktop start screen*](assets/images/screenshots/powerbi-desktop-start-screen.png){width=100%}
 
 > **Note:** Treat Power BI Desktop as a controlled environment. Fewer
 > authors and stronger standards lead to more reliable dashboards.
@@ -65,11 +65,11 @@ web browser.
 -   **Who uses it:** Program managers, technical leads, leadership,
     partners
 -   **Typical tasks:**
-    -   Publishing reports from Desktop
-    -   Scheduling data refreshes
-    -   Managing users and permissions
-    -   Creating dashboards from reports
-    -   Sharing content securely
+    i.   Publishing reports from Desktop
+    ii.   Scheduling data refreshes
+    iii.   Managing users and permissions
+    iv.   Creating dashboards from reports
+    v.   Sharing content securely
 
 The Service is the **Restaurant**.
 
@@ -78,7 +78,7 @@ interact with visuals, but they cannot change the underlying
 calculations or data structures. This separation protects data integrity
 while still encouraging exploration.
 
-![Power BI Service](assets/images/screenshots/Power-Bi-Service.png){width=100%}
+![*Power BI Service*](assets/images/screenshots/Power-Bi-Service.png){width=100%}
 
 ------------------------------------------------------------------------
 
@@ -90,8 +90,8 @@ devices.
 -   **Primary role:** Quick access and field-level consumption
 -   **Who uses it:** Field officers, supervisors, roving program staff
 -   **Typical tasks:**
-    -   Viewing dashboards optimized for small screens
-    -   Checking trends before meetings or site visits
+    i.   Viewing dashboards optimized for small screens
+    ii.   Checking trends before meetings or site visits
 
 This is the **Takeout** experience.
 
@@ -99,7 +99,7 @@ In decentralised programs, mobile access allows teams to engage with
 data closer to the point of service delivery rather than waiting to get
 back to the office. 
 
-![Power BIMobile](assets/images/screenshots/PowerBi-Mobile.png){width=100%}
+![*PowerBI Mobile*](assets/images/screenshots/PowerBi-Mobile.png){width=100%}
 
 ------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ the Power BI Service.
 -   It runs inside the organisation’s network.
 -   It prevents direct exposure of databases to the internet. 
 
-![Power BI Gateway](assets/images/screenshots/Power-Bi-Gateway.png){width=100%}
+![*PowerBI Gateway*](assets/images/screenshots/Power-Bi-Gateway.png){width=100%}
 
 > **Note:** Gateway misconfiguration is one of the most common reasons
 > dashboards fail after deployment. Plan for this early.
@@ -165,5 +165,5 @@ Understanding these limits early prevents frustration later.
 Once this ecosystem is clear, Power BI becomes much easier to learn and
 use effectively.
 
-The next chapter focuses on connecting Power BI to common data sources
-used in M&E and public health programs.
+
+**The next chapter focuses on connecting **Power BI to common data sources** used in M&E and public health programs.**

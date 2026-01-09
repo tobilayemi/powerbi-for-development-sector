@@ -39,9 +39,9 @@ Mac, you have two options:
 
 ## Hardware Recommendations
 
-Power BI is an in-memory tool. For the best experience: \* **RAM:** 8 GB
-minimum (16 GB recommended). \* **Screen:** A second monitor is highly
-recommended (one screen for this book, one screen for Power BI).
+Power BI is an in-memory tool. For the best experience: 
+- \* **RAM:** 8 GB minimum (16 GB recommended). 
+- \* **Screen:** A second monitor is highly recommended (one screen for this book, one screen for Power BI).
 
 ------------------------------------------------------------------------
 
@@ -58,8 +58,7 @@ The dataset represents routine service delivery across:
 - Tuberculosis (TB) 
 - Non-Communicable Diseases (NCDs)
 
-**Privacy Note:** No real patient data is used. All names and IDs are
-randomly generated.
+**Privacy Note:** *No real patient data is used. All names and IDs are randomly generated.*
 
 The dataset is intentionally **not clean**. It includes missing values,
 inconsistent formats, and common data quality issues that reflect real
@@ -88,12 +87,14 @@ throughout the book.
 
 ## Knowledge Assumptions
 
-This book assumes: - Basic familiarity with tables (rows and columns). -
-Comfort opening files and using software menus. - **No** prior Power BI
-experience. - **No** prior DAX experience. - **No** database background.
+This book assumes: 
+- Basic familiarity with tables (rows and columns). 
+- Comfort opening files and using software menus. 
+- **No** prior Power BI experience. 
+- **No** prior DAX experience. 
+- **No** database background.
 
-If you have used Excel for reporting (even just for simple sums and
-filters), you are more than prepared.
+If you have used Excel for reporting (even just for simple sums and filters), you are more than prepared.
 
 ------------------------------------------------------------------------
 
@@ -116,12 +117,10 @@ follow along in Power BI rather than reading passively.
 
 Before moving to the next chapter, confirm that:
 
-  [ ] Power BI Desktop opens successfully without errors.
-  [ ] You can locate the sample CSV files on your computer.   
-  [ ] You have created a folder (e.g., `My Power BI Project`) to save
-    your work.
+  - Power BI Desktop opens successfully without errors.
+  - You can locate the sample CSV files on your computer.   
+  - You have created a folder (e.g., `My Power BI Project`) to save your work.
 
 Once these are in place, you are ready to begin.
 
-*The next chapter explains **why Power BI matters for Monitoring and
-Evaluation**, and how it fits into real program workflows.*
+**The next chapter explains why Power BI matters for Monitoring and Evaluation, and how it fits into real program workflows.**
