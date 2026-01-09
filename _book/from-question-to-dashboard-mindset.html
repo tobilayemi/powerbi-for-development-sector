@@ -21,6 +21,7 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
+<link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -42,7 +43,8 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="index.html"></a></li>
+<li><a class="" href="preface.html">Preface</a></li>
 <li><a class="" href="about-the-author.html">About the Author</a></li>
 <li><a class="" href="how-to-cite-this-book.html">How to Cite This Book</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -125,14 +127,14 @@ change.</p>
 <strong>The Visuals-First Approach:</strong> You drag a count of patients to a bar chart. You drag a filter to the side and uncheck “Transferred Out” and “Dead.” You rename the chart title to “Retention.”
 <ul>
 <li>
-<em>The Risk:</em> Next week, a colleague copies that chart but forgets to copy the filters. Or, they add a filter for “Age &lt; 15.” Suddenly, the two charts show different numbers for the same metric. There is no single “truth”(only different views).</li>
+<strong><em>The Risk:</em></strong> Next week, a colleague copies that chart but forgets to copy the filters. Or, they add a filter for “Age &lt; 15.” Suddenly, the two charts show different numbers for the same metric. There is no single “truth”(only different views).</li>
 </ul>
 </li>
 <li>
 <strong>The Indicators-First Approach:</strong> You write a <strong>DAX Measure</strong>. You explicitly define the math: <code>Retention Rate = DIVIDE( [Active Patients], [Total Enrolled] - [Transferred Out] )</code>
 <ul>
 <li>
-<em>The Reward:</em> This definition is now hard-coded into the model. Whether you put it on a map, a card, or a table, it always calculates correctly. You have created a <strong>Single Source of Truth</strong>.</li>
+<strong><em>The Reward:</em></strong> This definition is now hard-coded into the model. Whether you put it on a map, a card, or a table, it always calculates correctly. You have created a <strong>Single Source of Truth</strong>.</li>
 </ul>
 </li>
 </ul>
@@ -147,7 +149,7 @@ change.</p>
 <span class="header-section-number">2.3</span> The Concept-to-Canvas Workflow<a class="anchor" aria-label="anchor" href="#the-concept-to-canvas-workflow"><i class="fas fa-link"></i></a>
 </h2>
 <div class="float">
-<img src="assets/images/screenshots/Power-Bi-Concept-to-Canvas%20Workflow.png" alt="To implement this mindset, follow this 4-step workflow for every report you build."><div class="figcaption">To implement this mindset, follow this 4-step workflow for every report you build.</div>
+<img src="assets/images/screenshots/Power-Bi-Concept-to-Canvas-Workflow.png" style="width:80.0%" alt="To implement this mindset, follow this 4-step workflow for every report you build."><div class="figcaption">To implement this mindset, follow this 4-step workflow for every report you build.</div>
 </div>
 <p><strong><em>1. Define the Question (The Strategic Layer)</em></strong> Don’t ask “What data do we have?” Ask “What do we need to know?” * <em>Bad Start:</em> “I have a CSV of malaria cases.” * <em>Good Start:</em> “We need to identify districts where malaria incidence is rising despite
 bed net distribution.”</p>
@@ -183,14 +185,14 @@ bed net distribution.”</p>
 <h3>
 <span class="header-section-number">2.4.1</span> 1. Get Data (Connect)<a class="anchor" aria-label="anchor" href="#get-data-connect"><i class="fas fa-link"></i></a>
 </h3>
-<p>This step answers one question: <em>Where does the data live?</em> Data may come from Excel, DHIS2, SQL Server, ODK/KoboToolbox, or APIs. At this stage, the goal is <strong>access</strong>, not perfection. In public health, data is often fragmented across multiple systems;
+<p>This step answers one question: <strong><em>Where does the data live?</em></strong> Data may come from Excel, DHIS2, SQL Server, ODK/KoboToolbox, or APIs. At this stage, the goal is <strong>access</strong>, not perfection. In public health, data is often fragmented across multiple systems;
 your first task is simply to bring it into the Power BI kitchen.</p>
 </div>
 <div id="transform-shape" class="section level3" number="2.4.2">
 <h3>
 <span class="header-section-number">2.4.2</span> 2. Transform (Shape)<a class="anchor" aria-label="anchor" href="#transform-shape"><i class="fas fa-link"></i></a>
 </h3>
-<p>Raw data reflects how systems <em>collect</em> information, not how analysts <em>use</em> it. Common public health data issues include:</p>
+<p>Raw data reflects how systems <strong><em>collect</em></strong> information, not how analysts <strong>use</strong> it. Common public health data issues include:</p>
 <ul>
 <li>
 <strong>“Wide” Data:</strong> Months spread across columns (Jan, Feb, Mar) instead of rows.</li>
@@ -236,7 +238,7 @@ your first task is simply to bring it into the Power BI kitchen.</p>
 </h3>
 <p>A dashboard that lives on your desktop is useless. Publishing involves sharing the report to the Power BI Service, setting up automated data refreshes (so you don’t have to email files), and managing security (so the right people see the right data).</p>
 <div class="float">
-<img src="assets/images/screenshots/Power-Bi-5-Workflow.png" alt="Power BI Publish"><div class="figcaption">Power BI Publish</div>
+<img src="assets/images/screenshots/Power-Bi-5-Workflow.png" style="width:80.0%" alt="Power BI Publish"><div class="figcaption">Power BI Publish</div>
 </div>
 <hr>
 </div>
@@ -310,9 +312,14 @@ your first task is simply to bring it into the Power BI kitchen.</p>
 <li><p><strong>Structure before style.</strong></p></li>
 <li><p><strong>Reuse before reinvention.</strong></p></li>
 </ul>
-<p>The next chapter moves into the first technical step: connecting Power BI to common data sources used in M&amp;E and public health programs.</p>
+<p>The next chapter moves into the first technical step: <strong>Connecting Power BI to common data sources</strong> used in M&amp;E and public health programs.</p>
 
 </div>
+</div>
+<div style="font-size: 0.85em; color: #666;">
+  © 2025 Oluwatobi Olatunbosun ·
+  <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><br>
+  Power BI for M&amp;E and Public Health Data Analysts
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="why-power-bi-matters-for-data-use.html"><span class="header-section-number">1</span> Why Power BI Matters for Data Use</a></div>

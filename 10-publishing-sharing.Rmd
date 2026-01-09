@@ -31,7 +31,7 @@ Before you click "Publish," you need to know three administrative realities. Pow
 ### 1. You Need a Work or School Account
 You generally **cannot** sign up for Power BI Service with a generic email provider like `@gmail.com`, `@yahoo.com`, or `@outlook.com`.
 
-* **Requirement:** You need an organizational domain (e.g., `name@ministryofhealth.gov` or `name@ngopartner.org`).
+* **Requirement:** You need an organizational domain (e.g.,`name@ministryofhealth.gov` or `name@ngopartner.org`).
 
 * **Workaround:** If you are learning on your own and do not have a work email, you can sign up for the **Microsoft 365 Developer Program**, which provides a free, renewable sandbox domain.
 
