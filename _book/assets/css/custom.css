@@ -1,0 +1,185 @@
+/* Hero layout */
+
+.hero {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 2rem 0 3rem 0;
+}
+
+.hero-text {
+  flex: 2;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  border-radius: 4px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    margin-top: 1.5rem;
+    max-width: 60%;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Style for code blocks */
+pre {
+  background-color: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+code {
+  background-color: #f1f5f9;
+  padding: 0.15em 0.3em;
+  border-radius: 4px;
+}
+
+/* Style for blockquotes */
+blockquote {
+  border-left: 4px solid #2563eb;
+  background-color: #f1f5f9;
+  padding: 1em;
+  margin: 1.5em 0;
+}
+
+/* Style for tables */
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  width: 100%;
+} 
+
+th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em;
+}
+
+/* --- Feature: Data Table Polish --- */
+/* Add alternating row colors for readability */
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+/* Highlight the row the user is reading */
+tr:hover {
+  background-color: #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+/* Make header sticky if the table is long */
+th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* General text styles */
+body {
+  line-height: 1.7;
+  color: #222;
+}
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #0f172a; /* deep slate */
+}
+h1 {
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.3em;
+}
+h2 {
+  margin-top: 2em;
+}
+a {
+  color: #2563eb;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Feature: Callout Boxes --- */
+.callout {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 5px solid;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Tip (Green) - Use for best practices */
+.callout-tip {
+  background-color: #f0fdf4; /* light green */
+  border-color: #22c55e;
+  color: #14532d;
+}
+
+/* Warning (Amber) - Use for common mistakes */
+.callout-warning {
+  background-color: #fffbeb; /* light yellow */
+  border-color: #f59e0b;
+  color: #78350f;
+}
+
+/* Info (Blue) - Use for definitions */
+.callout-info {
+  background-color: #eff6ff; /* light blue */
+  border-color: #3b82f6;
+  color: #1e3a8a;
+}
+
+/* --- Feature: Micro-interactions --- */
+
+/* Smooth scroll behavior for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lift the hero image slightly when hovered */
+.hero-image img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Make links pop slightly */
+a {
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+
+

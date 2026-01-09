@@ -1,0 +1,6 @@
+[build]
+  command = "Rscript install.R && Rscript -e \"bookdown::render_book('index.Rmd')\""
+  publish = "_book"
+
+[build.environment]
+  R_VERSION = "4.2.3"
