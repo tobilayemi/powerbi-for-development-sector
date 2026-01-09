@@ -2,6 +2,7 @@ authors-note
 the-gap-in-data-training
 who-this-guide-is-for
 how-to-use-this-guide
+feedback-and-corrections
 recommended-citation-apa
 bibtex-entry
 informal-reference

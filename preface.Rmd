@@ -73,6 +73,17 @@ The book follows a simple and practical **data lifecycle** that mirrors real pro
 
 Each chapter builds on the previous one. You can read the book sequentially or jump directly to the section that matches your current needs.
 
+------------------------------------------------------------------------
+
+## Feedback and Corrections
+
+If you find an error, unclear explanation, or would like to suggest an improvement, please report it here:
+
+**Report an issue:** [Here](https://github.com/tobilayemi/powerbi-for-development-sector/issues)
+
+All feedback will be reviewed.
+
+
 
 
 **License**
@@ -81,4 +92,4 @@ This book is published under a Creative Commons license.
 See the *License* section for full details.
 
 
-*© 2025 Oluwatobi Olatunbosun*
+
